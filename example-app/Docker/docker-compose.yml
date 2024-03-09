@@ -1,0 +1,15 @@
+#docker -compose.yml
+services:
+  database:
+    image: mysql:8.0.36
+    container_name: database_Docker #ชื่อเซิฟ
+    volumes:
+    - ./server/mysql:/var/lib/mysql
+    environment:
+    - "MYSQL_DATABASE=app"
+    - "MYSQL_USER=app"
+    - "MYSQL_PASSWORD=app@"
+    - "MYSQL_ROOT_PASSWORD=root@"
+    ports:
+    - "3306:3306" #ซ้ายเครื่องเรา ขวาเครื่องเซิฟ
+
