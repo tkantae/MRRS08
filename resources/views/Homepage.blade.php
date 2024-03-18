@@ -31,37 +31,90 @@
 </body>
 
 <style>
-    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+/* ส่วนแบนเนอร์หลัก */
+.hero-banner {
+  background-color: #0073b7;
+  color: #fff;
+  text-align: center;
+}
 
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-  }
+.hero-banner h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 
-  header img {
-    float: left;
-    margin-right: 10px;
-  }
+.hero-banner p {
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-  header h1 {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
+.hero-banner .button {
+  background-color: #fff;
+  color: #0073b7;
+  border: 1px solid #0073b7;
+  padding: 10px 20px;
+  text-decoration: none;
+}
 
-  main {
-    padding: 20px;
-  }
+.hero-banner .button:hover {
+  background-color: #0073b7;
+  color: #fff;
+}
 
-  section {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin
-  }
+/* ส่วนติดตามสถานะการจอง */
+.status {
+  background-color: #f2f2f2;
+}
+
+.status h2 {
+  margin-top: 0;
+}
+
+.status p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.status .button {
+  background-color: #0073b7;
+  color: #fff;
+  border: 1px solid #0073b7;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.status .button:hover {
+  background-color: #fff;
+  color: #0073b7;
+}
+
+/* ส่วนสำหรับเจ้าหน้าที่ */
+.staff {
+  background-color: #ddd;
+}
+
+.staff h2 {
+  margin-top: 0;
+}
+
+.staff p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.staff .button {
+  background-color: #0073b7;
+  color: #fff;
+  border: 1px solid #0073b7;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.staff .button:hover {
+  background-color: #fff;
+  color: #0073b7;
+}
+
 </style>
 
 
