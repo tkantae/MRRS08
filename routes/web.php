@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/T', function () {
-    return view('Home');
+Route::get('/', function () {
+    return view('Homepage');
 });
 
-Route::get('/' , [MyAuth::class,'login_view'])->name('login');
+Route::get('/T' , [MyAuth::class,'login_view'])->name('login');
 Route::get('/register' , [MyAuth::class,'register_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
