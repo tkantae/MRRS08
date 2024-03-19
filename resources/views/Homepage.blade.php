@@ -9,10 +9,13 @@
 
     <body>
         <header>
-            <img src="logo.png" alt="โลโก้ระบบจองห้องประชุม">
-            <section class="staff">
-                <a href="staff.html" class="button">เข้าสู่ระบบ</a>
-              </section>
+            <div>
+                <img src="logo.png" alt="โลโก้ระบบจองห้องประชุม">
+                <section class="staff">
+                    <a href="staff.html" class="button">เข้าสู่ระบบสำหรับเจ้าหน้าที่</a>
+                </section>
+            </div>
+            <hr class="divider">
             <h1>Meeting Room <br> Reserve System</h1>
             <h2>ยินดีต้อนรับเข้าสู่ระบบจองห้องประชุม โปรดเลือกการปฏิบัติงาน <br>
                 ที่ท่านต้องการดำเนินการในส่วนถัดไป</h2>
@@ -29,6 +32,7 @@
     <style>
         *{
             color:#ffffff;
+            padding: 5px;
         }
 
         h1{
@@ -41,17 +45,17 @@
         }
 
         body{
-            background: linear-gradient(to right, #5E96EB, #FD84F1)
+            background: linear-gradient(to right, #5E96EB, #5E96EB, #FD84F1)
         }
 
         .staff {
             float: right;
-            margin-top: 10px;
         }
 
         .buttons {
             display: flex;
             margin-top: 20px;
+            bro
         }
 
         .buttons .button {
@@ -59,6 +63,11 @@
             margin: 0 10px;
         }
 
+        .divider {
+            border: none;
+            border-top: 1px solid #ffffff;
+            margin-bottom: 20px;
+        }
 
 
 
