@@ -12,7 +12,7 @@
             <div>
                 <img src="logo.png" alt="โลโก้ระบบจองห้องประชุม">
                 <section class="staff">
-                    <a href="login" class="button">เข้าสู่ระบบสำหรับเจ้าหน้าที่</a>
+                    <a href="../login" class="button">เข้าสู่ระบบสำหรับเจ้าหน้าที่</a>
                 </section>
             </div>
             <hr class="divider">
