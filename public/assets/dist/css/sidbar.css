@@ -20,7 +20,13 @@ aside {
     -webkit-tap-highlight-color:transparent;
   }
 
-  aside a:hover {
+  aside a i {
+    margin-right: 5px;
+  }
+
+/*
+aside a:focus,
+aside a:hover {
     color: #3f5efb;
     background: #fff;
     outline: none;
@@ -28,10 +34,45 @@ aside {
     background-color: #fff;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-  }
+}
 
-  aside a i {
-    margin-right: 5px;
+
+aside a:focus::before,
+aside a:hover::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-top-right-radius: 18px;
+    box-shadow: 0 -20px 0 0 #fff;
+}
+
+aside a:focus::after,
+aside a:hover::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-bottom-right-radius: 18px;
+    box-shadow: 0 20px 0 0 #fff;
+} */
+
+
+
+  /* aside a:hover {
+    color: #3f5efb;
+    background: #fff;
+    outline: none;
+    position: relative;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
   aside a:hover::before {
@@ -56,7 +97,7 @@ aside {
     width: 35px;
     border-bottom-right-radius: 18px;
     box-shadow: 0 20px 0 0 #fff;
-  }
+  } */
 
 
 
@@ -78,3 +119,44 @@ aside {
     padding-left: 30px;
     margin-top: 30px;
 }
+
+
+/* สำหรับลิงก์ที่มีคลาส 'active' */
+aside a.active {
+    color: #3f5efb;
+    background: #fff;
+    outline: none;
+    position: relative;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* เอฟเฟกต์ hover ที่ค้างไว้ */
+aside a.active::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-top-right-radius: 18px;
+    box-shadow: 0 -20px 0 0 #fff;
+}
+
+aside a.active::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-bottom-right-radius: 18px;
+    box-shadow: 0 20px 0 0 #fff;
+}
+
+
+
+
