@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\C_titles;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,12 +23,14 @@ Route::get('/Test', function () {
     return view('Homepage');
 });
 
+Route::get('/titles', [UserController::class,'getReserve']);
+Route::get('/index', [UserController::class,'getFollow']);
+
 Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/register' , [MyAuth::class,'register_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
 Route::post('/register' , [MyAuth::class,'register_process']);
 
-Route::resource('titles', C_titles::class);
 
 
