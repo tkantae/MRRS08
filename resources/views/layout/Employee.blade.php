@@ -40,6 +40,16 @@
               <i class="fa fa-trash-o" aria-hidden="true"></i>
               จัดการห้องประชุม
             </a>
+
+            <a href="Accout" id="Accout">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Accout
+            </a>
+            <p id="line"></p>
+            <a href="Homepage" id="Logout">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Logout
+             </a>
           </aside>
 
           <script>

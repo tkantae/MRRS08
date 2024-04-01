@@ -15,9 +15,22 @@ aside {
     color: #fff;
     display: block;
     padding: 12px;
-    padding-left: 30px;
+    padding-left: 70px;
     text-decoration: none;
     -webkit-tap-highlight-color:transparent;
+  }
+
+  aside a:hover {
+    font-size: 18px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: block;
+    padding: 12px;
+    padding-left: 70px;
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
   aside a i {
@@ -142,7 +155,7 @@ aside a.active::before {
     height: 35px;
     width: 35px;
     border-top-right-radius: 18px;
-    box-shadow: 0 -20px 0 0 #fff;
+    box-shadow: 0 -15px 0 0 #fff;
 }
 
 aside a.active::after {
@@ -154,7 +167,58 @@ aside a.active::after {
     height: 35px;
     width: 35px;
     border-bottom-right-radius: 18px;
-    box-shadow: 0 20px 0 0 #fff;
+    box-shadow: 0 15px 0 0 #fff;
+}
+
+#Accout{
+    width: 140px;
+    position: fixed; /* กำหนดให้ติดตั้งที่ตำแหน่งที่ตั้งในหน้าจอ */
+    bottom: 50; /* กำหนดให้ตำแหน่งที่ตำแหน่งท้ายสุด (ล่างสุด) */
+    z-index: 1;
+
+}
+#line{
+    width: 222px;
+    position: fixed; /* กำหนดให้ติดตั้งที่ตำแหน่งที่ตั้งในหน้าจอ */
+    border-bottom: 1px solid #ccc; /* กำหนดเส้นขอบล่าง */
+    bottom: 48; /* กำหนดให้ตำแหน่งที่ตำแหน่งท้ายสุด (ล่างสุด) */
+    z-index: 0;
+}
+#logout{
+    width: 140px;
+    position: fixed; /* กำหนดให้ติดตั้งที่ตำแหน่งที่ตั้งในหน้าจอ */
+    bottom: 0; /* กำหนดให้ตำแหน่งที่ตำแหน่งท้ายสุด (ล่างสุด) */
+
+}
+
+#Accout:hover{
+    font-size: 18px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: block;
+    padding: 12px;
+    padding-left: 70px;
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+#logout:hover{
+    font-size: 18px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: block;
+    padding: 12px;
+    padding-left: 70px;
+    text-decoration: none;
+    -webkit-tap-highlight-color:transparent;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
 }
 
 

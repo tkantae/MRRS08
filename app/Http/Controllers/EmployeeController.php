@@ -65,6 +65,12 @@ class EmployeeController extends Controller
         return view('titles_Employee.manage_rooms');
     }
 
+    public function accout()
+    {
+        //
+        return view('titles_Employee.accout');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

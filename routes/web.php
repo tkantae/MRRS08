@@ -24,6 +24,10 @@ Route::get('/Test', function () {
     return view('Homepage');
 });
 
+Route::get('/Homepage',function(){
+    return view('Homepage');
+});
+
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
 
@@ -34,7 +38,7 @@ Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
 Route::get('/Statistics',[EmployeeController::class,'statistics']);
 Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
 Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
-//Manage_rooms
+Route::get('/Accout',[EmployeeController::class,'accout']);
 
 
 
