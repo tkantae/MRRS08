@@ -26,10 +26,44 @@ class EmployeeController extends Controller
     public function mainpage()
     {
         //
-        return view('titles_User.follow');
+        return view('titles_Employee.mainpage');
     }
 
+    public function reserve()
+    {
+        //
+        return view('titles_Employee.reserve_privet');
+    }
 
+    public function petition()
+    {
+        //
+        return view('titles_Employee.petition');
+    }
+
+    public function reservation_list()
+    {
+        //
+        return view('titles_Employee.reservation_list');
+    }
+
+    public function statistics()
+    {
+        //
+        return view('titles_Employee.statistics');
+    }
+
+    public function manage_account()
+    {
+        //
+        return view('titles_Employee.manage_account');
+    }
+
+    public function manage_rooms()
+    {
+        //
+        return view('titles_Employee.manage_rooms');
+    }
 
     /**
      * Show the form for creating a new resource.

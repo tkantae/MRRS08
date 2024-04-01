@@ -14,7 +14,7 @@ class UserController extends Controller
     public function getReserve()
     {
         //
-        return view('titles_User.Reserve_room');
+        return view('titles_User.reserve_room');
     }
 
     public function getFollow()

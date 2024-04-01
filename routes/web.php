@@ -24,9 +24,20 @@ Route::get('/Test', function () {
     return view('Homepage');
 });
 
-Route::get('/titles', [UserController::class,'getReserve']);
-Route::get('/index', [UserController::class,'getFollow']);
-Route::get('/employee',[EmployeeController::class,'']);
+Route::get('/User', [UserController::class,'getReserve']);
+Route::get('/follow', [UserController::class,'getFollow']);
+
+Route::get('/Employee',[EmployeeController::class,'mainpage']);
+Route::get('/Reserve',[EmployeeController::class,'reserve']);
+Route::get('/Petition',[EmployeeController::class,'petition']);
+Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
+Route::get('/Statistics',[EmployeeController::class,'statistics']);
+Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
+Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
+//Manage_rooms
+
+
+
 
 Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/register' , [MyAuth::class,'register_view']);

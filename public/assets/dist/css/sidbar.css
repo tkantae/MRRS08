@@ -34,6 +34,18 @@ aside {
     margin-right: 5px;
   }
 
+  aside a:hover::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-top-right-radius: 18px;
+    box-shadow: 0 -20px 0 0 #fff;
+  }
+
   aside a:hover::after {
     content: "";
     position: absolute;
@@ -46,17 +58,7 @@ aside {
     box-shadow: 0 20px 0 0 #fff;
   }
 
-  aside a:hover::before {
-    content: "";
-    position: absolute;
-    background-color: transparent;
-    top: 38px;
-    right: 0;
-    height: 35px;
-    width: 35px;
-    border-top-right-radius: 18px;
-    box-shadow: 0 -20px 0 0 #fff;
-  }
+
 
   aside p {
     margin: 0;
@@ -72,23 +74,7 @@ aside {
 
   }
 
-  .social {
-    height: 0;
-  }
-
-  .social i:before {
-    width: 14px;
-    height: 14px;
-    font-size: 14px;
-    position: fixed;
-    color: #fff;
-    background: #0077B5;
-    padding: 10px;
-    border-radius: 50%;
-    top:5px;
-    right:5px;
-    }
-
 .container{
     padding-left: 30px;
+    margin-top: 30px;
 }

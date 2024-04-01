@@ -1,6 +1,6 @@
 @extends('layout.Employee')
 
-@section('title', 'หน้าหลัก')
+@section('title', 'คำร้องขอ')
 @section('content')
-eiei
+petition
 @endsection

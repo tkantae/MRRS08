@@ -15,7 +15,7 @@
               <i class="fa fa-user-o" aria-hidden="true"></i>
               จองห้อง
             </a>
-            <a href="index">
+            <a href="follow">
               <i class="fa fa-laptop" aria-hidden="true"></i>
               ติดตามสถานะการจอง
             </a>

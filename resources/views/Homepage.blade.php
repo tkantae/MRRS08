@@ -22,8 +22,8 @@
         </header>
         <main>
             <section class="buttons">
-                <a href="../titles" class="button">จองห้องประชุม</a>
-                <a href="status.html" class="button">ตรวจสอบสถานะ</a>
+                <a href="../User" class="button">จองห้องประชุม</a>
+                <a href="../Employee" class="button">ตรวจสอบสถานะ</a>
             </section>
         </main>
 
