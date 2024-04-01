@@ -9,23 +9,25 @@
         <link rel="stylesheet" href="{{ url('assets/dist/css/sidbar.css') }}">
 
         @section('sidebar')
-            <header class="header" role="banner">
-                <h1 class="logo">
-                <a href="#">Terence <span>Devine</span></a>
-                </h1>
-                <div class="nav-wrap">
-                <nav class="main-nav" role="navigation">
-                    <ul class="unstyled list-hover-slide">
-                    <li><a href="titles">จองห้อง</a></li>
-                    <li><a href="index">ติดตามสถานะการจอง</a></li>
-                    </ul>
-                </nav>
-                </div>
-            </header>
-        @show
+        <aside>
+            <p> Menu </p>
+            <a href="titles">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              จองห้อง
+            </a>
+            <a href="index">
+              <i class="fa fa-laptop" aria-hidden="true"></i>
+              ติดตามสถานะการจอง
+            </a>
 
-        <div class="container">
-            @yield('content')
-        </div>
+
+        </aside>
+
+            @show
+            <div class="container">
+                @yield('content')
+            </div>
+
+
     </body>
 </html>

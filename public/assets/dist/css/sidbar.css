@@ -1,131 +1,94 @@
-@import "compass/css3";
 
-*, :before, :after{ box-sizing: border-box; }
-
-.unstyled{ list-style: none; padding: 0; margin: 0;
-  a{ text-decoration: none; }
-}
-
-.list-inline{ overflow: hidden;
-  li{ float: left; }
-}
-
-.header{
-  position: fixed;
-  left: 0; top: 0; bottom: 0;
-  width: 17.5em;
-  background: #5E96EB;;
-}
-
-.logo{
-  text-transform: lowercase;
-  font: 300 2em 'Source Sans Pro', Helvetica, Arial, sans-serif;;
-  text-align: center;
-  padding: 0; margin: 0;
-
-  a{
+aside {
     display: block;
-    padding: 1em 0;
-    color: #DFDBD9;;
+    color: #fff;
+    width: 250px;
+    padding-left: 20px;
+    height: 100vh;
+    background-image: linear-gradient(30deg , #0048bd, #44a7fd);
+
+
+}
+
+  aside a {
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    padding: 12px;
+    padding-left: 30px;
     text-decoration: none;
-    transition: .15s linear color;
-
-    &:hover{
-      color: #fff;
-      span{ color: #DF4500;; }
-    }
+    -webkit-tap-highlight-color:transparent;
   }
 
-  span{
-    font-weight: 700;
-    transition: .15s linear color;
-  }
-}
-
-
-.main-nav{
-
-  /* ul{
-    border-top: solid 1px #3C3735;;
-  } */
-
-  /* li{
-    border-bottom: solid 1px #3C3735;;
-  } */
-
-  a{
-    padding: 1.1em 0;
-    color: #DFDBD9;;
-    font: 400 1.125em 'Source Sans Pro', Helvetica, Arial, sans-serif;;
-    /* text-align: center; */
-    padding-left: 90px;
-    transform: lowercase;
-
-
-    &:hover{
-      color: #000000;
-    }
-  }
-}
-
-.social-links{
-  border-bottom: solid 1px #fff;;
-
-  li{
-    width: 25%;
-    border-right: solid 1px #FFF;;
-    &:first-child{ border: none; }
-  }
-
-  a{
-    display: block;
-    height: 5.5em;
-    text-align: center;
-    color: #3C3735;;
-    font: 0.75em/5.5em 'Source Sans Pro', Helvetica, Arial, sans-serif;;
-    &:hover{
-      color: #000000;;
-    }
-  }
-}
-
-.list-hover-slide{
-
-  li{
+  aside a:hover {
+    color: #3f5efb;
+    background: #fff;
+    outline: none;
     position: relative;
-    overflow: hidden;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
 
-  a{
-    display: block;
-    position: relative;
-    z-index: 1;
-    transition: .35s ease color;
-
-    &:before{
-      content: '';
-      display: block;
-      z-index: -1;
-      position: absolute;
-      right: -100%; top: 0;
-      width: 100%; height: 100%;
-      background: #fff;;
-      transition: .35s ease;
-      transform: translateX(100%); /* เริ่มต้นพื้นหลังที่ฝั่งขวา */
-    }
-
-
-
-    &.is-current,
-    &:hover{
-
-      &:before{
-        left: 0;
-      }
-    }
+  aside a i {
+    margin-right: 5px;
   }
-}
+
+  aside a:hover::after {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    bottom: 100%;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-bottom-right-radius: 18px;
+    box-shadow: 0 20px 0 0 #fff;
+  }
+
+  aside a:hover::before {
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    top: 38px;
+    right: 0;
+    height: 35px;
+    width: 35px;
+    border-top-right-radius: 18px;
+    box-shadow: 0 -20px 0 0 #fff;
+  }
+
+  aside p {
+    margin: 0;
+    padding: 40px 0;
+  }
+
+  body {
+    display: flex;
+    font-family: 'Roboto';
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+
+  }
+
+  .social {
+    height: 0;
+  }
+
+  .social i:before {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    position: fixed;
+    color: #fff;
+    background: #0077B5;
+    padding: 10px;
+    border-radius: 50%;
+    top:5px;
+    right:5px;
+    }
 
 .container{
-    padding-left: 20%;
+    padding-left: 30px;
 }

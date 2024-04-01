@@ -7,23 +7,37 @@
     <body>
 
         <link rel="stylesheet" href="{{ url('assets/dist/css/sidbar.css') }}">
-        
+
         @section('sidebar')
-            <header class="header" role="banner">
-                <h1 class="logo">
-                <a href="#">Terence <span>Devine</span></a>
-                </h1>
-                <div class="nav-wrap">
-                <nav class="main-nav" role="navigation">
-                    <ul class="unstyled list-hover-slide">
-                    <li><a href="index">About</a></li>
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Blog</a></li>
-                    </ul>
-                </nav>
-                </div>
-            </header>
+        <aside>
+            <p> Menu </p>
+            <a href="javascript:void(0)">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              My drive
+            </a>
+            <a href="javascript:void(0)">
+              <i class="fa fa-laptop" aria-hidden="true"></i>
+              Computers
+            </a>
+            <a href="javascript:void(0)">
+              <i class="fa fa-clone" aria-hidden="true"></i>
+              Shared with me
+            </a>
+            <a href="javascript:void(0)">
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+              Starred
+            </a>
+            <a href="javascript:void(0)">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              Trash
+            </a>
+          </aside>
+
+          <div class="social">
+            <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div>
         @show
 
         <div class="container">

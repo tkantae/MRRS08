@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::get('/Test', function () {
 
 Route::get('/titles', [UserController::class,'getReserve']);
 Route::get('/index', [UserController::class,'getFollow']);
+Route::get('/employee',[EmployeeController::class,'']);
 
 Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/register' , [MyAuth::class,'register_view']);
