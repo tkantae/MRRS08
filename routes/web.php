@@ -23,15 +23,12 @@ Route::get('/Test', function () {
     return view('Homepage');
 });
 
-Route::get('/login' , [MyAuth::class,'login_view'])->name('login');
+Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/register' , [MyAuth::class,'register_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
 Route::post('/register' , [MyAuth::class,'register_process']);
 
-Route::resource('titles', C_titles::class)->middleware('auth');
-
-Route::middleware('auth')->group(function(){
+Route::resource('titles', C_titles::class);
 
 
-});

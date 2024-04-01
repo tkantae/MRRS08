@@ -22,7 +22,7 @@
         </header>
         <main>
             <section class="buttons">
-                <a href="booking.html" class="button">จองห้องประชุม</a>
+                <a href="../titles" class="button">จองห้องประชุม</a>
                 <a href="status.html" class="button">ตรวจสอบสถานะ</a>
             </section>
         </main>
