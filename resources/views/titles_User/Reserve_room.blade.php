@@ -44,7 +44,7 @@
                                 <input type="text" name="tit_name" value="<?php if (isset($title_id)) {
                                     echo $title_id->tit_name;
                                 } ?>" class="form-control"
-                                    id="exampleInputEmail1" placeholder="เช่น นาย นาง นางสาว ฯลฯ">
+                                    id="exampleInputEmail1" placeholder="เช่น นาย นาง นางสาว ฯลฯ">   
                             </div>
                             <div class="form-check">
                                 <input type="checkbox" name="tit_is_active" <?php if(isset($title_id) &&
