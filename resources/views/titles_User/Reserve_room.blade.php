@@ -1,8 +1,8 @@
-@extends('layout.User')
+@extends('layout.Status')
 
 @section('title', 'จองห้องประชุม')
 
-@section('content')
+@section('reserv')
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <script src="https://kit.fontawesome.com/e71f46c45f.js" crossorigin="anonymous"></script>
