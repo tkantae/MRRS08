@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\M_titles;
+use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -62,7 +63,8 @@ class EmployeeController extends Controller
     public function manage_rooms()
     {
         //
-        return view('titles_Employee.manage_rooms');
+        $rooms = Room::orderBy('ro_id')->get();
+        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
     }
 
     public function accout()
