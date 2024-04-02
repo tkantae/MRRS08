@@ -14,16 +14,28 @@ class MyAuth extends Controller
     }
 
     function login_process(Request $req){
-        $req->validate([
-        'email' => 'required|email',
-        'password' => 'required|min:6',
-        ]);
+       // ถ้าผู้ใช้ไม่ได้กรอก 'email'
+        if (!$req->filled('email')) {
+            // ให้ตรวจสอบว่า 'username' เป็นข้อมูลบังคับ
+            $rules['username'] = 'required';
+        } else {
+            // ถ้าผู้ใช้กรอก 'email'
+            // ให้ตรวจสอบว่า 'email' เป็นไปตามรูปแบบอีเมลที่ถูกต้อง
+            $rules['email'] = 'required|email';
+        }
+        // กำหนดให้ 'password' เป็นข้อมูลบังคับและต้องมีความยาวอย่างน้อย 6 ตัวอักษร
+        $rules['password'] = 'required|min:6';
 
-        $data = $req->all();
-        // use Illuminate\Support\Facades\Auth;
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
+
+        $req->validate($rules);
+
+        $callback = function ($user , $rules) {
+            return $user->us_email === $rules['email'] || $user->us_fname === $rules['username'];
+        };
+
+        if(Auth::attempt(['us_email' => $rules['email'], 'us_password' => $rules['password']], $callback)){
             return Redirect::to('titles');
-        }else{
+        } else {
             return Redirect::to('login');
         }
     }
