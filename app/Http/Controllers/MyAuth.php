@@ -16,20 +16,15 @@ class MyAuth extends Controller
     function login_process(Request $req) {
 
         // ตรวจสอบ 'email' / 'username' {
-            $rules['username'] = 'required';
+            $username = $req->input('username');
         // ตรวจสอบ 'password'
-            $rules['password'] = 'required|min:6';
+            $pass = $req->input('password');
 
-        // ตรวจสอบข้อมูล
-        $req->validate($rules);
 
-        // กำหนด closure
-        $callback = function ($user, $rules) {
-            return $user->us_email === $rules['usernam'] || $user->us_fname === $rules['username'];
-        };
-
+            $login = User::where(['us_name',$username] , ['us_password',$pass])->first();
+            $login_email = User::where(['us_email',$username] , ['us_password',$pass])->first();
         // ล็อกอิน
-        if (Auth::attempt(['us_password' => $req['password']], $callback)) {
+        if ($login || $login_email) {
             return Redirect::to('Employee');
         } else {
             return Redirect::to('login');
