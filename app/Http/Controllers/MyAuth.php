@@ -10,28 +10,21 @@ use Illuminate\Support\Facades\Auth;
 class MyAuth extends Controller
 {
     function login_view(){
-        return view('login');
+        return view('titles_Employee.login');
     }
 
-    function login_process(Request $req) {
+    function login_process(Request $req){
+        $req->validate([
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+        ]);
 
-        // ตรวจสอบ 'email' / 'username' {
-            $rules['username'] = 'required';
-        // ตรวจสอบ 'password'
-            $rules['password'] = 'required|min:6';
-
-        // ตรวจสอบข้อมูล
-        $req->validate($rules);
-
-        // กำหนด closure
-        $callback = function ($user, $rules) {
-            return $user->us_email === $rules['usernam'] || $user->us_fname === $rules['username'];
-        };
-
-        // ล็อกอิน
-        if (Auth::attempt(['us_password' => $req['password']], $callback)) {
+        $data = $req->all();
+        // use Illuminate\Support\Facades\Auth;
+        $login = User::where(['us_email', $data['email']],['us_password',$data['password']]);
+        if($login){
             return Redirect::to('Employee');
-        } else {
+        }else{
             return Redirect::to('login');
         }
     }
