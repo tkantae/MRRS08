@@ -12,7 +12,7 @@ aside {
     font-size: 20px;
     color: #fff;
     display: block;
-    padding: 15px;
+    padding: 18px;
     padding-left: 70px;
     text-decoration: none;
     -webkit-tap-highlight-color:transparent;
@@ -24,12 +24,13 @@ aside {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.2);
     display: block;
-    padding: 15px;
+    padding: 18px;
     padding-left: 70px;
     text-decoration: none;
     -webkit-tap-highlight-color:transparent;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    margin-top: 8px;
   }
 
   aside a i {
@@ -128,8 +129,8 @@ aside a:hover::after {
   }
 
 .container{
-    padding-left: 30px;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 
