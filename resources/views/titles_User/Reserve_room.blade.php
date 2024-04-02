@@ -1,26 +1,18 @@
 @extends('layout.User')
 
 @section('title', 'จองห้องประชุม')
+
 @section('content')
 <!-- Content Header (Page header) -->
 <div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">SE CAMP </h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Titles</a></li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+    <script src="https://kit.fontawesome.com/e71f46c45f.js" crossorigin="anonymous"></script>
+    <i class="fa-solid fa-calendar-days" ></i>
 </div>
 <!-- /.content-header -->
 
 <!-- Main content -->
 <div class="content">
+<<<<<<< HEAD
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -63,44 +55,11 @@
                               </div>
                         </div>
                         <!-- /.card-body -->
+=======
+    <link rel="stylesheet" href="{{ url('assets/dist/css/reservation.css') }}">
+>>>>>>> 2a814a2f7aad782a01e826a5e7c281b0493fbb93
 
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-success">บันทึก</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.card -->
-            </div>
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">ผลลัพธ์</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>คำนำหน้าชื่อ</th>
-                                    <th>สถานะการใช้งาน</th>
-                                    <th>เครื่องมือ</th>
-                                </tr>
-                            </thead>
-                            <tbody id="my_tbody">
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
 </div>
 <!-- /.content -->
+
 @endsection
