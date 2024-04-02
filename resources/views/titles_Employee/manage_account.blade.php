@@ -18,7 +18,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="row 100% ">
+            <div class="row  ">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
@@ -26,7 +26,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered fix">
                                 <thead>
                                     <tr>
                                         <th style="width: 10px">ลำดับ</th>
