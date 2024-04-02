@@ -5,8 +5,7 @@
 @section('reserv')
 <!-- Content Header (Page header) -->
 <div class="content-header">
-    <script src="https://kit.fontawesome.com/e71f46c45f.js" crossorigin="anonymous"></script>
-    <i class="fa-solid fa-calendar-days" ></i>
+    
 </div>
 <!-- /.content-header -->
 
