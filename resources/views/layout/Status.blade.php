@@ -9,18 +9,53 @@
             <link rel="stylesheet" href="{{ url('assets/dist/css/reservation.css') }}">
             </head>
             <body>
-            <div class="content-header">
-                @section('status')
-                <i class="fas fa-calendar-days circle-icon-active"></i>
-                <i class="fas fa-file circle-icon-active"></i>
-                <i class="fas fa-pencil circle-icon-inactive"></i>
-                <i class="fas fa-check circle-icon-inactive"></i>
-                @show
-            </div>
+                <div class="center">
+                    <div class="content-header">
+                        <div class="icon-container">
+                            <div class="circle-icon-active">
+                                <i class="fas fa-calendar-days"></i>
+                            </div>
+                           
+                        </div>
+
+                        <div class="line-between"></div> 
+
+                        <div class="icon-container">
+                            <div class="circle-icon-inactive">
+                                <i class="fas fa-file"></i>
+                            </div>
+                        
+                        </div>
+
+                        <div class="line-between"></div>
+                        
+                        <div class="icon-container">
+                            <div class="circle-icon-inactive">
+                                <i class="fas fa-pencil"></i>
+                            </div>
+
+                        </div>
+                        <div class="line-between"></div>
+                        <div class="icon-container">
+                            <div class="circle-icon-inactive">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <div class="status1" >จองห้อง</div>
+                        <div class="status2" >รายละเอียดห้องประชุม</div>
+                        <div class="status3" >กรอกข้อมูลการจอง</div>
+                        <div class="status4" >เสร็จสิ้น</div>
+                    </div>
+                    
+                </div>
+
             <div class="container">
                     @yield('reserv')
                 </div>
             </body>
             </html>
 @endsection
+
 
