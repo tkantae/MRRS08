@@ -44,10 +44,8 @@ Route::get('/Accout',[EmployeeController::class,'accout']);
 
 
 Route::get('/login' , [MyAuth::class,'login_view']);
-Route::get('/register' , [MyAuth::class,'register_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
-Route::post('/register' , [MyAuth::class,'register_process']);
 
 
 

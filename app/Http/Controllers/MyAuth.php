@@ -13,32 +13,29 @@ class MyAuth extends Controller
         return view('login');
     }
 
-    function login_process(Request $req){
-       // ถ้าผู้ใช้ไม่ได้กรอก 'email'
-        if (!$req->filled('email')) {
-            // ให้ตรวจสอบว่า 'username' เป็นข้อมูลบังคับ
+    function login_process(Request $req) {
+
+        // ตรวจสอบ 'email' / 'username' {
             $rules['username'] = 'required';
-        } else {
-            // ถ้าผู้ใช้กรอก 'email'
-            // ให้ตรวจสอบว่า 'email' เป็นไปตามรูปแบบอีเมลที่ถูกต้อง
-            $rules['email'] = 'required|email';
-        }
-        // กำหนดให้ 'password' เป็นข้อมูลบังคับและต้องมีความยาวอย่างน้อย 6 ตัวอักษร
-        $rules['password'] = 'required|min:6';
+        // ตรวจสอบ 'password'
+            $rules['password'] = 'required|min:6';
 
-
+        // ตรวจสอบข้อมูล
         $req->validate($rules);
 
-        $callback = function ($user , $rules) {
-            return $user->us_email === $rules['email'] || $user->us_fname === $rules['username'];
+        // กำหนด closure
+        $callback = function ($user, $rules) {
+            return $user->us_email === $rules['usernam'] || $user->us_fname === $rules['username'];
         };
 
-        if(Auth::attempt(['us_email' => $rules['email'], 'us_password' => $rules['password']], $callback)){
-            return Redirect::to('titles');
+        // ล็อกอิน
+        if (Auth::attempt(['us_password' => $req['password']], $callback)) {
+            return Redirect::to('Employee');
         } else {
             return Redirect::to('login');
         }
     }
+
 
     function logout_process(){
         Auth::logout();
