@@ -1,33 +1,78 @@
-.circle-icon-active {
-    position: relative;
-    width: 90px;
-    height: 85.39px;
-    background: #8DCDE1;
-    border-radius: 50%;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    font-size: 24px; /* Adjust the font size as needed */
-}
+.circle-icon-active,
 .circle-icon-inactive {
     position: relative;
     width: 90px;
     height: 85.39px;
-    background: #d9d9d9;
+    background: #8DCDE1; 
     border-radius: 50%;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    font-size: 24px; /* Adjust the font size as needed */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 36px;
+}
+
+.circle-icon-inactive {
+    background: #d9d9d9; 
 }
 
 .line-between {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px; /* Adjust the width as needed */
-    height: 2px; /* Adjust the height as needed */
-    background-color: black; /* Adjust the color as needed */
-    z-index: -1; /* Ensure the line is behind the circles */
+    width: 175px; 
+    height: 5px;
+    background-color: #d9d9d9; 
+    z-index: -1; 
+}
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+    padding-left: 70px;
+}   
+.text-header {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-active,
+.status1 {
+    font-size: 28px;
+    color: #43636D;
+    text-align: center; 
+}
+.status1{
+    padding-left: 75px;
+}
+
+
+.text-inactive,
+.status2,
+.status3,
+.status4 {
+    font-size: 20px;
+    color: #BEBEBE;
+    text-align: center; 
+}
+.status2{
+    padding-left: 130px;
+}
+.status3{
+    padding-left: 90px;
+}
+.status4{
+    padding-left: 150px;
+}
+
+.center{
+    align-items: center;
 }
