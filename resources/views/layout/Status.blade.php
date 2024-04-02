@@ -1,7 +1,7 @@
-@extends('layout.Employee')
+@extends('layout.User')
 
-    @section('title', 'accout')
-        @section('content')
+@section('title', 'accout')
+@section('content')
             <!DOCTYPE html>
             <html>
             <head>
@@ -11,16 +11,16 @@
             <body>
             <div class="content-header">
                 @section('status')
-                <i class="fas fa-calendar-days circle-icon-active"></i> 
+                <i class="fas fa-calendar-days circle-icon-active"></i>
                 <i class="fas fa-file circle-icon-active"></i>
                 <i class="fas fa-pencil circle-icon-inactive"></i>
                 <i class="fas fa-check circle-icon-inactive"></i>
                 @show
             </div>
             <div class="container">
-                    @yield('status')
+                    @yield('reserv')
                 </div>
             </body>
             </html>
-    @endsection
 @endsection
+
