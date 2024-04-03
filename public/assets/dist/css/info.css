@@ -18,13 +18,17 @@
     text-decoration: none;
     color: #ffffff;
     font-size: 18px;
-    border-radius: 20px;
-    width: 200px;
-    height: 40px;
+    border-radius: 25px;
+    width: 152px;
+    height: 49px;
     font-weight: bold;
     transition: 0.3s;
     background-color: #3a89ff;
-  }
+    position: relative; /* or absolute, fixed, etc. depending on your layout */
+    top: 450px; /* Change this value as needed */
+    left: 395px; /* Change this value as needed */
+}
+
 
   .original-button:hover {
     border-bottom-width: 0;
