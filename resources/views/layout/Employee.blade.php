@@ -12,7 +12,7 @@
         @section('sidebar')
         <aside>
             <p href="Homepage"> Menu </p>
-            <a href="Employee" class="sidebar-link ">
+            <a href="Employee" class="sidebar-link  ">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               หน้าหลัก
             </a>

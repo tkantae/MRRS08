@@ -52,8 +52,7 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $users = User::find($id);
-        return view('editpage', compact('user'));
+        //
     }
 
     /**
@@ -69,9 +68,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-    $users = User::find($id);
-    $users->delete();
-    return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
-
+    //
     }
 }

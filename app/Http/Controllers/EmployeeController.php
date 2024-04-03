@@ -81,7 +81,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('add_accout_user');
+        return view('titles_Employee.add_accout_user');
     }
 
     /**
