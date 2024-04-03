@@ -48,12 +48,10 @@
                         <div class="status3" >กรอกข้อมูลการจอง</div>
                         <div class="status4" >เสร็จสิ้น</div>
                     </div>
-                    
-                </div>
-
-            <div class="container">
                     @yield('reserv')
                 </div>
+
+
             </body>
             </html>
 @endsection
