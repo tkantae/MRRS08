@@ -129,15 +129,10 @@ aside a:hover::after {
 
   }
 
-  .spac{
-    margin-left: 300px;
-  }
-    .container{
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-
-    }
+.container{
+  display: flex;
+  justify-content: center;
+}
 
 
 /* สำหรับลิงก์ที่มีคลาส 'active' */

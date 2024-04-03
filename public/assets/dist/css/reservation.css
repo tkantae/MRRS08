@@ -19,7 +19,6 @@
     width: 175px;
     height: 5px;
     background-color: #d9d9d9;
-    z-index: -1;
 }
 .line-between:active{
     background-color: #8DCDE1;
@@ -74,9 +73,5 @@
 }
 .status4{
     padding-left: 155px;
-}
-
-.center{
-    align-items: center;
 }
 
