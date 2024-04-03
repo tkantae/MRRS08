@@ -15,14 +15,16 @@ class MyAuth extends Controller
 
     function login_process(Request $req){
         $req->validate([
-        'email' => 'required|email',
+        'username' => 'required',
         'password' => 'required|min:6',
         ]);
 
         $data = $req->all();
         // use Illuminate\Support\Facades\Auth;
-        $login = User::where(['us_email', $data['email']],['us_password',$data['password']]);
-        if($login){
+        $login = User::where(['us_email', $data['username']],['us_password',$data['password']]);
+        $login_user = User::where(['us_name',$data['username']],['us_password',$data['password']]);
+        if($login || $login_user){
+
             return Redirect::to('Employee');
         }else{
             return Redirect::to('login');
