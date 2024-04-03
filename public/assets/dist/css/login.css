@@ -1,0 +1,41 @@
+/* .container-input{
+
+    display: flex;
+
+
+} */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+
+    padding: 10%;
+}
+.main{
+    display: grid;
+    justify-content: center;
+    align-self: center;
+
+}
+
+#username {
+    border: radius #000 20px;
+}
+
+
+label {
+    position: absolute;
+
+    color: #000;
+    background-color: #fff;
+    padding: 0 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.relative:focus-within label{
+    top: 0;
+    font-size: 12px;
+}
