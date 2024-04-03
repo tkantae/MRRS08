@@ -48,4 +48,9 @@ Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
 
 
-
+Route::get('/add-user', [EmployeeController::class, 'create']);
+Route::get('/edit-user/{id}', [EmployeeController::class, 'showEdit']);
+Route::post('/store-user', [EmployeeController::class, 'store'])->name('store-user');
+Route::post('/', [EmployeeController::class, 'store'])->name('store.user');
+Route::put('/update-user/{id}', [EmployeeController::class, 'updateUser'])->name('update-user');
+Route::delete('/delete-user/{id}', [EmployeeController::class, 'deleteUser'])->name('delete-user');

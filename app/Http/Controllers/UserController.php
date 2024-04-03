@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\M_titles;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -59,7 +60,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       //
     }
 
     /**
@@ -67,7 +68,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //.
-
+    //
     }
 }
