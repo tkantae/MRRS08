@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\M_titles;
 use App\Models\Room;
+use App\Models\User;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -57,7 +59,8 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         //
-        return view('titles_Employee.manage_account');
+        $users = User::all();
+        return view('titles_Employee.manage_account',['users' => $users]);
     }
 
     public function manage_rooms()
@@ -78,7 +81,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_accout_user');
     }
 
     /**
@@ -86,7 +89,22 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'avatar' => 'image',
+        ]);
+        $user = new User();
+        $user->title_id = $request->title_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        //เช็คไฟล์ภาพ
+
+        $user->save();
+        return redirect()->route('manage_account')->with('success', 'User has been added successfully!');
     }
 
     /**
@@ -102,7 +120,8 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $users = User::find($id);
+        return view('editpage', compact('user'));
     }
 
     /**
@@ -110,7 +129,30 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',//can 1 mail unique
+            'password' => 'required',
+            'avatar' => 'image',
+        ]);
+        $user = User::find($id);
+        $title_name = $request->input('title');
+        $title = Title::where('tit_name', $title_name)->first();
+        $user->title_id = $title ? $title->id : null;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        //เช็คไฟล์ภาพ
+        if ($request->hasFile('avatar')) {
+            $fileName = time().$request->file('avatar')->getClientOriginalName();
+            $avatarPath = $request->file('avatar')->storeAs('avatars',$fileName,'public');
+            $user->avatar = '/storage/'.$avatarPath;
+        } else{
+            $user -> avatar = null;
+        }
+        $user->save();
+        return redirect()->route('homepage')->with('success','company has been updated successfully');
     }
 
     /**
@@ -118,7 +160,9 @@ class EmployeeController extends Controller
      */
     public function destroy(string $id)
     {
-        //.
+        $users = User::find($id);
+        $users->delete();
+        return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
     }
 }
