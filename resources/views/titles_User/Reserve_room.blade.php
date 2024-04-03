@@ -1,13 +1,8 @@
 @extends('layout.Status')
 
 @section('title', 'จองห้องประชุม')
-<<<<<<< Updated upstream
 
 @section('reserv')
-=======
-@section('content')
-
->>>>>>> Stashed changes
 <!-- Content Header (Page header) -->
 <link rel="stylesheet" href="{{ url('assets/dist/css/calender.css') }}">
 <div class="calender">
