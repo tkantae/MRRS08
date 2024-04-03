@@ -25,72 +25,11 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered fix">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10px">ลำดับ</th>
-                                        <th>ชื่อผู้ใช้</th>
-                                        <th>ชื่อ-นามสกุล</th>
-                                        <th>เบอร์โทร</th>
-                                        <th>เริ่มงาน</th>
-                                        <th>แก้ไข</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
-                                    <!--fill loop add data from data base -->
-                                    <!--add 5 pagination   -->
 
 
 
-                                    @foreach ($users as $User)
-                                        <tr>
-                                            <td>{{ $User->us_id }}</td>
 
-                                            <td>{{ $User->us_name }}</td>
-                                            <td>{{ $User->us_fname }}</td>
-                                            <td>{{ $User->us_tel }}</td>
-                                            <td>{{ $User->us_startdate}}</td>
-
-
-
-                                            <td>
-                                                <a href="{{ url('/edit-user/' . $User->id) }}"
-                                                    class="btn btn-warning">Edit</a>
-                                                <form id="delete-form-{{ $User->id }}" method="post"
-                                                    action="{{ url('/delete-user/' . $User->id) }}"
-                                                    style="display: inline-block;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="button" class="btn btn-danger"
-                                                        onclick="deleteUser('{{ $User->id }}')">Delete</button>
-                                                </form>
-                                            </td>
-
-                                            <script>
-                                                function deleteUser(userId) {
-                                                    Swal.fire({
-                                                        title: "Are you sure?",
-                                                        text: "You won't be able to revert this!",
-                                                        icon: "warning",
-                                                        showCancelButton: true,
-                                                        confirmButtonColor: "#3085d6",
-                                                        cancelButtonColor: "#d33",
-                                                        confirmButtonText: "Yes, delete it!"
-                                                    }).then((result) => {
-                                                        if (result.isConfirmed) {
-                                                            Swal.fire({
-                                                                title: "Deleted!",
-                                                                text: "Your file has been deleted.",
-                                                                icon: "success"
-
-                                                            });
-
-                                                            document.getElementById('delete-form-' + userId).submit();
-                                                        }
-                                                    });
-                                                }
-                                            </script>
-                                    @endforeach
 
 
                                 </tbody>
