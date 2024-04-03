@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\M_titles;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -27,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_accout_user');
     }
 
     /**
@@ -35,7 +36,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'avatar' => 'image',
+        ]);
+        $user = new User();
+        $user->title_id = $request->title_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        //เช็คไฟล์ภาพ
+
+        $user->save();
+        return redirect()->route('manage_account')->with('success', 'User has been added successfully!');
     }
 
     /**
@@ -67,7 +83,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //.
+    $users = User::find($id);
+    $users->delete();
+    return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
     }
 }

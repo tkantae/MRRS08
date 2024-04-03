@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -97,9 +96,8 @@
                                 </tbody>
                             </table>
                         </div>
-                        
                         <div>
-                            <input type="button" href="{{ url('/add-user') }}" class="menu-open-button" name="menu-open-button"
+                            <input type="button" href="#" class="menu-open-button" name="menu-open-button"
                                 id="menu-open-button" />
                             <label class="menu-open-button" for="menu-open-button" onclick="openPopup()"> + </label>
                         </div>
