@@ -58,9 +58,10 @@
             border: solid 1px #242424;
             padding: 15px;
             font-size: 18px;
-            background-color: #f1f1f1;
+            background-color: #fff;
+
         }
-        
+
         /* a {
             display: flex;
             width: 120px;

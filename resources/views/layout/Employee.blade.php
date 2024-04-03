@@ -66,8 +66,8 @@
             }
 
           </script>
+        <div class="spac"></div>
 
-        @show
 
         <div class="container">
             @yield('content')
