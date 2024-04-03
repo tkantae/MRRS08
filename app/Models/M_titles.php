@@ -9,8 +9,8 @@ class M_titles extends Model
 {
     use HasFactory;
 
-    protected $table = 'titles';
-    protected $primaryKey = 'tit_id';
+    protected $table = 'rooms';
+    protected $primaryKey = 'ro_id';
     public $incrementing = true;
     public $timestamps = false;
 }

@@ -10,23 +10,27 @@ use Illuminate\Support\Facades\Auth;
 class MyAuth extends Controller
 {
     function login_view(){
-        return view('login');
+        return view('titles_Employee.login');
     }
 
     function login_process(Request $req){
         $req->validate([
-        'email' => 'required|email',
+        'username' => 'required',
         'password' => 'required|min:6',
         ]);
 
         $data = $req->all();
         // use Illuminate\Support\Facades\Auth;
-        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
-            return Redirect::to('titles');
+        $login = User::where(['us_email', $data['username']],['us_password',$data['password']]);
+        $login_user = User::where(['us_name',$data['username']],['us_password',$data['password']]);
+        if($login || $login_user){
+
+            return Redirect::to('Employee');
         }else{
             return Redirect::to('login');
         }
     }
+
 
     function logout_process(){
         Auth::logout();

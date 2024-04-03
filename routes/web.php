@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\C_titles;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,15 +24,32 @@ Route::get('/Test', function () {
     return view('Homepage');
 });
 
-Route::get('/login' , [MyAuth::class,'login_view'])->name('login');
-Route::get('/register' , [MyAuth::class,'register_view']);
+Route::get('/Homepage',function(){
+    return view('Homepage');
+});
+
+Route::get('/info',function(){
+    return view('titles_User.room_info');
+});
+
+Route::get('/User', [UserController::class,'getReserve']);
+Route::get('/follow', [UserController::class,'getFollow']);
+
+Route::get('/Employee',[EmployeeController::class,'mainpage']);
+Route::get('/Reserve',[EmployeeController::class,'reserve']);
+Route::get('/Petition',[EmployeeController::class,'petition']);
+Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
+Route::get('/Statistics',[EmployeeController::class,'statistics']);
+Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
+Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
+Route::get('/Accout',[EmployeeController::class,'accout']);
+
+
+
+
+Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
-Route::post('/register' , [MyAuth::class,'register_process']);
-
-Route::resource('titles', C_titles::class)->middleware('auth');
-
-Route::middleware('auth')->group(function(){
 
 
-});
+

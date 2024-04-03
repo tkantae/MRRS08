@@ -1,0 +1,82 @@
+.circle-icon-active,
+.circle-icon-inactive {
+    position: relative;
+    width: 90px;
+    height: 85.39px;
+    background: #8DCDE1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
+
+.circle-icon-inactive {
+    background: #d9d9d9;
+}
+
+.line-between {
+    width: 175px;
+    height: 5px;
+    background-color: #d9d9d9;
+    z-index: -1;
+}
+.line-between:active{
+    background-color: #8DCDE1;
+}
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+.text-header {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-active,
+.status1 {
+    font-size: 28px;
+    color: #43636D;
+    text-align: center;
+}
+.status1{
+    padding-left: 75px;
+}
+
+
+.text-inactive,
+.status2,
+.status3,
+.status4 {
+    font-size: 20px;
+    color: #BEBEBE;
+    text-align: center;
+    justify-content: center;
+}
+.status2{
+    padding-left: 130px;
+}
+.status3{
+    padding-left: 90px;
+}
+.status4{
+    padding-left: 155px;
+}
+
+.center{
+    align-items: center;
+}
+
