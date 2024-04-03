@@ -30,7 +30,6 @@
     justify-content: center;
     margin-top: 20px;
     text-align: center;
-    padding-left: 70px;
 }   
 .text-header {
     display: flex;
@@ -64,7 +63,8 @@
 .status4 {
     font-size: 20px;
     color: #BEBEBE;
-    text-align: center; 
+    text-align: center;
+    justify-content: center;
 }
 .status2{
     padding-left: 130px;
@@ -73,9 +73,10 @@
     padding-left: 90px;
 }
 .status4{
-    padding-left: 150px;
+    padding-left: 155px;
 }
 
 .center{
     align-items: center;
 }
+
