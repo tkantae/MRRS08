@@ -70,8 +70,18 @@ body{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 36px;
     color: #FFFFFF;
     padding-bottom: 36px;
 }
+
+.container {
+    margin: 0 auto;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: #f0f0f0; /* Set the background color */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+}
+
