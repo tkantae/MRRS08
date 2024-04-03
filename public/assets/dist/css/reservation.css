@@ -21,6 +21,9 @@
     background-color: #d9d9d9; 
     z-index: -1; 
 }
+.line-between:active{
+    background-color: #8DCDE1;
+}
 .content-header {
     display: flex;
     align-items: center;
