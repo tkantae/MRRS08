@@ -4,8 +4,13 @@
 
 @section('reserv')
 <!-- Content Header (Page header) -->
+
+
+
+<!-- /.content-header -->
+
+<!-- Main content -->
 <link rel="stylesheet" href="{{ url('assets/dist/css/calender.css') }}">
-<div class="center">
 <div class="calender">
     <div class="row">
         <div class="text">
@@ -58,16 +63,8 @@
         </div>
     </div>
 
-    </div>
-</div>
 
 </div>
-
-<!-- /.content-header -->
-
-<!-- Main content -->
-<div class="content">
-   
 </div>
 <!-- /.content -->
 
