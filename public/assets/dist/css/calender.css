@@ -1,12 +1,11 @@
 .calender {
     position: absolute;
-    width: 1016px;
+    box-sizing: border-box;
+    width: 840px;
     height: 228px;
     margin-top: 36px;
     background: #f0f0f0;
     box-shadow: 0px 6px 4px 1px rgba(0, 0, 0, 0.31);
-    align-items: center;
-    justify-content: center;
 }
 
 .row {
@@ -51,14 +50,14 @@ body{
 .submit-button {
     width: 280px;
     height: 41px;
-    position: fixed;
+    position: absolute;
     background: #5E96EB;
     border-radius: 6px;
     border: none; 
     padding: 10px 20px; 
     cursor: pointer; 
     text-align: center;
-    margin-left: 700px;
+    margin-left: 550px;
 }
 
 .submit-button i {
@@ -77,11 +76,16 @@ body{
 }
 
 .container {
-    margin: 0 auto;
-    box-sizing: border-box;
-    background-color: #ffffff; 
-    border: 1px solid #ccc; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    width: 100%; /* Set the width to 100% */
+    max-width: 1200px; /* Set the maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding inside the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: #ffffff; /* Set the background color */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a box shadow */
 }
+
+
 
