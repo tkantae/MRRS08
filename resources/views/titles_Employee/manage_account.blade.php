@@ -17,9 +17,9 @@
 
     <!-- Main content -->
     <section class="content flex">
-        <div class="container-fluid flex ">
+        <div class="container-fluid float-right flex ">
             <div class="row  flex ">
-                <div class="col-md-12 ">
+                <div class="col-md-12 flex ">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">จัดการบัญชีผู้ใช้</h3>
@@ -46,14 +46,10 @@
                                     @foreach ($users as $User)
                                         <tr>
                                             <td>{{ $User->us_id }}</td>
-
                                             <td>{{ $User->us_name }}</td>
-                                            <td>{{ $User->us_fname }}</td>
+                                            <td>{{ $User->us_fname, ' ', $User->us_lname }}</td>
                                             <td>{{ $User->us_tel }}</td>
-                                            <td>{{ $User->startdate}}</td>
-
-
-
+                                            <td>{{ $User->startdate }}</td>
                                             <td>
                                                 <a href="{{ url('/edit-user/' . $User->id) }}"
                                                     class="btn btn-warning">Edit</a>
@@ -98,24 +94,12 @@
                             </table>
                         </div>
 
+
                         <div>
-                            <input type="button" href="{{ url('/add-user') }}" class="menu-open-button" name="menu-open-button"
-                                id="menu-open-button" />
-                            <label class="menu-open-button" for="menu-open-button" onclick="openPopup()"> + </label>
+                            <a href="{{ url('/add-user') }}" class="menu-open-button"> + </a>
+
                         </div>
-                        <script>
-                            function openPopup() {
-                                document.getElementById("myPopup").style.display = "block";
-                            }
 
-                            function closePopup() {
-                                document.getElementById("myPopup").style.display = "none";
-                            }
-
-                            function submitForm() {
-                                alert("ข้อมูลถูกส่งเรียบร้อยแล้ว!");
-                            }
-                        </script>
                         <br>
                         <br>
                         <br>
