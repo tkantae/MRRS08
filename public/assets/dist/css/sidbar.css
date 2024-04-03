@@ -1,6 +1,7 @@
 
 aside {
     display: block;
+    position: fixed;
     color: #fff;
     width: 250px;
     padding-left: 20px;
@@ -128,10 +129,15 @@ aside a:hover::after {
 
   }
 
-.container{
-  display: flex;
-  justify-content: center;
-}
+  .spac{
+    margin-left: 300px;
+  }
+    .container{
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+
+    }
 
 
 /* สำหรับลิงก์ที่มีคลาส 'active' */
