@@ -59,7 +59,7 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         //
-        $users = User::all();
+        $users = User::orderBy('us_id','desc')->paginate(5);
         return view('titles_Employee.manage_account',['users' => $users]);
     }
 
