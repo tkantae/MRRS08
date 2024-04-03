@@ -10,7 +10,6 @@
             </head>
             <body>  
                 <div class="center">
-                    
                     <div class="content-header">
                     <i class="fa fa-angle-left" style="font-size:72px; margin-right: 20px;"></i>
                         <div class="icon-container">
@@ -52,7 +51,6 @@
                     </div>
                     @yield('reserv')
                 </div>
-
 
             </body>
             </html>

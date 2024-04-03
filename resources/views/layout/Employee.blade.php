@@ -8,7 +8,6 @@
 
         <link rel="stylesheet" href="{{ url('assets/dist/css/sidbar.css') }}">
 
-
         @section('sidebar')
         <aside>
             <p href="Homepage"> Menu </p>
@@ -67,8 +66,8 @@
             }
 
           </script>
+        <div class="spac"></div>
 
-        @show
 
         <div class="container">
             @yield('content')
