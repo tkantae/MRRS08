@@ -15,20 +15,20 @@
                             <div class="circle-icon-active">
                                 <i class="fas fa-calendar-days"></i>
                             </div>
-                           
+
                         </div>
 
-                        <div class="line-between"></div> 
+                        <div class="line-between"></div>
 
                         <div class="icon-container">
                             <div class="circle-icon-inactive">
                                 <i class="fas fa-file"></i>
                             </div>
-                        
+
                         </div>
 
                         <div class="line-between"></div>
-                        
+
                         <div class="icon-container">
                             <div class="circle-icon-inactive">
                                 <i class="fas fa-pencil"></i>
@@ -48,12 +48,10 @@
                         <div class="status3" >กรอกข้อมูลการจอง</div>
                         <div class="status4" >เสร็จสิ้น</div>
                     </div>
-                    
-                </div>
-
-            <div class="container">
                     @yield('reserv')
                 </div>
+
+
             </body>
             </html>
 @endsection
