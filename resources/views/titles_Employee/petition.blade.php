@@ -21,6 +21,25 @@
         <button id="prev">คำขอการจอง</button>
         <button id="next">คำขอยกเลิก</button>
         <input type="search" placeholder="search" style=";position: relative; left:49%;">
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var prevButton = document.getElementById("prev");
+                var nextButton = document.getElementById("next");
+
+                prevButton.addEventListener("click", function() {
+                    prevButton.classList.toggle("clicked");
+                    nextButton.classList.remove(
+                    "clicked"); // เมื่อคลิกที่ปุ่ม "คำขอการจอง" ให้ปุ่ม "คำขอยกเลิก" เปลี่ยนสีกลับไปเป็นสีเดิม
+                });
+
+                nextButton.addEventListener("click", function() {
+                    nextButton.classList.toggle("clicked");
+                    prevButton.classList.remove(
+                    "clicked"); // เมื่อคลิกที่ปุ่ม "คำขอยกเลิก" ให้ปุ่ม "คำขอการจอง" เปลี่ยนสีกลับไปเป็นสีเดิม
+                });
+            });
+        </script>
     </div>
     <table class="rwd-table">
         <thead>

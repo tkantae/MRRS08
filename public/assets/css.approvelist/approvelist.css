@@ -1,6 +1,7 @@
 body {
     background: #fff;
 }
+
 th {
     background-color: #3b81f2;
     color: white;
@@ -39,7 +40,7 @@ input {
     width: 250px;
     height: 40px;
     border-radius: 18px;
-    padding:15px;
+    padding: 15px;
     font-size: 20px;
     background-color: #f1f1f1;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -51,7 +52,7 @@ input {
 }
 
 .rwd-table {
-    min-width:10px;
+    min-width: 10px;
     width: 97%;
     display: block;
     border-top-right-radius: 20px;
@@ -61,26 +62,36 @@ input {
     border-collapse: collapse;
 
 }
-.head{
-    margin-left:0px;
+
+.head {
+    margin-left: 0px;
 }
-#prev, #next {
+
+#prev,
+#next {
     font-weight: bold;
     font-size: 20px;
-    color: white;
+    color: black;
     padding: 15px 20px;
     border: none;
     border-top-left-radius: 20px;
-    border-top-right-radius:20px ;
-    background-color:#3b81f2;
-  }
-
-  #prev:hover, #next:hover {
+    border-top-right-radius: 20px;
     background-color: #ddd;
-    border-collapse: collapse;
-  }
-tfoot{
-    background-color: #3b81f2;
 }
 
+#prev.clicked,
+#next.clicked {
+    background-color: #3b81f2;
+    color: white;
+    border-collapse: collapse;
+}
 
+/* #prev:hover,
+#next:hover {
+    background-color: #ddd;
+    border-collapse: collapse;
+} */
+
+tfoot {
+    background-color: #3b81f2;
+}
