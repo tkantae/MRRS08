@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\M_titles;
 use App\Models\Room;
 use App\Models\User;
+use App\Http\Controllers\Validator;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -90,19 +91,22 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title_id' => 'required',
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'avatar' => 'image',
+            'us_fname' => 'required',
+            'us_lname' => 'required',
+            'us_email' => 'required',
+            'us_tel' => 'required',
+            'us_name' => 'required',
+            'roles' => 'required',
+            'us_password' => 'required',
         ]);
         $user = new User();
-        $user->title_id = $request->title_id;
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->us_fname = $request->us_fname;
+        $user->us_lname = $request->us_lname;
+        $user->us_email = $request->us_email;
+        $user->us_tel = $request->us_tel;
+        $user->us_name = $request->us_name;
+        $user->roles = $request->roles;
         $user->password = bcrypt($request->password);
-        //เช็คไฟล์ภาพ
-
         $user->save();
         return redirect()->route('manage_account')->with('success', 'User has been added successfully!');
     }
