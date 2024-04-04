@@ -34,6 +34,7 @@ Route::get('/info',function(){
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
+Route::get('/searchRoom', [UserController::class,'getSearch']);
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
