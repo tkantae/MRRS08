@@ -44,6 +44,7 @@
     margin-left: 20px;
 }
 .boxRoom:hover {
+    cursor: pointer; 
     background-color: rgba(0, 0, 0, 0.5); /* Darken the background on hover */
 }
 .boxRoom:hover .roominfo {
@@ -96,6 +97,7 @@
     border-radius: 6px;
     margin-top: 36px;
     margin-left: 48px;
+    cursor: pointer; 
 }
 #statusRoom{
     font-size: 36px;
