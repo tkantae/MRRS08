@@ -25,7 +25,7 @@
             grid-template-rows: repeat(2, 1fr);
             gap: 10px;
         }
-        .pop-room{
+        .top-left-content{
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: 1fr;
@@ -36,6 +36,11 @@
             grid-template: repeat(2, 1fr);
             gap: 10px;
         }
+        .top-right-content{
+            display: grid;
+            grid-template: repeat(3, 1fr);
+            gap: 10px;
+        }
         .item{
             background-color: #fffbcfdc;
         }
@@ -44,8 +49,8 @@
     <div class="card">
         <!-- content in card -->
         <div class="info">
-            <!-- popular room -->
-            <div class="pop-room">
+            <!-- top-left-content -->
+            <div class="top-left-content">
                 <div class="item">
                     first
                 </div>
@@ -58,11 +63,23 @@
                     </div>
                 </div>
             </div>
-            <!-- /.popular room -->
+            <!-- /.top-left-content -->
 
-            <div class="item">Income</div>
+            <!-- top-right-content -->
+            <div class="top-right-content">
+                <diV class="item">
+                    INCOME
+                </diV>
+                <diV class="item">
+                    ROOM
+                </diV>
+                <diV class="item">
+                    USER
+                </diV>
+            </div>
+            <!-- /.top-right-content -->
 
-            <!-- reserved graph -->
+            <!-- bot-left-content -->
             <div class="item">
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between">
@@ -96,9 +113,9 @@
                     </span>
                 </div>
             </div>
-            <!-- /.reserved graph -->
+            <!-- bot-left-content -->
 
-            <!-- pine chart -->
+            <!-- bot-right-content -->
             <div class="item">
                 <div class="card-header border-0">
                     <h3 class="card-title">
@@ -110,7 +127,7 @@
                     <div id="donut-chart" style="height: 300px;"></div>
                 </div>
             </div>
-            <!-- /.pine chart -->
+            <!-- /.bot-right-content -->
         </div>
         <!-- /.content in card -->
     </div>
