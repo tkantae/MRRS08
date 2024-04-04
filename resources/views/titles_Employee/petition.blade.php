@@ -62,6 +62,7 @@
 
         }
 
+
         /* a {
             display: flex;
             width: 120px;
@@ -87,7 +88,7 @@
         <a href="">คำขอยกเลิก</a>
         <input type="text" style=";position: relative; left:68%">
     </div>
-    <br>
+        <br>
     <table class="table" >
         <thead>
             <tr>

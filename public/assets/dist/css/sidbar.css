@@ -129,8 +129,12 @@ aside a:hover::after {
 
   }
 
+  .spac{
+    margin-left: 300px;
+  }
+
 .container{
-  display: flex;
+  display: grid;
   justify-content: center;
 }
 
