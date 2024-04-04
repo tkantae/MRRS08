@@ -1,220 +1,177 @@
 @extends('layout.Employee')
 
-@section('title', 'จัดการบัญชี')
+@section('title', 'User Account Management')
+
 @section('content')
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Simple Tables</title>
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>User Account Management</title>
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row  ">
-                <div class="col-md-12">
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="{{ url('assets/css.buttonadd/add.css') }}">
+
+        <style>
+            .content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            .card {
+                width: 130%;
+            }
+
+            .card-header h3 {
+                margin: 0;
+            }
+
+            .btn-container {
+                margin-bottom: 20px;
+            }
+
+            .pagination {
+                justify-content: center;
+            }
+
+            .table td,
+            .table th {
+                vertical-align: middle;
+            }
+
+            .btn-danger {
+                margin-left: 5px;
+            }
+
+            .table {
+                width: 100%;
+            }
+
+            .table th,
+            .table td {
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .table th:first-child,
+            .table td:first-child {
+                text-align: left;
+            }
+
+            .table th:last-child,
+            .table td:last-child {
+                text-align: right;
+            }
+        </style>
+    </head>
+
+    <body>
+        <section class="content">
+            <div class="row justify-content-center">
+                <div class="col">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">จัดการบัญชีผู้ใช้</h3>
+                            <h3 class="card-title">User Account Management</h3>
                         </div>
-                        <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-bordered fix">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 10px">ลำดับ</th>
-                                        <th>ชื่อผู้ใช้</th>
-                                        <th>ชื่อ-นามสกุล</th>
-                                        <th>เบอร์โทร</th>
-                                        <th>เริ่มงาน</th>
-                                        <th>แก้ไข</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!--fill loop add data from data base -->
-                                    <!--add 5 pagination   -->
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>Update software</td>
-                                        <td>jfaj;ak;fk; k;lk;ak;fk;</td>
-                                        <td>0623780958</td>
-                                        <td>2/4/2567</td>
-                                        <td>
-                                            <a href="/" class="btn btn-warning" onclick="openPopup()">Edit</a>
-                                            <form id="delete-form" method="post" action="/"
-                                                style="display: inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="btn btn-danger"
-                                                    onclick="deleteUser()">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>Update software</td>
-                                        <td>jfaj;ak;fk; k;lk;ak;fk;</td>
-                                        <td>0623780958</td>
-                                        <td>2/4/2567</td>
-                                        <td>
-                                            <a href="/" class="btn btn-warning">Edit</a>
-                                            <form id="delete-form" method="post" action="/"
-                                                style="display: inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="btn btn-danger"
-                                                    onclick="deleteUser()">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>Update software</td>
-                                        <td>jfaj;ak;fk; k;lk;ak;fk;</td>
-                                        <td>0623780958</td>
-                                        <td>2/4/2567</td>
-                                        <td>
-                                            <a href="/" class="btn btn-warning">Edit</a>
-                                            <form id="delete-form" method="post" action="/"
-                                                style="display: inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="btn btn-danger"
-                                                    onclick="deleteUser()">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>Update software</td>
-                                        <td>jfaj;ak;fk; k;lk;ak;fk;</td>
-                                        <td>0623780958</td>
-                                        <td>2/4/2567</td>
-                                        <td>
-                                            <a href="/" class="btn btn-warning">Edit</a>
-                                            <form id="delete-form" method="post" action="/"
-                                                style="display: inline-block;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="btn btn-danger"
-                                                    onclick="deleteUser()">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div>
-                            <input type="button" href="#" class="menu-open-button" name="menu-open-button"
-                                id="menu-open-button" />
-                            <label class="menu-open-button" for="menu-open-button" onclick="openPopup()"> + </label>
-                        </div>
-                        <div id="myPopup" class="popup">
-                            <div class="popup-content">
-                                <span class="close" onclick="closePopup()">&times;</span>
-                                <div class="left-column">
-                                    <label for="first_name">First Name:</label>
-                                    <input type="text" id="first_name" name="first_name" placeholder="First Name">
-                                    <br>
-                                    <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" placeholder="Email Name">
-                                    <br>
-                                    <label for="username">Username:</label>
-                                    <input type="text" id="username" name="username" placeholder="Username">
-                                    <br>
-
-                                    <label for="password">Password:</label>
-                                    <input type="password" id="password" name="password" placeholder="xxxxx">
-                                    <br>
-
-                                    <br>
-                                </div>
-
-
-                                <div class="right-column">
-                                    <label for="last_name">Last Name:</label>
-                                    <input type="text" id="last_name" name="last_name" placeholder="Last Name">
-                                    <br>
-                                    <label for="mobile">Mobile No.:</label>
-                                    <input type="text" id="mobile" name="mobile" placeholder="Mobile No.">
-                                    <br>
-                                    <label for="position">ตำแหน่ง:</label>
-                                    <select id="position" name="position">
-                                        <option value="position1">ตำแหน่งที่ 1</option>
-                                        <option value="position2">ตำแหน่งที่ 2</option>
-                                        <option value="position3">ตำแหน่งที่ 3</option>
-                                    </select>
-                                    <br>
-                                    <label for="confirm_password">Confirm Password:</label>
-                                    <input type="password" id="confirm_password" name="confirm_password"
-                                        placeholder="Confirm Password">
-                                    <br>
-
-                                    <br>
-                                </div>
-                                <div><button type="submit" class="btn btn-default float-right">Submit</button>
-                                     <button type="reset" class="btn btn-default float-left">Reset</button></div>
+                            <div class="btn-container">
+                                <a href="{{ url('/add-user') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add
+                                    User</a>
                             </div>
-
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%">No.</th>
+                                            <th>Username</th>
+                                            <th>Name</th>
+                                            <th>Mobile No.</th>
+                                            <th>Start Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($users as $key => $user)
+                                            <tr>
+                                                <td>{{ $key + 1 }}</td>
+                                                <td>{{ $user->us_name }}</td>
+                                                <td>{{ $user->us_fname }} {{ $user->us_lname }}</td>
+                                                <td>{{ $user->us_tel }}</td>
+                                                <td>{{ $user->startdate }}</td>
+                                                <td>
+                                                    <a href="{{ url('/edit-user/' . $user->id) }}"
+                                                        class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                                                    <form id="delete-form-{{ $user->id }}" method="post"
+                                                        action="{{ url('/delete-user/' . $user->id) }}"
+                                                        style="display: inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-danger"
+                                                            onclick="deleteUser('{{ $user->id }}')"><i
+                                                                class="fas fa-trash-alt"></i> Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <script>
-                            function openPopup() {
-                                document.getElementById("myPopup").style.display = "block";
-                            }
-
-                            function closePopup() {
-                                document.getElementById("myPopup").style.display = "none";
-                            }
-
-                            function submitForm() {
-                                alert("ข้อมูลถูกส่งเรียบร้อยแล้ว!");
-                            }
-                        </script>
-                        <br>
-                        <br>
-                        <br>
-                        <!-- /.card-body -->
-                        <div class="card-footer clearfix">
-                            <ul class="pagination pagination-sm m-0 float-right">
-                                <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                        <div class="card-footer clearfix text-center">
+                            <ul class="pagination pagination-sm m-0">
+                                {!! $users->links('pagination::bootstrap-4') !!}
                             </ul>
                         </div>
                     </div>
-                    <!-- /.card -->
+                </div>
+            </div>
+        </section>
 
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <!-- Popper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script>
+            function deleteUser(userId) {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                        });
+                        document.getElementById('delete-form-' + userId).submit();
+                    }
+                });
+            }
+        </script>
+    </body>
 
-                    <script>
-                        function deleteUser() {
-                            Swal.fire({
-                                title: "Are you sure?",
-                                text: "You won't be able to revert this!",
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Yes, delete it!"
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire({
-                                        title: "Deleted!",
-                                        text: "Your file has been deleted.",
-                                        icon: "success"
-
-                                    });
-
-                                    document.getElementById('delete-form').submit();
-                                }
-                            });
-                        }
-                    </script>
-
-                    </tbody>
-
-
-                    </table>
-                @endsection
+    </html>
+@endsection
