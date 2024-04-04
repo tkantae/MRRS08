@@ -63,8 +63,8 @@ class EmployeeController extends Controller
     public function manage_rooms()
     {
         //
-        $rooms = Room::orderBy('ro_id')->get();
-        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
+
+        return view('titles_Employee.manage_rooms');
     }
 
     public function accout()
