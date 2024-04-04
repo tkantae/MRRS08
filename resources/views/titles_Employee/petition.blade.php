@@ -7,12 +7,12 @@
     <div class="flex-container">
         <div>
             <span class="title">คำขอการจอง</span><br>
-            <span class="number" style="font-size:40px;font-weight: bold;">5</span>
+            <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">5</span>
             <span>รายการ</span>
         </div>
         <div>
             <span class="title">คำขอยกเลิก</span><br>
-            <span class="number" style="font-size:40px;font-weight: bold;">4</span>
+            <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">4</span>
             <span>รายการ</span>
         </div>
     </div>
@@ -20,39 +20,40 @@
     <div class="head">
         <button id="prev">คำขอการจอง</button>
         <button id="next">คำขอยกเลิก</button>
-        <input type="search" placeholder="search" style=";position: relative; left:49%;">
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var prevButton = document.getElementById("prev");
-                var nextButton = document.getElementById("next");
-
-                prevButton.addEventListener("click", function() {
-                    prevButton.classList.toggle("clicked");
-                    nextButton.classList.remove(
-                    "clicked"); // เมื่อคลิกที่ปุ่ม "คำขอการจอง" ให้ปุ่ม "คำขอยกเลิก" เปลี่ยนสีกลับไปเป็นสีเดิม
-                });
-
-                nextButton.addEventListener("click", function() {
-                    nextButton.classList.toggle("clicked");
-                    prevButton.classList.remove(
-                    "clicked"); // เมื่อคลิกที่ปุ่ม "คำขอยกเลิก" ให้ปุ่ม "คำขอการจอง" เปลี่ยนสีกลับไปเป็นสีเดิม
-                });
-            });
-        </script>
+        <input type="search" placeholder="search" style=";position: relative; left:48%;">
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button>
     <table class="rwd-table">
         <thead>
             <tr>
                 <th>ลำดับ</th>
                 <th>วันที่เข้าใช้</th>
-                <th>เวลา</th>
+                <th>ชื่อผู้จอง</th>
                 <th>ชื่อห้อง</th>
                 <th>ขนาดห้อง</th>
                 <th>รอดำเนินการ</th>
                 <th></th>
         </thead>
         <tbody>
+            {{-- @foreach ($reaervation as $data)
+                <tr>
+                    <td>{{ $reaervation->res_id }}</td>
+                    <td>{{ $reaervation->res_startdate }}</td>
+                    <td>{{ $reaervation->res_ }}</td>
+                    <td>{{ $reaervation->res_ }}</td>
+                    <td>
+                        <a href="{{ url('/edit-user/'.$user->id) }}" class="btn btn-warning">Edit</a>
+                        <!-- Add delete functionality -->
+                        <form method="post" action="{{ url('/delete-user/'.$user->id) }}" style="display: inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="delete()">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach --}}
             <tr>
                 <td>1</td>
                 <td>18/01/66</td>
@@ -128,4 +129,87 @@
             </tr>
         </tfoot>
     </table>
+
+
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
+    {{-- <section class="intro">
+        <div class="rwd-table">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ลำดับ</th>
+                                    <th scope="col">วันที่</th>
+                                    <th scope="col">ชื่อผู้จอง</th>
+                                    <th scope="col">ชื่อห้อง</th>
+                                    <th scope="col">ขนาดห้อง</th>
+                                    <th scope="col">รอดำเนิน</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>18/01/66</td>
+                                    <td>08:00 น. - 12:00 น.</td>
+                                    <td>ห้องประชุม 101</td>
+                                    <td>กลาง(เต็มห้อง)</td>
+                                    <td>
+                                        <a href="/"><i class="fas fa-check-circle fa-lg"
+                                                style="color: #63E6BE;"></i></a>
+                                        <a href="/"><i class="fas fa-times-circle fa-lg"
+                                                style="color: #ff1a1a;"></i></a>
+                                    <td>
+                                        <a href="/"><i class="fas fa-info-circle fa-lg"
+                                                style="color: #242424"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
 @endsection

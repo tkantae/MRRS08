@@ -1,3 +1,76 @@
+/*
+table td {
+    color: black;
+    padding: 10px;
+    text-align: center;
+    height: 35px;
+
+}
+
+table th {
+    color: white;
+    text-align: center;
+    background-color: #3b81f2;
+}
+.rwd-table {
+    width: 150%;
+    display: block;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+    border-collapse: collapse;
+    text-align: center;
+}
+.flex-container>div {
+    background-color: #f1f1f1;
+    width: 200px;
+    height: 100px;
+    margin: 3px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #fff;
+}
+tfoot {
+    background-color: #3b81f2;
+}
+.btn-group button {
+    background-color: #f1f1f1;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+
+  .btn-group button:focus {
+    background-color: #3b81f2;
+    border: none;
+    color: white;
+  }
+input {
+    width: 250px;
+    height: 40px;
+    border-radius: 18px;
+    padding: 15px;
+    font-size: 20px;
+    background-color: #f1f1f1;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: 0;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+} */
+
+
 body {
     background: #fff;
 }
@@ -53,7 +126,7 @@ input {
 
 .rwd-table {
     min-width: 10px;
-    width: 97%;
+    width: 95%;
     display: block;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -79,19 +152,13 @@ input {
     background-color: #ddd;
 }
 
-#prev.clicked,
-#next.clicked {
+#prev:focus,
+#next:focus {
     background-color: #3b81f2;
     color: white;
     border-collapse: collapse;
 }
-
-/* #prev:hover,
-#next:hover {
-    background-color: #ddd;
-    border-collapse: collapse;
-} */
-
 tfoot {
+    border-collapse: collapse;
     background-color: #3b81f2;
 }

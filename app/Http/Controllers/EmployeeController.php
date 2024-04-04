@@ -38,7 +38,7 @@ class EmployeeController extends Controller
 
     public function petition()
     {
-        //
+
         return view('titles_Employee.petition');
     }
 
