@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\M_titles;
+use App\Models\reservations;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+
 
 class EmployeeController extends Controller
 {
@@ -38,8 +39,8 @@ class EmployeeController extends Controller
 
     public function petition()
     {
-
-        return view('titles_Employee.petition');
+        $data = reservations::all();
+        return view('titles_Employee.petition',compact('data'));
     }
 
     public function reservation_list()

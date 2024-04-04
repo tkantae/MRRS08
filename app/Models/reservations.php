@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class Room extends Authenticatable
+class reservations extends Model
 {
-    use HasFactory, Notifiable;
-
+    use HasFactory;
+    protected $table = 'reservations';
     /**
      * The attributes that are mass assignable.
      *
@@ -27,11 +26,5 @@ class Room extends Authenticatable
         'ro_id',
         'reserver_id'
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
 
 }

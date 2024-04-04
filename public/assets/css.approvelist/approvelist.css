@@ -158,7 +158,35 @@ input {
     color: white;
     border-collapse: collapse;
 }
+
 tfoot {
     border-collapse: collapse;
     background-color: #3b81f2;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 600px;
+    height: 500px;
+    background-color: #f1f1f1;
+    color: black;
+    visibility: hidden;
+}
+
+#popup.show {
+    visibility: visible;
+}
+
+#close-popup {
+    margin-left: 250px;
+    margin-top: 400px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
 }
