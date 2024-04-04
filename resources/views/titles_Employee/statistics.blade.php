@@ -25,16 +25,45 @@
             grid-template-rows: repeat(2, 1fr);
             gap: 10px;
         }
+        .pop-room{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            gap: 10px;
+        }
+        .less-pop-room{
+            display: grid;
+            grid-template: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .item{
+            background-color: #fffbcfdc;
+        }
     </style>
 @section('content')
     <div class="card">
         <!-- content in card -->
         <div class="info">
-            <div class="item1">Popular</div>
-            <div class="item2">Income</div>
+            <!-- popular room -->
+            <div class="pop-room">
+                <div class="item">
+                    first
+                </div>
+                <div class="less-pop-room">
+                    <div class="item">
+                        second
+                    </div>
+                    <div class="item">
+                        third
+                    </div>
+                </div>
+            </div>
+            <!-- /.popular room -->
+
+            <div class="item">Income</div>
 
             <!-- reserved graph -->
-            <div class="graph">
+            <div class="item">
                 <div class="card-header border-0">
                     <div class="d-flex justify-content-between">
                         <h3 class="card-title">Reservation</h3>
@@ -45,7 +74,7 @@
                 <div class="d-flex">
                     <p class="d-flex flex-column">
                         <span class="text-bold text-lg">$18,230.00</span>
-                        <span>Sales Over Time</span>
+                        <span>Reservations Over Time</span>
                     </p>
                     <p class="ml-auto d-flex flex-column text-right">
                         <span class="text-success">
@@ -70,8 +99,16 @@
             <!-- /.reserved graph -->
 
             <!-- pine chart -->
-            <div class="item4">Pine Chart
-                
+            <div class="item">
+                <div class="card-header border-0">
+                    <h3 class="card-title">
+                        <i class="far fa-chart-bar"></i>
+                        Donut Chart
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div id="donut-chart" style="height: 300px;"></div>
+                </div>
             </div>
             <!-- /.pine chart -->
         </div>
