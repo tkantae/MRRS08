@@ -141,20 +141,13 @@ class EmployeeController extends Controller
             'avatar' => 'image',
         ]);
         $user = User::find($id);
-        $title_name = $request->input('title');
-        $title = Title::where('tit_name', $title_name)->first();
-        $user->title_id = $title ? $title->id : null;
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user->us_fname = $request->us_fname;
+        $user->us_lname = $request->us_lname;
+        $user->us_email = $request->us_email;
+        $user->us_tel = $request->us_tel;
+        $user->us_name = $request->us_name;
+        $user->roles = $request->roles;
         $user->password = bcrypt($request->password);
-        //เช็คไฟล์ภาพ
-        if ($request->hasFile('avatar')) {
-            $fileName = time().$request->file('avatar')->getClientOriginalName();
-            $avatarPath = $request->file('avatar')->storeAs('avatars',$fileName,'public');
-            $user->avatar = '/storage/'.$avatarPath;
-        } else{
-            $user -> avatar = null;
-        }
         $user->save();
         return redirect()->route('homepage')->with('success','company has been updated successfully');
     }
