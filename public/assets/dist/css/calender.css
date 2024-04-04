@@ -74,17 +74,12 @@ body{
     color: #FFFFFF;
     padding-bottom: 36px;
 }
-
 .container {
-    width: 100%; /* Set the width to 100% */
-    max-width: 1200px; /* Set the maximum width */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add some padding inside the container */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    background-color: #ffffff; /* Set the background color */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 8px; /* Add rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a box shadow */
+    background-color: #ffffff; /* Dark background color */
+    border-radius: 30px; /* Rounded corners */
+    padding: 50px; /* Reduced padding for content */
+    margin: 10 auto; /* Center horizontally */
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
 }
 
 
