@@ -16,10 +16,11 @@
             <span>รายการ</span>
         </div>
     </div>
+    <br><br>
     <div class="head">
-        <a href="">คำขอการจอง</a>
-        <a href="/Rejectlist">คำขอยกเลิก</a>
-        <input type="search" placeholder="search" style=";position: relative; left:68%">
+        <button id="prev">คำขอการจอง</button>
+        <button id="next">คำขอยกเลิก</button>
+        <input type="search" placeholder="search" style=";position: relative; left:49%;">
     </div>
     <table class="rwd-table">
         <thead>
@@ -43,7 +44,7 @@
                     <a href="/"><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
                     <a href="/"><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
                 <td>
-                    <a href="/" onclick="openPopup()" ><i class="fas fa-info-circle fa-lg" style="color: #242424"></i></a>
+                    <a href="/"><i class="fas fa-info-circle fa-lg" style="color: #242424"></i></a>
                 </td>
             <tr>
                 <td></td>
@@ -94,5 +95,18 @@
                 <td></td>
                 <td></td>
         </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    เปลี่ยนหน้าdfsd
+                </td>
+            </tr>
+        </tfoot>
     </table>
 @endsection
