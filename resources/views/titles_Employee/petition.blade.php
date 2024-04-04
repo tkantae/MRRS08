@@ -2,7 +2,7 @@
 
 @section('title', 'คำร้องขอ')
 @section('content')
-    <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
+
     <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
     <div class="flex-container">
         <div>

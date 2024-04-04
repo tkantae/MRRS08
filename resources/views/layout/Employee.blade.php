@@ -5,7 +5,7 @@
         <title>@yield('title')</title>
     </head>
     <body>
-
+        <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ url('assets/dist/css/sidbar.css') }}">
         @section('sidebar')
         <aside>
