@@ -51,10 +51,13 @@ class EmployeeController extends Controller
         return view('titles_Employee.reservation_list');
     }
 
-    public function statistics()
-    {
-        //
-        return view('titles_Employee.statistics');
+    // หน้าสถิติการจอง
+    public function statistics(){
+        $data = [
+            'user_count' => User::count(),
+            'room_count' => Room::count(),
+        ];
+        return view('titles_Employee.statistics' , compact('data'));
     }
 
     public function manage_account()
@@ -77,7 +80,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -117,7 +120,7 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
- 
+
 
     /**
      * Update the specified resource in storage.
@@ -161,4 +164,4 @@ class EmployeeController extends Controller
         return view('titles_Employee.edit_account_user', compact('user'));
     }
 }
-   
+
