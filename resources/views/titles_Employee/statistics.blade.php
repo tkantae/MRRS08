@@ -93,7 +93,7 @@
                 </div>
                 <div class="small-box bg-warning" style="margin-bottom: 0px; width: 725px; height: 112.625px; color:rgb(255, 255, 255) !important;">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>100</h3>
                         <p>Registered Users</p>
                         <div class="icon">
                             <i class="fas fa-user-plus"></i>

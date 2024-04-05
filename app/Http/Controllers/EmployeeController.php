@@ -50,7 +50,6 @@ class EmployeeController extends Controller
 
     public function statistics()
     {
-        //
         return view('titles_Employee.statistics');
     }
 
