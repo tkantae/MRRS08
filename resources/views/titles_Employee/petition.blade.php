@@ -131,21 +131,19 @@
                 <td></td>
                 <td></td>
         </tbody>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style="color: white">
-                    เปลี่ยนหน้า
-                </td>
-            </tr>
-        </tfoot>
     </table>
+    <div class="bar">
+        <div style="color: white">
+            <div class="buttons">
+                <button><i class="fa fa-angle-left"></i> Prew </button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button> Next <i class="fa fa-angle-right"></i></button>
+            </div>
+        </div>
 
+    </div>
     <div id="popup" class="hidden">
         <table style="width:100%;">
             <tr>
