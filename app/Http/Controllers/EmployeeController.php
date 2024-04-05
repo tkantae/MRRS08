@@ -77,6 +77,11 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
+    public function show_edit()
+    {
+        return view('titles_Employee.edit_account_user');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -123,11 +128,6 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        $users = User::find($id);
-        return view('editpage', compact('user'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -165,5 +165,10 @@ class EmployeeController extends Controller
         $users->delete();
         return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
+    }
+    
+    public function edit(User $user)
+    {
+        dd($user);
     }
 }
