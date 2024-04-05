@@ -23,9 +23,9 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <form action="{{ route('titles_Employee.store') }}" method="post">
+            <form action="{{ route('titles_Employee.update', $user -> us_id) }}" method="PUT">
                 @csrf
-                @method('post')
+                @method('PUT')
                 <div class="form-group">
                     <label for="first_name">First Name:</label>
                     <input type="text" class="form-control" id="first_name" name="first_name"
