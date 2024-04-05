@@ -4,6 +4,8 @@
     padding: 50px; /* Reduced padding for content */
     margin: 10 auto; /* Center horizontally */
     box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    position: relative;
+    height: 1080px;
 
 
 
@@ -26,8 +28,10 @@
     transition: 0.3s;
     background-color: #3a89ff;
     position: relative; /* or absolute, fixed, etc. depending on your layout */
-    top: 450px; /* Change this value as needed */
+    top: 800px;
     left: 395px; /* Change this value as needed */
+
+
 }
 
 
@@ -36,21 +40,119 @@
     transform: translateY(5px);
   }
 
-  .piccard {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 5s;
-  }
+  .location-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 15%;
+    margin-top: 20px;
 
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+}
 
-  /* Add some padding inside the card container */
+.location-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.text{
+    font-size: 20px;
+    margin-top: 5px;
+    padding-left: 48px;
+}
+
+.seat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 15%;
+    margin-top: 60px;
+
+}
+
+.seat-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.area-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 15%;
+    margin-top: 100px;
+
+}
+
+.area-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.accessories-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 60%;
+    margin-top: 20px;
+
+}
+
+.accessories-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
 
 
-  .circle-icon-active,
+
+
+.card-image img{
+    max-width: 65%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: -20px;
+}
+
+.image2-card img {
+    max-width: 30%; /* Adjusted width for better visibility */
+    height: auto;
+    border-radius: 10px;
+    float: right;
+    margin-top: -405px;
+
+
+}
+.image3-card img {
+    max-width: 30%; /* Adjusted width for better visibility */
+    height: auto;
+    border-radius: 10px;
+    float: right;
+    margin-top: -195px;
+}
+
+
+
+
+
+
+
+
+/* .circle-icon-active,
 .circle-icon-inactive {
     position: relative;
     width: 60px;
@@ -127,4 +229,4 @@
 .status4{
     padding-left: 125px;
 }
-
+ */
