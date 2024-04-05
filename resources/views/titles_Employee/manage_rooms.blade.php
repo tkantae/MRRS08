@@ -15,7 +15,6 @@
             <tr>
                 <th>ลำดับ</th>
                 <th>ชื่อห้อง</th>
-                <th>รหัสห้อง</th>
                 <th>ขนาด</th>
                 <th>สถานะ</th>
                 <th width="150px">Tools</th>
