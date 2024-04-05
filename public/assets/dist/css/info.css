@@ -1,9 +1,12 @@
 .container {
     background-color: #ffffff; /* Dark background color */
-    border-radius: 30px; /* Rounded corners */
+    border-radius: 10px; /* Rounded corners */
     padding: 50px; /* Reduced padding for content */
     margin: 10 auto; /* Center horizontally */
     box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    position: relative;
+    height: 1080px;
+
 
 }
 
@@ -15,15 +18,212 @@
     text-decoration: none;
     color: #ffffff;
     font-size: 18px;
-    border-radius: 20px;
-    width: 200px;
-    height: 40px;
+    border-radius: 25px;
+    width: 152px;
+    height: 49px;
     font-weight: bold;
     transition: 0.3s;
     background-color: #3a89ff;
-  }
+    position: relative; /* or absolute, fixed, etc. depending on your layout */
+    top: 800px;
+    left: 395px; /* Change this value as needed */
+
+
+}
+
 
   .original-button:hover {
     border-bottom-width: 0;
     transform: translateY(5px);
   }
+
+  .location-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 15%;
+    margin-top: 20px;
+
+}
+
+.location-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.text{
+    font-size: 20px;
+    margin-top: 5px;
+    padding-left: 48px;
+}
+
+.seat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 15%;
+    margin-top: 60px;
+
+}
+
+.seat-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.area-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 15%;
+    margin-top: 100px;
+
+}
+
+.area-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+.accessories-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border-radius: 50%; /* To make it circular */
+    position: absolute;
+    left: 60%;
+    margin-top: 20px;
+
+}
+
+.accessories-icon i {
+    color: #000000; /* Icon color */
+    font-size: 30px; /* Icon size */
+}
+
+
+
+
+.card-image img{
+    max-width: 65%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: -20px;
+}
+
+.image2-card img {
+    max-width: 30%; /* Adjusted width for better visibility */
+    height: auto;
+    border-radius: 10px;
+    float: right;
+    margin-top: -405px;
+
+
+}
+.image3-card img {
+    max-width: 30%; /* Adjusted width for better visibility */
+    height: auto;
+    border-radius: 10px;
+    float: right;
+    margin-top: -195px;
+}
+
+
+
+
+
+
+
+
+/* .circle-icon-active,
+.circle-icon-inactive {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #8DCDE1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.circle-icon-inactive {
+    background: #d9d9d9;
+}
+
+.line-between {
+    width: 175px;
+    height: 5px;
+    background-color: #d9d9d9;
+}
+.line-between:active{
+    background-color: #8DCDE1;
+}
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+.text-header {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-active,
+.status2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    color: #43636D;
+    text-align: center;
+}
+.status2{
+    padding-left: 60px;
+}
+
+
+.text-inactive,
+.status1,
+.status3,
+.status4 {
+    font-size: 20px;
+    color: #BEBEBE;
+    text-align: center;
+    justify-content: center;
+}
+.status1{
+    padding-left: 100px;
+}
+.status3{
+    padding-left: 60px;
+}
+.status4{
+    padding-left: 125px;
+}
+ */
