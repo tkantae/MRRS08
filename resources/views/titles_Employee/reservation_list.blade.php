@@ -1,158 +1,226 @@
-{{-- <!DOCTYPE html>
-<html lang="th">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>รายละเอียดการยกเลิก</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      font-family: sans-serif;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      z-index: 100;
-      overflow-y: scroll;
-    }
-    .popup-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 80%; /* ปรับขนาด popup เป็น 80% ของหน้าจอ */
-      max-height: 80%; /* ปรับขนาด popup เป็น 80% ของหน้าจอ */
-      overflow-y: auto; /* ให้มีการเลื่อนลงเมื่อข้อมูลมีมากเกินไป */
-    }
-    .close-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-    }
-    .header {
-      background-color: #007bff;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-    .body {
-      margin-top: 20px;
-    }
-    .row {
-      margin-bottom: 20px;
-    }
-    .label {
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">รายละเอียดการยกเลิก</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+@extends('layout.Employee')
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <button onclick="openPopup()" class="btn btn-light my-2 my-sm-0">แสดงรายละเอียดการยกเลิก</button>
-        </li>
-      </ul>
+@section('title', 'รายการจอง')
+@section('content')
+    <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
+
+    <br><br>
+    <div class="head">
+        <button id="prev"  style=";position: relative; left:2.5%;">รายการจอง</button>
+        <input type="search" placeholder="search" style=";position: relative; left:60%;">
     </div>
-  </nav>
+    <center>
+    <table class="rwd-table" >
+        <thead>
+            <tr>
+                <th>ลำดับ</th>
+                <th>รหัสการจอง</th>
+                <th>วันที่เข้าใช้</th>
+                <th>ชื่อห้อง</th>
+                <th>ขนาดห้อง</th>
+                <th></th>
+        </thead>
+        <tbody>
+            {{-- @foreach ($data as $reservations) --}}
+                {{-- <tr> --}}
+                    {{-- <td>{{ $reservations->res_id }}</td>
+                    <td>{{ $reservations->res_startdate }}</td>
+                    <td>{{ $reservations->res_ }}</td>
+                    <td>{{ $reservations->res_ }}</td>
+                    <td> --}}
+                        {{-- <a href="{{ url('/edit-user/'.$user->id) }}" class="btn btn-warning">Edit</a>
+                        <!-- Add delete functionality -->
+                        <form method="post" action="{{ url('/delete-user/'.$user->id) }}" style="display: inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="delete()">Delete</button>
+                        </form> --}}
+                    {{-- </td>
+                </tr> --}}
+            {{-- @endforeach --}}
+            <tr>
+                <td>1</td>
+                <td>1หหห</td>
+                <td>18/01/66</td>
+                <td>ห้องประชุม 101</td>
+                <td>กลาง(เต็มห้อง)</td>
+                <td>
+                    <button class="btn btn-cancel" onclick="showPopupcancel()"  style="background-color: #dc3545; color: white">ยกเลิก</button>
+                    <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                </td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    เปลี่ยนหน้าdfsd
+                </td>
+            </tr>
+        </tfoot>
+    </table>
 
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <div class="header">
-        <h1>รายละเอียดการยกเลิก</h1>
-      </div>
-      <div class="body">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <label>รหัสการจอง:</label> 56ad5v
+    <div style="border-top-left-radius:15px;border-top-right-radius:15px;"id="popup" class="hidden">
+        <table style="width:100%;">
+            <tr>
+                <th colspan="2" style="background-color: #3b81f2; color: white; border-top-left-radius: 15px;border-top-right-radius: 15px;font-size:15px; ">
+                    <a style="float: left;">รายละเอียดการจอง</a>
+                    <i class="fas fa fa-times fa-lg" id="close-popup" style="float: right; color: #ffffff"></i>
+                </th>
+            </tr>
+        </table>
+         <div style="position: center;border: 1px solid black; width: 90%; height: 80%;"></div>
+            <div class="scrollable-content">
+
             </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <h2>รายละเอียดผู้จอง</h2>
-              <ul>
-                <li><label>ชื่อ:</label> นายธนูธง องใหญ่</li>
-                <li><label>ID Line:</label> thanuthonginwz8</li>
-                <li><label>เบอร์โทร:</label> 012-3456789</li>
-                <li><label>E-Mail:</label> ongYAJMAKMAK@go.buu.ac.th</li>
-              </ul>
+    </div>
+
+
+    <script>
+
+        const openPopupBtn = document.getElementById("detail");
+        const popup = document.getElementById("popup");
+        const closePopupBtn = document.getElementById("close-popup");
+
+        openPopupBtn.addEventListener("click", () => {
+            popup.classList.add("show");
+        });
+
+        closePopupBtn.addEventListener("click", () => {
+            popup.classList.remove("show");
+        });
+        closePopupButton.addEventListener("click", () => {
+            popup.classList.add("hidden");
+        });
+    </script>
+
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
+    {{-- <section class="intro">
+        <div class="rwd-table">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ลำดับ</th>
+                                    <th scope="col">วันที่</th>
+                                    <th scope="col">ชื่อผู้จอง</th>
+                                    <th scope="col">ชื่อห้อง</th>
+                                    <th scope="col">ขนาดห้อง</th>
+                                    <th scope="col">รอดำเนิน</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>18/01/66</td>
+                                    <td>08:00 น. - 12:00 น.</td>
+                                    <td>ห้องประชุม 101</td>
+                                    <td>กลาง(เต็มห้อง)</td>
+                                    <td>
+                                        <a href="/"><i class="fas fa-check-circle fa-lg"
+                                                style="color: #63E6BE;"></i></a>
+                                        <a href="/"><i class="fas fa-times-circle fa-lg"
+                                                style="color: #ff1a1a;"></i></a>
+                                    <td>
+                                        <a href="/"><i class="fas fa-info-circle fa-lg"
+                                                style="color: #242424"></i></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <h2>รายละเอียดการจอง</h2>
-              <ul>
-                <li><label>วันที่ที่จอง:</label> 2024-04-05</li>
-                <li><label>เวลา:</label> xx.xx u. xx.xx น.</li>
-              </ul>
-            </div>
-          </div>
-          <!-- ส่วนที่เพิ่มเข้ามาเพื่อทำให้ข้อมูลเลื่อนลงเมื่อมีมากเกินไป -->
-          <div class="row">
-            <div class="col">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non velit sit amet ligula facilisis fringilla. Curabitur blandit sem nec tortor blandit, id sollicitudin libero vehicula. Integer dapibus vel nulla a placerat. Sed a nisi euismod, pretium nisi eget, interdum felis. Praesent et turpis vel dolor consequat convallis id in nisl. Nulla facilisi. Donec mollis eros sit amet felis pellentesque, id fermentum dolor congue. Vestibulum nec magna pharetra, maximus nulla vel, vehicula nisl. Nulla nec sagittis sapien, id feugiat nulla. Nulla at mauris eu leo rutrum egestas ac ut tellus. Cras posuere enim ut sapien posuere, vel fringilla justo ultrices. Maecenas sed nisl nec felis pharetra pharetra. Nulla facilisi. Donec sagittis mauris id sem tristique, sed pellentesque elit tristique. Sed nec sollicitudin lectus.</p>
-            </div>
-          </div>
-          <!-- สิ้นสุดส่วนที่เพิ่มเข้ามา -->
         </div>
-      </div>
-      <button class="close-button btn btn-secondary" onclick="closePopup()">ปิด</button>
-    </div>
-  </div>
+    </section> --}}
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-    function openPopup() {
-      document.getElementById("popup").style.display = "block";
-    }
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-  </script>
-</body>
-</html> --}}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Container Example</title>
-  <!-- Link to Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-
-<div class="container">
-  <h1>Bootstrap Container Example</h1>
-  <p>This is a basic example of a Bootstrap container.</p>
-</div>
-
-<!-- Bootstrap JS and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-</html>
-
+</center>
+@endsection
