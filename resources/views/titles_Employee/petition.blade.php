@@ -18,8 +18,8 @@
     </div>
     <br><br>
     <div class="head">
-        <button id="prev">คำขอการจอง</button>
-        <button id="next">คำขอยกเลิก</button>
+        <button id="prev" onclick="changeDataApprove()">คำขอการจอง</button>
+        <button id="next" onclick="changeDataReject()">คำขอยกเลิก</button>
         <input type="search" placeholder="search" style=";position: relative; left:48%;">
     </div>
     <table class="rwd-table">
@@ -34,20 +34,49 @@
                 <th></th>
         </thead>
         <tbody>
+            <script>
+                function changeDataApprove() {
+                    const table = document.querySelector('table');
+                    const rows = table.querySelectorAll('tr');
+
+                    for (let i = 1; i < rows.length; i++) {
+                        const cells = rows[i].querySelectorAll('td');
+                        const name = cells[0].textContent;
+
+                        // เปลี่ยนชื่อ
+                        cells[0].textContent = `คุณ ${name}`;
+                    }
+                }
+
+                function changeDataReject() {
+                    const table = document.querySelector('table');
+                    const rows = table.querySelectorAll('tr');
+
+                    for (let i = 1; i < rows.length; i++) {
+                        const cells = rows[i].querySelectorAll('td');
+                        const gender = cells[2].textContent;
+
+                        // เปลี่ยนเพศ
+                        if (gender === 'ชาย') {
+                            cells[2].textContent = 'หญิง';
+                        } else {
+                            cells[2].textContent = 'ชาย';
+                        }
+                    }
+                }
+            </script>
             @foreach ($data as $reservations)
                 <tr>
                     <td>{{ $reservations->res_id }}</td>
                     <td>{{ $reservations->res_startdate }}</td>
                     <td>{{ $reservations->res_ }}</td>
-                    <td>{{ $reservations->res_ }}</td>
+                    <td>{{ $reservations->ro_id }}</td>
+                    <td>{{ $reservations->res_typeroom }}</td>
+                    <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
+                        <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
+                    </td>
                     <td>
-                        {{-- <a href="{{ url('/edit-user/'.$user->id) }}" class="btn btn-warning">Edit</a>
-                        <!-- Add delete functionality -->
-                        <form method="post" action="{{ url('/delete-user/'.$user->id) }}" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="delete()">Delete</button>
-                        </form> --}}
+                        <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
                     </td>
                 </tr>
             @endforeach
@@ -130,14 +159,16 @@
     <div id="popup" class="hidden">
         <table style="width:100%;">
             <tr>
-              <th colspan="2" style="background-color: #3b81f2; color: white; text-align: center;border-top-left-radius: 15px;border-top-right-radius: 15px;">รายละเอียดการจอง</th>
+                <th colspan="2"
+                    style="background-color: #3b81f2; color: white; text-align: center;border-top-left-radius: 15px;border-top-right-radius: 15px;">
+                    รายละเอียดการจอง</th>
             </tr>
             <tr>
                 <td style="text-align: center">รายละเอียดการจอง</td>
             </tr>
             <tr>
             </tr>
-          </table>
+        </table>
         <button type="button" id="close-popup">ปิด Popup</button>
     </div>
 

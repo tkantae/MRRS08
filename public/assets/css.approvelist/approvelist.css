@@ -135,12 +135,16 @@ input {
     border-collapse: collapse;
 
 }
-
-.head {
-    margin-left: 0px;
+#prev{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #ddd;
 }
-
-#prev,
 #next {
     font-weight: bold;
     font-size: 20px;
