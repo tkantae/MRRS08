@@ -53,7 +53,7 @@ input {
 
 .rwd-table {
     min-width: 10px;
-    width: 97%;
+    width: 95%;
     display: block;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -62,12 +62,16 @@ input {
     border-collapse: collapse;
 
 }
-
-.head {
-    margin-left: 0px;
+#prev{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #ddd;
 }
-
-#prev,
 #next {
     font-weight: bold;
     font-size: 20px;
@@ -79,19 +83,41 @@ input {
     background-color: #ddd;
 }
 
-#prev.clicked,
-#next.clicked {
+#prev:focus,
+#next:focus {
     background-color: #3b81f2;
     color: white;
     border-collapse: collapse;
 }
 
-/* #prev:hover,
-#next:hover {
-    background-color: #ddd;
-    border-collapse: collapse;
-} */
-
 tfoot {
+    border-collapse: collapse;
     background-color: #3b81f2;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 600px;
+    height: 500px;
+    background-color: #f1f1f1;
+    color: black;
+    visibility: hidden;
+}
+
+#popup.show {
+    visibility: visible;
+}
+
+#close-popup {
+    margin-left: 250px;
+    margin-top: 400px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
 }
