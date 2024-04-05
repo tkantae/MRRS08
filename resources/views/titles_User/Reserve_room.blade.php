@@ -1,72 +1,157 @@
-@extends('layout.Status')
+@extends('layout.Employee')
 
-@section('title', 'จองห้องประชุม')
-
-@section('reserv')
-<!-- Content Header (Page header) -->
-<link rel="stylesheet" href="{{ url('assets/dist/css/calender.css') }}">
-<div class="calender">
-    <div class="row">
-        <div class="text">
-            <span>วันที่เข้าใช้ห้อง :</span>
-            <span>วันที่สิ้นสุด :</span>
+@section('title', 'คำร้องขอ')
+@section('content')
+    <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
+    <div class="flex-container">
+        <div>
+            <span class="title">คำขอการจอง</span><br>
+            <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">5</span>
+            <span>รายการ</span>
         </div>
-
-    </div>
-    <div class="row">
-        <div class="boxSelect">
-            <div class="textSelect">
-            <i class="fas fa-calendar-days"></i>
-            <span class="textSelect">
-                <body>
-                วว/ดด/ปปปป
-                </body>
-            </span>
-            </div>
-        </div>
-        <div class="boxSelect">
-        <div class="textSelect">
-            <i class="fas fa-calendar-days"></i>
-            <span class="textSelect">
-                <body>
-                วว/ดด/ปปปป
-                </body>
-            </span>
-            </div>
+        <div>
+            <span class="title">คำขอยกเลิก</span><br>
+            <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">4</span>
+            <span>รายการ</span>
         </div>
     </div>
-    <div class="row" style="margin-top: 20px;">
-        <div class="text">
-            <span>ขนาดห้อง :</span>
-        </div>
+    <br><br>
+    <div class="head">
+        <button id="prev">คำขอการจอง</button>
+        <button id="next">คำขอยกเลิก</button>
+        <input type="search" placeholder="search" style=";position: relative; left:48%;">
     </div>
-    <div class="row" >
-        <div class="boxSelect" style="width: 210px;">
-            <span class="textSelect" >
-                <body>
-                    ขนาดห้อง
-                    <i class="fa fa-angle-down" style="margin-left: 72px"></i>
-                </body>
-            </span>
-        </div>
-        <div class="submit-button">
-            <div class="textSubmit">
-            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff; font-size: 30px;"></i>
-            <span >ค้นหาห้อง</span>
-            </div>
-        </div>
+    <table class="rwd-table">
+        <thead>
+            <tr>
+                <th>ลำดับ</th>
+                <th>วันที่เข้าใช้</th>
+                <th>ชื่อผู้จอง</th>
+                <th>ชื่อห้อง</th>
+                <th>ขนาดห้อง</th>
+                <th>รอดำเนินการ</th>
+                <th></th>
+        </thead>
+        <tbody>
+            @foreach ($data as $reservations)
+                <tr>
+                    <td>{{ $reservations->res_id }}</td>
+                    <td>{{ $reservations->res_startdate }}</td>
+                    <td>{{ $reservations->res_ }}</td>
+                    <td>{{ $reservations->ro_id }}</td>
+                    <td>{{ $reservations->res_typeroom }}</td>
+                    <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
+                        <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
+                    </td>
+                    <td>
+                        <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                    </td>
+                </tr>
+            @endforeach
+            <tr>
+                <td>1</td>
+                <td>18/01/66</td>
+                <td>08:00 น. - 12:00 น.</td>
+                <td>ห้องประชุม 101</td>
+                <td>กลาง(เต็มห้อง)</td>
+                <td>
+                    <a href="/"><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
+                    <a href="/"><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
+                <td>
+                    <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                </td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    เปลี่ยนหน้าdfsd
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div id="popup" class="hidden">
+        <table style="width:100%;">
+            <tr>
+                <th colspan="2"
+                    style="background-color: #3b81f2; color: white; text-align: center;border-top-left-radius: 15px;border-top-right-radius: 15px;">
+                    รายละเอียดการจอง</th>
+            </tr>
+            <tr>
+                <td style="text-align: center">รายละเอียดการจอง</td>
+            </tr>
+            <tr>
+            </tr>
+        </table>
+        <button type="button" id="close-popup">ปิด Popup</button>
     </div>
 
-    </div>
-</div>
+    <script>
+        const openPopupBtn = document.getElementById("detail");
+        const popup = document.getElementById("popup");
+        const closePopupBtn = document.getElementById("close-popup");
 
+        openPopupBtn.addEventListener("click", () => {
+            popup.classList.add("show");
+        });
 
-<!-- /.content-header -->
-
-<!-- Main content -->
-<div class="content">
-   
-</div>
-<!-- /.content -->
-
+        closePopupBtn.addEventListener("click", () => {
+            popup.classList.remove("show");
+        });
+    </script>
 @endsection
