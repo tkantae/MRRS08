@@ -77,6 +77,8 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -115,24 +117,12 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $users = User::find($id);
-        return view('editpage', compact('user'));
-    }
+ 
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $user)
     {
         $data = $request->validate([
             'first_name' => 'required',
@@ -144,7 +134,7 @@ class EmployeeController extends Controller
             'password' => 'required'
         ]);
 
-        $newUser = User::find($id);
+        $newUser = User::find($user);
         $newUser->us_fname = $request->first_name;
         $newUser->us_lname = $request->last_name;
         $newUser->us_email = $request->email;
@@ -153,7 +143,7 @@ class EmployeeController extends Controller
         $newUser->roles = $request->position;
         $newUser->us_password = bcrypt($request->password);
         $newUser->save();
-        return redirect()->route('titles_Employee.store');
+        return redirect()->route('titles_Employee.update');
     }
 
     /**
@@ -166,4 +156,9 @@ class EmployeeController extends Controller
         return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
     }
+    public function edit(User $user)
+    {
+        return view('titles_Employee.edit_account_user', compact('user'));
+    }
 }
+   
