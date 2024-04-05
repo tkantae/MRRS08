@@ -42,9 +42,6 @@
                     for (let i = 1; i < rows.length; i++) {
                         const cells = rows[i].querySelectorAll('td');
                         const name = cells[0].textContent;
-
-                        // เปลี่ยนชื่อ
-                        cells[0].textContent = `คุณ ${name}`;
                     }
                 }
 
@@ -55,13 +52,6 @@
                     for (let i = 1; i < rows.length; i++) {
                         const cells = rows[i].querySelectorAll('td');
                         const gender = cells[2].textContent;
-
-                        // เปลี่ยนเพศ
-                        if (gender === 'ชาย') {
-                            cells[2].textContent = 'หญิง';
-                        } else {
-                            cells[2].textContent = 'ชาย';
-                        }
                     }
                 }
             </script>
@@ -149,8 +139,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>
-                    เปลี่ยนหน้าdfsd
+                <td style="color: white">
+                    เปลี่ยนหน้า
                 </td>
             </tr>
         </tfoot>
@@ -185,86 +175,4 @@
             popup.classList.remove("show");
         });
     </script>
-
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
-    {{-- <section class="intro">
-        <div class="rwd-table">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ลำดับ</th>
-                                    <th scope="col">วันที่</th>
-                                    <th scope="col">ชื่อผู้จอง</th>
-                                    <th scope="col">ชื่อห้อง</th>
-                                    <th scope="col">ขนาดห้อง</th>
-                                    <th scope="col">รอดำเนิน</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>18/01/66</td>
-                                    <td>08:00 น. - 12:00 น.</td>
-                                    <td>ห้องประชุม 101</td>
-                                    <td>กลาง(เต็มห้อง)</td>
-                                    <td>
-                                        <a href="/"><i class="fas fa-check-circle fa-lg"
-                                                style="color: #63E6BE;"></i></a>
-                                        <a href="/"><i class="fas fa-times-circle fa-lg"
-                                                style="color: #ff1a1a;"></i></a>
-                                    <td>
-                                        <a href="/"><i class="fas fa-info-circle fa-lg"
-                                                style="color: #242424"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            <tfoot>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tfoot>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
 @endsection
