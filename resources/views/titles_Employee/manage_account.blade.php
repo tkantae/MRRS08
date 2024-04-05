@@ -113,8 +113,9 @@
                                                 <td>{{ $user->us_tel }}</td>
                                                 <td>{{ $user->startdate }}</td>
                                                 <td>
-                                                    <a href="{{ url('/edit-user/' . $user->id) }}"
-                                                        class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                                                    <a href="{{route('titles_Employee.edit_account_user',$user ->us_id)}}"class="btn btn-warning">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </a>
                                                     <form id="delete-form-{{ $user->id }}" method="post"
                                                         action="{{ url('/delete-user/' . $user->id) }}"
                                                         style="display: inline;">
