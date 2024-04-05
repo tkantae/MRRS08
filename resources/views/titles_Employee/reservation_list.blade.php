@@ -3,7 +3,7 @@
 @section('title', 'รายการจอง')
 @section('content')
     <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css.approvelist/approved.css') }}">
 
     <br><br>
     <div class="head">
