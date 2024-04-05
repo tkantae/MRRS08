@@ -1,6 +1,7 @@
 body {
     background: #fff;
 }
+
 th {
     background-color: #3b81f2;
     color: white;
@@ -39,7 +40,7 @@ input {
     width: 250px;
     height: 40px;
     border-radius: 18px;
-    padding:15px;
+    padding: 15px;
     font-size: 20px;
     background-color: #f1f1f1;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -51,8 +52,8 @@ input {
 }
 
 .rwd-table {
-    min-width:10px;
-    width: 97%;
+    min-width: 10px;
+    width: 95%;
     display: block;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -61,26 +62,62 @@ input {
     border-collapse: collapse;
 
 }
-.head{
-    margin-left:0px;
-}
-#prev, #next {
+#prev{
     font-weight: bold;
     font-size: 20px;
-    color: white;
+    color: black;
     padding: 15px 20px;
     border: none;
     border-top-left-radius: 20px;
-    border-top-right-radius:20px ;
-    background-color:#3b81f2;
-  }
-
-  #prev:hover, #next:hover {
+    border-top-right-radius: 20px;
     background-color: #ddd;
+}
+#next {
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #ddd;
+}
+
+#prev:focus,
+#next:focus {
+    background-color: #3b81f2;
+    color: white;
     border-collapse: collapse;
-  }
-tfoot{
+}
+
+tfoot {
+    border-collapse: collapse;
     background-color: #3b81f2;
 }
 
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 600px;
+    height: 500px;
+    background-color: #f1f1f1;
+    color: black;
+    visibility: hidden;
+}
 
+#popup.show {
+    visibility: visible;
+}
+
+#close-popup {
+    margin-left: 250px;
+    margin-top: 400px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
+}

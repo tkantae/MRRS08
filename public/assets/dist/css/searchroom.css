@@ -6,11 +6,17 @@
     box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
     overflow: hidden;
 }
+
 .showroom {
     height: 720px;
-    overflow-y: auto;
-    max-height: 4080px;
+    overflow-y: scroll;
 }
+
+.showroom::-webkit-scrollbar {
+    width: 0px;
+}
+
+
 .row {
     display: flex;
     justify-content: space-between;
@@ -105,6 +111,7 @@
     margin-right: 20px;
 }
 .roomname{
+    align-items: center;
     text-align: center;
     margin-top: auto;
     background-color: #D0F4FF;
