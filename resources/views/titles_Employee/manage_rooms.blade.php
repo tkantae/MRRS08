@@ -133,7 +133,7 @@
                     </div>
                     <div class="card-footer clearfix text-center">
                         <ul class="pagination pagination-sm m-0">
-                            {!! $rooms->links('pagination::bootstrap-4') !!}
+                            {{-- {!! $rooms->links('pagination::bootstrap-4') !!} --}}
                         </ul>
                     </div>
                 </div>
