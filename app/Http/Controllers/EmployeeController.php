@@ -82,33 +82,34 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('titles_Employee.add_accout_user');
+        return view('titles_Employee.add_account_user');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'us_fname' => 'required',
-            'us_lname' => 'required',
-            'us_email' => 'required',
-            'us_tel' => 'required',
-            'us_name' => 'required',
-            'roles' => 'required',
-            'us_password' => 'required',
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name'  => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'username' => 'required',
+            'position' => 'required',
+            'password' => 'required'
         ]);
-        $user = new User();
-        $user->us_fname = $request->us_fname;
-        $user->us_lname = $request->us_lname;
-        $user->us_email = $request->us_email;
-        $user->us_tel = $request->us_tel;
-        $user->us_name = $request->us_name;
-        $user->roles = $request->roles;
-        $user->password = bcrypt($request->password);
-        $user->save();
-        return redirect()->route('manage_account')->with('success', 'User has been added successfully!');
+
+        $newUser = new User;
+        $newUser->us_fname = $request->first_name;
+        $newUser->us_lname = $request->last_name;
+        $newUser->us_email = $request->email;
+        $newUser->us_tel = $request->mobile;
+        $newUser->us_name = $request->username;
+        $newUser->roles = $request->position;
+        $newUser->us_password = bcrypt($request->password);
+        $newUser->save();
+        return redirect()->route('titles_Employee.store');
     }
 
     /**

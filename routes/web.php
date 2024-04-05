@@ -46,14 +46,13 @@ Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
 Route::get('/Accout',[EmployeeController::class,'accout']);
 
 
-
-
 Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
 
 
-Route::get('/add-user', [EmployeeController::class, 'create']);
+Route::get('/add-user', [EmployeeController::class, 'create'])->name('titles_Employee.add_account_user');
+Route::post('/Manage_account', [EmployeeController::class, 'store'])->name('titles_Employee.store');
 Route::get('/edit-user/{id}', [EmployeeController::class, 'showEdit']);
 Route::post('/store-user', [EmployeeController::class, 'store'])->name('store-user');
 Route::post('/', [EmployeeController::class, 'store'])->name('store.user');
