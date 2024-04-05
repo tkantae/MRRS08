@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('assets/dist/css/adminlte.min.css') }}">
     <style>
@@ -44,6 +46,9 @@
         .item{
             background-color: #fffbcfdc;
         }
+        .p {
+            margin: 0px;
+        }
     </style>
 @section('content')
     <div class="card">
@@ -67,15 +72,34 @@
 
             <!-- top-right-content -->
             <div class="top-right-content">
-                <diV class="item">
-                    INCOME
-                </diV>
-                <diV class="item">
-                    ROOM
-                </diV>
-                <diV class="item">
-                    USER
-                </diV>
+                <!-- small card -->
+                <div class="small-box bg-success" style="margin-bottom: 0px; width: 725px; height: 112.625px;">
+                    <div class="inner">
+                        <h3>53</h3>
+                        <p">Total Booking Revenue</p>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-box bg-danger" style="margin-bottom: 0px; width: 725px; height: 112.625px;">
+                    <div class="inner">
+                        <h3>65</h3>
+                        <p>Total Conference Rooms</p>
+                        <div class="icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-box bg-warning" style="margin-bottom: 0px; width: 725px; height: 112.625px; color:rgb(255, 255, 255) !important;">
+                    <div class="inner">
+                        <h3>44</h3>
+                        <p>Registered Users</p>
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.top-right-content -->
 
