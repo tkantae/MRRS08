@@ -64,13 +64,6 @@ class EmployeeController extends Controller
         return view('titles_Employee.manage_account',['users' => $users]);
     }
 
-    public function manage_rooms()
-    {
-        //
-        $rooms = Room::orderBy('ro_id')->get();
-        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
-    }
-
     public function accout()
     {
         //
@@ -88,7 +81,7 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function storeUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'us_fname' => 'required',
@@ -122,7 +115,7 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editUser(string $id)
     {
         $users = User::find($id);
         return view('editpage', compact('user'));
@@ -131,7 +124,7 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateUser(Request $request, string $id)
     {
         $validator = Validator::make($request->all(), [
             'title_id' => 'required',
@@ -155,11 +148,21 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyUser(string $id)
     {
         $users = User::find($id);
         $users->delete();
         return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
     }
+
+
+    public function manage_rooms()
+    {
+        //
+        $rooms = Room::orderBy('ro_id','desc')->paginate(5);
+        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
+    }
+
+
 }
