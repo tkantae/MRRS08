@@ -35,7 +35,7 @@
         </div>
 
     </div>
-
+<!---ใช้ .sth justify-content: btw;--->
     <div class="seat-icon">
         <i class="fas fa-chair"></i>
         <div class="text">

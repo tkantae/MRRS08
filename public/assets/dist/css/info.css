@@ -116,6 +116,7 @@
 .accessories-icon i {
     color: #000000; /* Icon color */
     font-size: 30px; /* Icon size */
+
 }
 
 
@@ -152,81 +153,3 @@
 
 
 
-/* .circle-icon-active,
-.circle-icon-inactive {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    background: #8DCDE1;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-}
-
-.circle-icon-inactive {
-    background: #d9d9d9;
-}
-
-.line-between {
-    width: 175px;
-    height: 5px;
-    background-color: #d9d9d9;
-}
-.line-between:active{
-    background-color: #8DCDE1;
-}
-.content-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    text-align: center;
-}
-.text-header {
-    display: flex;
-    justify-content: center;
-}
-
-.icon-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.text-container {
-    display: flex;
-    align-items: center;
-}
-
-.text-active,
-.status2 {
-    font-family: 'Inter', sans-serif;
-    font-size: 28px;
-    color: #43636D;
-    text-align: center;
-}
-.status2{
-    padding-left: 60px;
-}
-
-
-.text-inactive,
-.status1,
-.status3,
-.status4 {
-    font-size: 20px;
-    color: #BEBEBE;
-    text-align: center;
-    justify-content: center;
-}
-.status1{
-    padding-left: 100px;
-}
-.status3{
-    padding-left: 60px;
-}
-.status4{
-    padding-left: 125px;
-}
- */
