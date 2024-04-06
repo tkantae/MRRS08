@@ -13,6 +13,8 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
+<form method="POST" action="{{ route('submit.form') }}">
+@csrf 
 <link rel="stylesheet" href="{{ url('assets/dist/css/calender.css') }}">
 <div class="calender">
     <div class="row">
@@ -68,20 +70,15 @@
                 
             </body>
         </span>
-        <div class="submit-button">
             <div class="textSubmit">
-            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff; font-size: 30px;"></i>
-            <span >ค้นหาห้อง</span>
+                <button type="submit" class="submit-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>ค้นหาห้อง</span>
+                </button>
             </div>
-        </div>
     </div>
-    
 </div>
-
-
-
-</div>
-
+</form>
 <!-- /.content -->
 
 @endsection

@@ -34,9 +34,12 @@ Route::get('/info',function(){
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
-Route::get('/searchRoom', [UserController::class,'getSearch']);
+Route::get('/getsearch', [UserController::class, 'getSearch'])->name('getsearch');
 Route::get('/fillInformation', [UserController::class,'getInformation']);
 Route::get('/calender', [UserController::class,'getcalender']);
+
+Route::post('/submit-form', [UserController::class, 'handleFormSubmission'])->name('submit.form');
+
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);

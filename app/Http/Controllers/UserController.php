@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
+    public function handleFormSubmission(Request $request)
+    {
+        $startDate = $request->input('start-date2');
+        $endDate = $request->input('end-date');
+        $roomSize = $request->input('room-size');
+
+        // Do whatever you need to do with the collected data, such as saving to a database
+        
+        // Redirect the user back or to another page
+        return redirect()->route('getsearch')->with('success', 'Form submitted successfully!');
+    }
     /**
      * Display a listing of the resource.
      */
