@@ -44,24 +44,26 @@
             padding-right: 200px;
         }
         .image-container{
-            border: #5070E8 solid 5px;
-            padding-left: 100px;
-            width: 310px;
-            height: 705px;
+            width: 300px;
+            height: 400px;
+        }
+        #left{
+            background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%);
+            padding-left: 200px;
         }
     </style>
 
 </head>
     <body>
         <!-- left column-->
-        <div class="column" style="background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%);">
+        <div class="column" id="left">
             <div class="image-container">
                 <img src="{{ url('assets\dist\img\LOGOMRRS.png') }}" alt="LOGOMRRS">
             </div>
         </div>
         <!-- /.left column-->
         <!-- right column-->
-        <div class="column">
+        <div class="column" id="right">
             <div class="login-box-header">
                 <h1>Welcome</h1>
             </div>
