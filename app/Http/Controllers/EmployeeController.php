@@ -60,7 +60,7 @@ class EmployeeController extends Controller
     public function manage_rooms()
     {
         //
-        $rooms = Room::orderBy('ro_id')->get();
+        $rooms = Room::orderBy('id')->get();
         return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
     }
 
@@ -70,8 +70,8 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
-    /*ทำสั่งในการทำ CRUD ทั้งหมด 
-    manage_account 
+    /*ทำสั่งในการทำ CRUD ทั้งหมด
+    manage_account
     create
     store_user
     edit_user
@@ -84,20 +84,20 @@ class EmployeeController extends Controller
         $users = User::orderBy('id', 'desc')->paginate(5);
         return view('titles_Employee.manage_account', ['users' => $users]);
     }
-    
+
     public function create_user()
     {
         // แสดงหน้าฟอร์มสำหรับเพิ่มข้อมูล
         return view('titles_Employee.add_account_user');
     }
-    
+
     public function store_user(Request $request)
     {
         // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกันหรือไม่
         if ($request->password !== $request->confirm_password) {
             return redirect()->back()->withInput()->withErrors(['confirm_password' => 'รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน']);
         }
-    
+
         // ทำการตรวจสอบและบันทึกข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
@@ -108,7 +108,7 @@ class EmployeeController extends Controller
             'position' => 'required',
             'password' => 'required'
         ]);
-    
+
         $newUser = new User;
         $newUser->us_fname = $request->first_name;
         $newUser->us_lname = $request->last_name;
@@ -118,15 +118,15 @@ class EmployeeController extends Controller
         $newUser->roles = $request->position;
         $newUser->us_password = bcrypt($request->password);
         $newUser->save();
-        
+
         return redirect()->route('titles_Employee.store');
     }
-    
+
     public function edit_user(User $user)
     {
         return view('titles_Employee.edit_account_user', ['user' => $user]);
     }
-    
+
     public function update_user(Request $request, User $user)
     {
         // ทำการอัปเดตข้อมูล
@@ -139,7 +139,7 @@ class EmployeeController extends Controller
             'position' => 'required',
             'password' => 'required'
         ]);
-    
+
         $user->us_fname = $request->first_name;
         $user->us_lname = $request->last_name;
         $user->us_email = $request->email;
@@ -151,13 +151,13 @@ class EmployeeController extends Controller
 
         return redirect(route('titles_Employee.manage_account'))->with('success', 'แก้ไขข้อมูลผู้ใช้สำเร็จ');
     }
-    
+
     public function destroy_user(User $user)
     {
         // ลบข้อมูลผู้ใช้ออกจากฐานข้อมูล
         $user->delete();
-        
+
         return redirect(route('titles_Employee.manage_account'))->with('success', 'ลบข้อมูลผู้ใช้สำเร็จ');
     }
-    
+
     }
