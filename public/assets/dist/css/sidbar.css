@@ -1,7 +1,7 @@
 
 aside {
     display: block;
-    position: fixed;
+    position: relative;
     color: #fff;
     width: 250px;
     padding-left: 20px;

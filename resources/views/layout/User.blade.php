@@ -45,8 +45,6 @@
           </script>
 
             @show
-            <div class="center" style="margin-left: 260px;">
-            </div>
             <div class="container">
                 @yield('content')
             </div>
