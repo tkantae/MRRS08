@@ -16,7 +16,7 @@ class Room extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'ro_id',
+        'id',
         'ro_name',
         'ro_size',
         'ro_typeroom',

@@ -12,14 +12,14 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::orderBy('ro_id','desc')->paginate(5);
-        return view('titles_Employee.manage_account',['users' => $users]);
+        $rooms = Room::orderBy('id','desc')->paginate(5);
+        return view('titles_Employee.manage_rooms',['rooms' => $rooms]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create_room()
     {
         //
     }
@@ -27,7 +27,7 @@ class RoomController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store_room(Request $request)
     {
         //
     }
@@ -43,7 +43,7 @@ class RoomController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Room $room)
+    public function edit_room(Room $room)
     {
         //
     }
@@ -51,7 +51,7 @@ class RoomController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Room $room)
+    public function update_room(Request $request, Room $room)
     {
         //
     }
@@ -59,7 +59,7 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Room $room)
+    public function destroy_room(Room $room)
     {
         //
     }
