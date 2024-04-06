@@ -147,6 +147,7 @@
                             <ul class="pagination pagination-sm m-0">
                                 {!! $users->links('pagination::bootstrap-4') !!}
                             </ul>
+                            
                         </div>
                     </div>
                 </div>
