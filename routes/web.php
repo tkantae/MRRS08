@@ -33,6 +33,9 @@ Route::get('/info',function(){
 });
 
 Route::get('/User', [UserController::class,'getReserve']);
+Route::get('/fill',[UserController::class,'getFill']);
+Route::get('/auth/line', 'Auth\LoginController@redirectToLine');
+Route::get('/auth/line/callback', 'Auth\LoginController@handleLineCallback');
 Route::get('/follow', [UserController::class,'getFollow']);
 Route::get('/searchRoom', [UserController::class,'getSearch']);
 Route::get('/searchRoom', [UserController::class,'getSearch']);
