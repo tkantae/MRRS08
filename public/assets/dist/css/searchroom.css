@@ -1,0 +1,120 @@
+.container {
+    background-color: #ffffff; /* Dark background color */
+    border-radius: 30px; /* Rounded corners */
+    padding: 50px; /* Reduced padding for content */
+    margin: 10 auto; /* Center horizontally */
+    box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    overflow: hidden;
+}
+
+.showroom {
+    height: 720px;
+    overflow-y: scroll;
+}
+
+.showroom::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+}
+.boxRoom{
+    width: 360px;
+    height: 280px;
+    border-radius: 12px;
+    border: 2px solid #000000;
+    margin: 36px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s;
+}
+#box1 {
+    order: 1;
+}
+
+#box2 {
+    order: 2;
+}
+.roominfo {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.boxRoom:hover {
+    cursor: pointer; 
+    background-color: rgba(0, 0, 0, 0.5); /* Darken the background on hover */
+}
+.boxRoom:hover .roominfo {
+    opacity: 1;
+}
+.rowicon {
+    display: flex;
+    align-items: center;
+}
+
+.boxSelect-Calender {
+    display:flex;
+    align-items: center;
+    width: 200px;
+    height: 36px;
+    background: #D9D9D9;
+    border-radius: 15px;
+    margin-top: 36px;
+}
+.textSelect {
+    font-size: 20px;
+    padding-left: 12px;
+}
+.textSelect span {
+    margin-right: 10px;
+}
+.line-between-calender {
+    width: 45px;
+    height: 5px;
+    background-color: #d9d9d9;
+    margin-top: 36px;
+}
+.boxSelect-Size {
+    display:flex;
+    align-items: center;
+    width: 200px;
+    height: 36px;
+    background: #D9D9D9;
+    border-radius: 15px;
+    margin-top: 36px;
+    margin-left: 36px;
+}
+.boxSearch {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 36px;
+    background: #5E96EB;
+    border-radius: 6px;
+    margin-top: 36px;
+    margin-left: 48px;
+    cursor: pointer; 
+}
+#statusRoom{
+    font-size: 36px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.roomname{
+    align-items: center;
+    text-align: center;
+    margin-top: auto;
+    background-color: #D0F4FF;
+    height: 50px;
+    border-radius: 0 0 12px 12px;
+}

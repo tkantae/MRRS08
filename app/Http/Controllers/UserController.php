@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\M_titles;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -21,6 +22,12 @@ class UserController extends Controller
     {
         //
         return view('titles_User.follow');
+    }
+
+    public function getSearch()
+    {
+        //
+        return view('titles_User.search_room');
     }
     /**
      * Show the form for creating a new resource.
@@ -59,7 +66,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       //
     }
 
     /**
@@ -67,7 +74,6 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //.
-
+    //
     }
 }
