@@ -4,7 +4,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <div class="flex-container">
         <div>
             <span class="title">คำขอการจอง</span><br>
@@ -133,11 +133,11 @@
                 <td></td>
         </tbody>
     </table>
-    {{-- <div class="card-footer clearfix text-center">
+    <div class="card-footer clearfix text-center">
         <ul class="pagination pagination-sm m-0">
-            {{ $reservations->links('pagination::bootstrap-4') }}
+            {!! $reservations->links('pagination::bootstrap-4') !!}
         </ul>
-    </div> --}}
+    </div>
 
     <div id="popup" class="hidden">
         <table style="width:100%;">
