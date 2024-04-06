@@ -9,6 +9,8 @@ use App\Http\Controllers\Validator;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\reservations;
+use PHPUnit\Framework\Constraint\IsTrue;
 
 class EmployeeController extends Controller
 {
@@ -41,8 +43,9 @@ class EmployeeController extends Controller
 
     public function petition()
     {
-        //
-        return view('titles_Employee.petition');
+        $test01 = true;
+        $reservation = reservations::orderBy("id", "desc")->paginate(5);
+        return view('titles_Employee.petition', ['reservations' => $reservation, 'test01' => $test01]);
     }
 
     public function reservation_list()
@@ -60,7 +63,7 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         //
-        $users = User::orderBy('us_id','desc')->paginate(5);
+        $users = User::orderBy('id','desc')->paginate(5);
         return view('titles_Employee.manage_account',['users' => $users]);
     }
 
@@ -77,7 +80,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -117,7 +120,7 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
- 
+
 
     /**
      * Update the specified resource in storage.
@@ -161,4 +164,4 @@ class EmployeeController extends Controller
         return view('titles_Employee.edit_account_user', compact('user'));
     }
 }
-   
+
