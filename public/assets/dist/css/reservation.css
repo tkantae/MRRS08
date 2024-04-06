@@ -1,3 +1,10 @@
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
 .circle-icon-active,
 .circle-icon-inactive {
     position: relative;
@@ -23,13 +30,7 @@
 .line-between:active{
     background-color: #8DCDE1;
 }
-.content-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    text-align: center;
-}
+
 .text-header {
     display: flex;
     justify-content: center;
@@ -42,7 +43,7 @@
 }
 .text-container {
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 .text-active,
@@ -75,4 +76,6 @@
 .status4{
     padding-left: 125px;
 }
-
+.center{
+    width: auto;
+}
