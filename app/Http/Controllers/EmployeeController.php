@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\M_titles;
 use App\Models\Room;
+use App\Models\User;
+use App\Http\Controllers\Validator;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -57,7 +60,8 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         //
-        return view('titles_Employee.manage_account');
+        $users = User::orderBy('us_id','desc')->paginate(5);
+        return view('titles_Employee.manage_account',['users' => $users]);
     }
 
     public function manage_rooms()
@@ -73,44 +77,73 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('titles_Employee.add_account_user');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name'  => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'username' => 'required',
+            'position' => 'required',
+            'password' => 'required'
+        ]);
+
+        $newUser = new User;
+        $newUser->us_fname = $request->first_name;
+        $newUser->us_lname = $request->last_name;
+        $newUser->us_email = $request->email;
+        $newUser->us_tel = $request->mobile;
+        $newUser->us_name = $request->username;
+        $newUser->roles = $request->position;
+        $newUser->us_password = bcrypt($request->password);
+        $newUser->save();
+        return redirect()->route('titles_Employee.store');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+ 
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $user)
     {
-        //
+        $data = $request->validate([
+            'first_name' => 'required',
+            'last_name'  => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'username' => 'required',
+            'position' => 'required',
+            'password' => 'required'
+        ]);
+
+        $newUser = User::find($user);
+        $newUser->us_fname = $request->first_name;
+        $newUser->us_lname = $request->last_name;
+        $newUser->us_email = $request->email;
+        $newUser->us_tel = $request->mobile;
+        $newUser->us_name = $request->username;
+        $newUser->roles = $request->position;
+        $newUser->us_password = bcrypt($request->password);
+        $newUser->save();
+        return redirect()->route('titles_Employee.update');
     }
 
     /**
@@ -118,7 +151,14 @@ class EmployeeController extends Controller
      */
     public function destroy(string $id)
     {
-        //.
+        $users = User::find($id);
+        $users->delete();
+        return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
     }
+    public function edit(User $user)
+    {
+        return view('titles_Employee.edit_account_user', compact('user'));
+    }
 }
+   

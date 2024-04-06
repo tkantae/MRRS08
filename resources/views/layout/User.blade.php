@@ -19,11 +19,11 @@
         <aside>
             <p href="Homepage"> Menu </p>
             <a href="User" class="sidebar-link">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <i class="" aria-hidden="true"></i>
                 จองห้อง
             </a>
             <a href="follow" class="sidebar-link">
-                <i class="fa fa-laptop" aria-hidden="true"></i>
+                <i class="" aria-hidden="true"></i>
                 ติดตามสถานะการจอง
             </a>
         </aside>
