@@ -9,6 +9,8 @@ use App\Http\Controllers\Validator;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\reservations;
+use PHPUnit\Framework\Constraint\IsTrue;
 
 class EmployeeController extends Controller
 {
@@ -41,8 +43,9 @@ class EmployeeController extends Controller
 
     public function petition()
     {
-        //
-        return view('titles_Employee.petition');
+        $test01 = true;
+        $reservation = reservations::orderBy("id", "desc")->paginate(5);
+        return view('titles_Employee.petition', ['reservations' => $reservation, 'test01' => $test01]);
     }
 
     public function reservation_list()

@@ -44,7 +44,7 @@ Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
 Route::get('/Petition',[EmployeeController::class,'petition']);
 Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
-Route::get('/Statistics',[EmployeeController::class,'statistics']);
+Route::get('/Statistics',[EmployeeController::class,'statistics'])->name('titles_Employee.manage_account');
 Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
 Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
 Route::get('/Accout',[EmployeeController::class,'accout']);
