@@ -68,7 +68,14 @@
                 
             </body>
         </span>
+        <div class="submit-button">
+            <div class="textSubmit">
+            <i class="fa-solid fa-magnifying-glass" style="color: #ffffff; font-size: 30px;"></i>
+            <span >ค้นหาห้อง</span>
+            </div>
+        </div>
     </div>
+    
 </div>
 
 
