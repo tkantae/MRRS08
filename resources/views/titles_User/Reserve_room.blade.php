@@ -61,21 +61,18 @@
     <div class="row">
         <span class="textSelect">
             <body>
-                <select class="boxSelect" style="width: 210px; margin-left: 36px; color" >
+                <select class="boxSelect" style="width: 210px; margin-left: 36px;" >
                     <option value="" disabled selected >ขนาดห้อง</option>
                     <option value="small">ห้องเล็ก</option>
                     <option value="medium">ห้องกลาง</option>
                     <option value="large">ห้องใหญ่</option>
                 </select>
-                
             </body>
         </span>
-            <div class="textSubmit">
-                <button type="submit" class="submit-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <span>ค้นหาห้อง</span>
-                </button>
-            </div>
+        <button type="submit" class="btn btn-outline-primary" style="margin-left: 350px;background-color: #5E96EB;color: #fff;width:200px">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            ค้นหาห้อง
+        </button>
     </div>
 </div>
 </form>

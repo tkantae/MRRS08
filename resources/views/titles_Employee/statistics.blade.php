@@ -12,11 +12,12 @@
     <style>
         .card{
             background-color: rgb(255, 255, 255);
-            width: 1520px ;
-            margin: 75px 75px 75px 25px;
+            width: 1320px ;
+            margin: 75px;
             /*margin: auto ;*/
             border: black solid 5px ;/*ทำไว้ดูเสร็จแล้วให้ลบทิ้ง*/
             border-radius: 25px;
+            align-items: center;
         }
         .info{
             height: 753px;
@@ -48,6 +49,9 @@
         }
         .p {
             margin: 0px;
+        }
+        .inner{
+            width: 100px !important;
         }
     </style>
 @section('content')
