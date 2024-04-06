@@ -14,27 +14,34 @@
 
         }
         .column{
-            border: black solid 5px;
             flex: 1;
-            padding-
-            padding-bottom: 50%;
+            padding-top: 8%;
+            padding-bottom: 20%;
 
         }
         .login-box{
             border:red solid 5px;
+            margin: 100px;
         }
         h1{
-            size: 100px;
-            padding-left:25%;
+            font-family: 'Inter';
+            font-style: italic;
+            font-weight: 900;
+            font-size: 80px !important;
+            color: #718BED;
+            border: 1px solid #FFFFFF;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding-left: 
         }
-
     </style>
 
 </head>
     <body>
         <!-- left column-->
-        <div class="column">
+        <div class="column" style="background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%);">
+            <div class="mrrs-logo">
 
+            </div>
         </div>
         <!-- /.left column-->
         <!-- right column-->
