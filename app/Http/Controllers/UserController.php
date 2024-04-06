@@ -18,12 +18,6 @@ class UserController extends Controller
         return view('titles_User.reserve_room');
     }
 
-    public function getFill()
-    {
-        //
-        return view('titles_User.fill');
-    }
-
     public function getFollow()
     {
         //
