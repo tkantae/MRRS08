@@ -22,9 +22,9 @@
         <span class="text">เบอร์โทรศัพท์</span>
     </div>
 </div>
-<div class="row">
+<div class="row" >
     <div class="inputBox" id="agenda">
-        <input type="textarea" required="required">
+        <input type="textarea" required="required" id="agenda">
         <span class="text">วาระการประชุม</span>
     </div>
 </div>
