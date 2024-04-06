@@ -4,6 +4,7 @@
 @section('content')
     <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
     <div class="flex-container">
         <div>
             <span class="title">คำขอการจอง</span><br>
@@ -55,7 +56,7 @@
                     }
                 }
             </script>
-            @foreach ($data as $reservations)
+            @foreach ($reservation as $reservations)
                 <tr>
                     <td>{{ $reservations->res_id }}</td>
                     <td>{{ $reservations->res_startdate }}</td>
@@ -132,18 +133,12 @@
                 <td></td>
         </tbody>
     </table>
-    <div class="bar">
-        <div style="color: white">
-            <div class="buttons">
-                <button><i class="fa fa-angle-left"></i> Prew </button>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button> Next <i class="fa fa-angle-right"></i></button>
-            </div>
-        </div>
+    {{-- <div class="card-footer clearfix text-center">
+        <ul class="pagination pagination-sm m-0">
+            {{ $reservations->links('pagination::bootstrap-4') }}
+        </ul>
+    </div> --}}
 
-    </div>
     <div id="popup" class="hidden">
         <table style="width:100%;">
             <tr>

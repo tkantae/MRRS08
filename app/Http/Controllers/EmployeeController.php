@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\reservations;
+use App\Models\M_titles;
 use App\Models\Room;
+use App\Models\User;
+use App\Http\Controllers\Validator;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+
 
 
 class EmployeeController extends Controller
@@ -39,9 +44,10 @@ class EmployeeController extends Controller
 
     public function petition()
     {
-        $data = reservations::all();
-        return view('titles_Employee.petition',compact('data'));
+    $reservation = reservations::orderBy("res_id", "desc")->paginate(5);
+    return view('titles_Employee.petition', ['reservation' => $reservation]);
     }
+
 
     public function reservation_list()
     {
