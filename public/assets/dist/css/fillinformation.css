@@ -64,8 +64,9 @@
     margin-left: auto;
 }
 #agenda{
-    height: auto;
+    height: 200px;
     width: 100%;
+    justify-content: none;
 }
 .boxConfirm {
     display:flex;
