@@ -48,8 +48,8 @@ class EmployeeController extends Controller
 
     public function reservation_list()
     {
-        //
-        return view('titles_Employee.reservation_list');
+        $data['reservations'] =  reservations::all();
+        return view('titles_Employee.reservation_list',$data);
     }
 
     // หน้าสถิติการจอง
