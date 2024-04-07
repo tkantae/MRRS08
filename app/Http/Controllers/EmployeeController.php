@@ -145,6 +145,31 @@ class EmployeeController extends Controller
         return view('titles_Employee.add_rooms');
     }
 
+    public function store_rooms(Request $request){
+        $data = $request->validate([
+            'room' => 'required',
+            'price'  => 'required',
+            'size_room' => 'required',
+            'capacity' => 'required',
+            'typeroom' => 'required',
+            'status_room' => 'required',
+            'typesplit' => 'required',
+            'notation' => 'required'
+        ]);
+
+        $newRoom = new Room;
+        $newRoom->ro_name= $request->room;
+        $newRoom->ro_price = $request->price;
+        $newRoom->ro_size = $request->size_room;
+        $newRoom->ro_capacity = $request->capacity;
+        $newRoom->ro_typeroom = $request->typeroom;
+        $newRoom->ro_avaliable = $request->status_room;
+        $newRoom->ro_cansplit = $request->typesplit;
+        $newRoom->ro_description = $request->notation;
+        $newRoom->save();
+
+        return redirect()->route('titles_Employee.store_rooms');
+    }
     
 
 
