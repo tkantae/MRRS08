@@ -23,7 +23,7 @@ class reservations extends Model
         'res_startdate',
         'res_enddate',
         'res_serialcode',
-        'res_totalprice',
+        'res_total',
         'res_typeroom',
         'res_dayType',
         'ro_id',

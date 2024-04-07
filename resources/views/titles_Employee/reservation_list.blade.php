@@ -4,11 +4,6 @@
 @section('content')
     <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css.approvelist/approved.css') }}">
-    <link rel="stylesheet" href="{{ url('//cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <br><br>
     <div class="head">
         <button id="prev"  style=";position: relative; left:2.5%;">รายการจอง</button>
         <input type="search" placeholder="search" style=";position: relative; left:60%;">
@@ -63,7 +58,22 @@
             </tr>
         </tfoot>
     </table>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">รายละเอียดการจอง</h5>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
 
+                <!-- Modal body -->
+                <div class="modal-body" id="popupContent">
+                    <!-- ตำแหน่งสำหรับแสดงข้อมูลที่ได้จากการเรียก fetch -->
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
 
         const openPopupBtn = document.getElementById("detail");
@@ -82,22 +92,28 @@
         });
 
         function cancelReservation(id) {
-            // ส่งคำขอ HTTP เพื่อเปลี่ยนสถานะจาก A เป็น R
+            // ส่งคำขอ HTTP เพื่อเปลี่ยนสถานะจาก A เป็น C
             fetch(`/cancel-reservation/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // สามารถเพิ่ม header อื่น ๆ ตามความต้องการ
                 },
-                // สามารถส่งข้อมูลเพิ่มเติมได้เช่น reservationId หรืออื่น ๆ
                 body: JSON.stringify({ id: id })
             })
             .then(response => {
                 if (response.ok) {
-                    // เมื่อเปลี่ยนสถานะเรียบร้อย ซ่อนตาราง
-                    document.getElementById("reservationTable").style.display = "none";
+                    // เมื่อเปลี่ยนสถานะเรียบร้อย ประมวลผลข้อมูลที่ต้องแสดงในป็อบอัพ
+                    fetch(`/reservation-details/${id}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("popupContent").innerHTML = data;
+                        // เปิดป็อบอัพ
+                        var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+                            keyboard: false
+                        });
+                        myModal.show();
+                    });
                 } else {
-                    // จัดการเมื่อมีข้อผิดพลาด เช่น ไม่สามารถเปลี่ยนสถานะได้
                     console.error('Failed to cancel reservation');
                 }
             })
@@ -105,6 +121,7 @@
                 console.error('Error:', error);
             });
         }
+
     </script>
 
 
