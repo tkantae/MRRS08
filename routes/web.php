@@ -33,6 +33,8 @@ Route::get('/info',function(){
 });
 
 Route::get('/User', [UserController::class,'getReserve']);
+Route::get('/auth/line', 'Auth\LoginController@redirectToLine');
+Route::get('/auth/line/callback', 'Auth\LoginController@handleLineCallback');
 Route::get('/follow', [UserController::class,'getFollow']);
 Route::get('/getsearch/{date}', [UserController::class, 'getSearch'])->name('getsearch');
 Route::get('/fillInformation', [UserController::class,'getInformation']);
@@ -45,7 +47,7 @@ Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
 Route::get('/Petition',[EmployeeController::class,'petition']);
 Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
-Route::get('/Statistics',[EmployeeController::class,'statistics']);
+Route::get('/Statistics',[EmployeeController::class,'statistics'])->name('titles_Employee.manage_account');
 Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
 Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
 Route::get('/Accout',[EmployeeController::class,'accout']);
