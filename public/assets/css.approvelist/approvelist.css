@@ -10,6 +10,7 @@ th {
     padding: 10px 25px;
     text-align: center;
     width: 130px;
+    height: 40px;
 }
 
 td {
@@ -24,10 +25,11 @@ td {
     background-color: #f1f1f1;
     width: 200px;
     height: 100px;
-    margin: 3px;
+    margin: 5px;
     text-align: center;
     line-height: 40px;
     font-size: 20px;
+    margin-top: 15px;
 }
 
 .flex-container {
@@ -56,13 +58,12 @@ input {
     width: 95%;
     display: block;
     border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
     overflow: hidden;
     border-collapse: collapse;
 
 }
-#prev{
+
+#prev {
     font-weight: bold;
     font-size: 20px;
     color: black;
@@ -72,6 +73,7 @@ input {
     border-top-right-radius: 20px;
     background-color: #ddd;
 }
+
 #next {
     font-weight: bold;
     font-size: 20px;
@@ -88,11 +90,6 @@ input {
     background-color: #3b81f2;
     color: white;
     border-collapse: collapse;
-}
-
-tfoot {
-    border-collapse: collapse;
-    background-color: #3b81f2;
 }
 
 #popup {
@@ -121,3 +118,37 @@ tfoot {
     background-color: #fff;
     color: black;
 }
+
+.bar {
+    border-collapse: collapse;
+    background-color: #3b81f2;
+    min-width: 10px;
+    width: 95%;
+    height: 45px;
+    text-align: right;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.buttons{
+    margin-right: 10px;
+}
+
+.buttons button {
+    border: none;
+    background-color: #3b81f2;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    margin-top: 13px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.buttons button:focus {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    color: black;
+
+}
+
