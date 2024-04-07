@@ -51,6 +51,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.reservation_list');
     }
 
+<<<<<<< Updated upstream
     // หน้าสถิติการจอง
     public function statistics(){
         $data = [
@@ -58,6 +59,74 @@ class EmployeeController extends Controller
             'room_count' => Room::count(),
         ];
         return view('titles_Employee.statistics' , compact('data'));
+=======
+    public function statistics()
+    {
+        //
+        return view('titles_Employee.statistics');
+    }
+
+    public function manage_account()
+    {
+        //
+        $users = User::all();
+        return view('titles_Employee.manage_account',['users' => $users]);
+    }
+
+    public function manage_rooms()
+    {
+
+        $rooms = Room::orderBy('id','desc')->paginate(5);
+        return view('titles_Employee.manage_rooms',['rooms' => $rooms]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create_room()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store_room(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Room $room)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit_room(Room $room)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update_room(Request $request, Room $room)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy_room(Room $room)
+    {
+        //
+>>>>>>> Stashed changes
     }
 
     public function accout()
