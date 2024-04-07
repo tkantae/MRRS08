@@ -7,8 +7,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< Updated upstream
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Account Management</title>
 
@@ -78,9 +81,25 @@
             text-align: right;
         }
     </style>
-</head>
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#example').DataTable( {
 
+        } );
+    } );
+    </script>
+>>>>>>> Stashed changes
+</head>
 <body>
+<<<<<<< Updated upstream
     <section class="content">
         <div class="row justify-content-center">
             <div class="col">
@@ -171,7 +190,70 @@
             });
         }
     </script>
-</body>
+=======
+    <table id="example" class="display" style="width:110%">
+    <thead>
+        <tr>
+            <th style="width: 10%">No.</th>
+            <th>Name</th>
+            <th>size</th>
+            <th>status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($rooms as $rooms)
+                <tr>
+                    <td>{{ $rooms->id }}</td>
+                    <td>{{ $rooms->ro_name }}</td>
+                    @if($rooms->ro_size == 'S')
+                    {
+                      <td>small</td>
+                    }
+                    @elseif($rooms->ro_size == 'M'){
+                      <td>medium</td>
+                    }
+                    @else{
+                        <td>large</td>
+                    }
+                    @endif
 
+
+                    @if($rooms->ro_avaliable == 1)
+                    {
+                      <td>avaliable</td>
+                    }
+                    @else{
+                      <td>unvaliable</td>
+                    }
+                    @endif
+
+                    <td>
+                        <a href="{{ url('/edit-room/' . $rooms->ro_id) }}"
+                            class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                        <form id="delete-form-{{ $rooms->ro_id }}" method="post"
+                            action="{{ url('/delete-user/' . $rooms->ro_id) }}"
+                            style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="button" class="btn btn-danger"
+                                onclick="deleteUser('{{ $rooms->ro_id }}')"><i
+                                    class="fas fa-trash-alt"></i> Delete</button>
+                        </form>
+                        <a href="{{ url('/edit-room/' . $rooms->ro_id) }}"
+                            class="btn btn-warning"><i class="fas fa-edit"></i> i</a>
+                    </td>
+                </tr>
+            @endforeach
+
+    </table>
+>>>>>>> Stashed changes
+</body>
 </html>
+<<<<<<< Updated upstream
+=======
+
+
+
+>>>>>>> Stashed changes
 @endsection
