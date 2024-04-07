@@ -29,7 +29,7 @@ class User extends Authenticatable
         'startdate',
         'lastestdate',
         'roles',
-        'linetoken',
+        'us_lineid',
         'reserver_id',
     ];
 
@@ -40,7 +40,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'us_password',
-        'linetoken',
+        'us_lineid',
     ];
 
     /**

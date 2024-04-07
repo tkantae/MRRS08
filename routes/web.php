@@ -3,8 +3,11 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
+use App\Models\reserver_information;
 use App\Models\Room;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LineLoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,9 @@ Route::get('/info',function(){
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
+Route::get('/fillInformation', [UserController::class,'getInformation']);
 Route::get('/searchRoom', [UserController::class,'getSearch']);
+
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
@@ -56,3 +61,9 @@ Route::post('/Manage_account', [EmployeeController::class, 'store_user'])->name(
 Route::get('/Manage_account/{user}/edit-user', [EmployeeController::class, 'edit_user'])->name('titles_Employee.edit_user');
 Route::put('/Manage_account/{user}/update-user', [EmployeeController::class, 'update_user'])->name('titles_Employee.update_user');
 Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class, 'destroy_user'])->name('titles_Employee.destroy-user');
+
+
+//API LINE LOGIN 
+Route::get('/line/login', [LineLoginController::class, 'redirectToLineLogin'])->name('line.login');
+Route::post('/line-callback', [LineLoginController::class, 'handleLineCallback']);
+
