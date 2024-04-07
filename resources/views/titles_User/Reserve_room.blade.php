@@ -11,11 +11,6 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
 
 <!-- /.content-header -->
-<form method="POST" action="{{ route('submit.form') }}">
-    @csrf
-    <input type="text" id="test" name="test">
-    <button type="submit">Submit</button>
-</form>
 
 <!-- Main content -->
 <form method="POST" action="{{ route('submit.form') }}">
@@ -33,7 +28,7 @@
             <div class="boxSelect">
                 <div class="textSelect">
                     <i class="fas fa-calendar-days"></i>
-                    <input type="text" class="datetime-picker" id="start-date" placeholder="Start Date" >
+                    <input type="text" class="datetime-picker" id="date" name="date" placeholder="Start Date" >
                     
                 </div>
             </div>

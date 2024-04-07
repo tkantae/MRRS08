@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
+
+    <form method="POST" action="{{ route('submit.form') }}">
+            @csrf
+            <input type="text" id="test" name="test">
+            <button type="submit">Submit</button>
+    </form>
     <div class="main">
 
         <div class="head">

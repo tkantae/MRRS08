@@ -11,20 +11,22 @@ class UserController extends Controller
 {
     public function handleFormSubmission(Request $request)
     {
-        $testData = $request->session()->get('testData');
-
+        $dateData = $request->input('date');
+    
         // Redirect to search page with data
-        return redirect()->route('getsearch')->with('testData', $testData);
+        return redirect()->route('getsearch', ['date' => $dateData]);
     }
+    
+    
     /**
      * Display a listing of the resource.
      */
     public function getSearch(Request $request)
     {
-        $testData = $request->input('test');
-        return view('titles_User.search_room',compact('testData'));
-        
+        $dateData = $request->session()->get('dateData');
+        return view('titles_User.search_room', compact('dateData'));
     }
+    
     public function getReserve()
     {
         //

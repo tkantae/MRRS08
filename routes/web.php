@@ -34,7 +34,7 @@ Route::get('/info',function(){
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
-Route::get('/getsearch', [UserController::class, 'getSearch'])->name('getsearch');
+Route::get('/getsearch/{date}', [UserController::class, 'getSearch'])->name('getsearch');
 Route::get('/fillInformation', [UserController::class,'getInformation']);
 Route::get('/calender', [UserController::class,'getcalender']);
 

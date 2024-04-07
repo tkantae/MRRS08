@@ -3,33 +3,30 @@
 @section('title', 'จองห้องประชุม')
 
 @section('reserv')
+<!-- Include Flatpickr library -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- Include Flatpickr range plugin -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
 <link rel="stylesheet" href="{{ url('assets/dist/css/searchroom.css') }}">
 
-<h1>Test Data:</h1>
-<p>{{ $testData }}</p>
 
 <div class="showroom">
     <div class="rowicon">
-        <div class="boxSelect-Calender" id="calenderStart">
-                <div class="textSelect">
-                    <i class="fas fa-calendar-days"></i>
-                    <span class="textSelect">
-                        <body>
-                        วว/ดด/ปปปป
-                        </body>
-                    </span>
-                </div>
+        <div class="boxSelect-calender">
+            <div class="textSelect">
+                <i class="fas fa-calendar-days"></i>
+                <input type="text" class="datetime-picker" id="date" name="date" placeholder="Start Date" >
+                
+            </div>
         </div>
         <div class="line-between-calender"></div>
-        <div class="boxSelect-Calender" id="calenderEnd">
-                <div class="textSelect">
-                    <i class="fas fa-calendar-days"></i>
-                    <span class="textSelect">
-                        <body>
-                        วว/ดด/ปปปป
-                        </body>
-                    </span>
-                </div>
+        <div class="boxSelect-calender" style="margin-left: 0px;">
+            <div class="textSelect">
+                <i class="fas fa-calendar-days"></i>
+                <input type="text" class="datetime-picker" id="end-date" placeholder="End Date">
+
+            </div>
         </div>
         <div class="boxSelect-Size">
             <div class="textSelect">
@@ -162,4 +159,14 @@
         </div>
     </div>
 </div>
+<script>
+        // Initialize Flatpickr datetime pickers for both inputs
+        flatpickr('.datetime-picker', {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            altInput: true,
+            altFormat: "F j, Y H:i",
+            plugins: [new rangePlugin({ input: "#end-date"})] 
+        });
+    </script>
 @endsection
