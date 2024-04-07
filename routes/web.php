@@ -62,3 +62,15 @@ Route::post('/changeDataApprove', [EmployeeController::class, 'petition1'])->nam
 Route::post('/changeDataReject', [EmployeeController::class, 'petition2'])->name('changeDataReject');
 
 
+<<<<<<< Updated upstream
+=======
+
+//route for managing rooms
+Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
+Route::get('/Manage_rooms/add-rooms',[EmployeeController::class,'create_rooms'])->name('titles_Employee.add_rooms');
+
+Route::get('/data_table', function () {
+    return view('titles_Employee.data_table');
+});
+
+>>>>>>> Stashed changes

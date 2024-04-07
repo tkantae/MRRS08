@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>User Account Management</title>
 
+<<<<<<< Updated upstream
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -156,5 +157,25 @@
     </body>
     
     </html>
+=======
+
+                    <form   action="{{ route('titles_Employee.destroy-user' , $user->id) }}" method="post" style="display: inline;">
+                        <a href="{{route('titles_Employee.edit_user',$user->id)}}" method="post"class="btn btn-warning">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"> Delete</button>
+                    </form>
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+    </table>
+</body>
+</html>
+
+
+>>>>>>> Stashed changes
 @endsection
 
