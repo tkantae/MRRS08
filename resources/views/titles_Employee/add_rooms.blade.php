@@ -113,7 +113,8 @@
 
     </section>
     <script>
-        document.getElementById('image').addEventListener('change', function() {
+        document.getElementById('image').addEventListener('change',
+        function() {
             var files = this.files;
             if (files.length > 3) {
                 alert('คุณสามารถเลือกไฟล์รูปภาพได้สูงสุด 3 รูปเท่านั้น');

@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,13 +57,13 @@ Route::get('/Manage_account/{user}/edit-user', [EmployeeController::class, 'edit
 Route::put('/Manage_account/{user}/update-user', [EmployeeController::class, 'update_user'])->name('titles_Employee.update_user');
 Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class, 'destroy_user'])->name('titles_Employee.destroy-user');
 
-//route for managing rooms 
-Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
-Route::get('/Manage_rooms/add-rooms',[EmployeeController::class,'create_rooms'])->name('titles_Employee.add_rooms');
-Route::post('/Manage_rooms', [EmployeeController::class, 'store_rooms'])->name('titles_Employee.store_rooms');
-Route::get('/Manage_rooms/{rooms}/edit-rooms', [EmployeeController::class, 'edit_rooms'])->name('titles_Employee.edit_rooms');
-Route::put('/Manage_rooms/{rooms}/update-rooms', [EmployeeController::class, 'update_rooms'])->name('titles_Employee.update_rooms');
-Route::delete('/Manage_account/{rooms}/destroy-rooms', [EmployeeController::class, 'destroy_rooms'])->name('titles_Employee.destroy-rooms');
+//route for managing rooms
+Route::get('/Manage_rooms',[RoomController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
+Route::get('/Manage_rooms/add-rooms',[RoomController::class,'create_rooms'])->name('titles_Employee.add_rooms');
+Route::post('/Manage_rooms', [RoomController::class, 'store_rooms'])->name('titles_Employee.store_rooms');
+Route::get('/Manage_rooms/{rooms}/edit-rooms', [RoomController::class, 'edit_rooms'])->name('titles_Employee.edit_rooms');
+Route::put('/Manage_rooms/{rooms}/update-rooms', [RoomController::class, 'update_rooms'])->name('titles_Employee.update_rooms');
+Route::delete('/Manage_account/{rooms}/destroy-rooms', [RoomController::class, 'destroy_rooms'])->name('titles_Employee.destroy-rooms');
 
 
 
