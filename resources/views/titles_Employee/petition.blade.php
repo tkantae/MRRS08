@@ -20,7 +20,7 @@
         <div class="head">
             <button id="prev" onclick="changeDataApprove()">คำขอการจอง</button>
             <button id="next" onclick="changeDataReject()">คำขอยกเลิก</button>
-            <input type="search" placeholder="search" style=";position: relative; left:48%;">
+            <input type="search" placeholder="search" style="margin-left: 500px;">
         </div>
         <script>
             function changeDataApprove() {
@@ -64,7 +64,7 @@
 
         @endif
 
-        <div class="card-footer clearfix text-center">
+        <div class="card-footer clearfix text-center" style="width: 1060px;">
             <ul class="pagination pagination-sm m-0">
                 {!! $reservations->links('pagination::bootstrap-4') !!}
             </ul>

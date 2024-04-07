@@ -1,7 +1,6 @@
 body {
     background: #fff;
 }
-
 th {
     background-color: #3b81f2;
     color: white;
@@ -9,7 +8,7 @@ th {
     font-weight: bold;
     padding: 10px 25px;
     text-align: center;
-    width: 130px;
+    width: 250px;
     height: 40px;
 }
 
