@@ -42,62 +42,60 @@
         .fas{
             color: #FFFFFF;
         }
-        #btn-login{
+        .btn-login{
+            width: 300px;
             background: rgba(68, 109, 255, 0.616246);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             border-radius: 15px;
+            text-align: center;
+            margin: 0 auto;
         }
         #left{
-            background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%);
+            background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%); //background color
         }
     </Style>
 </head>
 <body class="hold-transition login-page">
     <!--div class="column" id="left">
-        <div class="image-container">
-            <img src="{{ url('assets\dist\img\LOGOMRRS.png') }}" alt="LOGOMRRS">
-        </div>
+            <div class="image-container">
+                    <img src="{{ url('assets\dist\img\LOGOMRRS.png') }}" alt="LOGOMRRS">
+            </div>
     </div-->
     <div class="login-box">
-    <!-- /.login-logo -->
-    <div class="card card-outline card-primary">
-        <div class="card-header text-center">
-            <h1><b>Welcome</b></h1>
-        </div>
-        <div class="card-body">
-        <form action="{{ url('login') }}" method="post">
-            @csrf
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-envelope"></span>
+        <!-- /.login-logo -->
+        <div class="card card-outline">
+            <div class="text-center">
+                <h1><b>Welcome</b></h1>
+            </div>
+            <div class="card-body">
+            <form action="{{ url('login') }}" method="post">
+                @csrf
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
                     </div>
+                    <input type="text"  name="username"class="form-control" placeholder="Username">
                 </div>
-                <input type="text" class="form-control" placeholder="Username">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-lock"></span>
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
                     </div>
+                    <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
-                <input type="password" class="form-control" placeholder="Password">
+                <div class="btn-login">
+                    <button type="submit" class="btn ">Log In</button>
+                </div>
+            </form>
             </div>
-            <div class="row">
-            <!-- /.col -->
-            <div class="col-4">
-                <button type="submit" class="btn btn-primary" id ="btn-login">Log In</button>
-            </div>
-            <!-- /.col -->
-            </div>
-        </form>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
+        <!-- /.card -->
     </div>
-    <!-- /.card -->
-    </div>
-<!-- /.login-box -->
-
+    <!-- /.login-box -->
 <!-- jQuery -->
 <script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
