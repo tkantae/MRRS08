@@ -51,6 +51,31 @@ class EmployeeController extends Controller
         $data['reservations'] = reservations::all();
         return view('titles_Employee.reservation_list',$data);
     }
+    public function reservation_cancel(Request $request, $id)
+    {
+        $data = $request->validate([
+            'res_status' => 'required',
+            'res_startdate'  => 'required',
+            'res_enddate' => 'required',
+            'res_serialcode' => 'required',
+            'res_total' => 'required',
+            'res_typeroom' => 'required',
+            'res_daytype' => 'required'
+        ]);
+
+        $newUser = User::find($user);
+        $newUser->us_fname = $request->first_name;
+        $newUser->us_lname = $request->last_name;
+        $newUser->us_email = $request->email;
+        $newUser->us_tel = $request->mobile;
+        $newUser->us_name = $request->username;
+        $newUser->roles = $request->position;
+        $newUser->us_password = bcrypt($request->password);
+        $newUser->save();
+        return redirect()->route('titles_Employee.update');
+        $data['reservations'] = reservations::all();
+        return view('titles_Employee.reservation_list',$data);
+    }
     public function popupReservations($res_serialcode)
     {
         $data['popupReservations'] = reservations::where('res_serialcode', $res_serialcode)->get();
