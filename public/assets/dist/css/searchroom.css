@@ -21,6 +21,8 @@
     display: flex;
     justify-content: space-between;
     height: auto;
+    padding-left: 75px;
+    padding-right: 75px;
 }
 .boxRoom{
     width: 360px;
