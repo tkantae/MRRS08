@@ -14,56 +14,55 @@
     <link rel="stylesheet" href="{{ url('//cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css') }}">
     <!-- boootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <Style>
 
+    </Style>
 @section('content')
-    <div class="flex-container">
-        <div>
-            <span class="title">คำการจอง</span><br>
-            <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">5</span>
-            <span>รายการ</span>
-        </div>
-    </div>
-    <div class="head">
-        <button id="prev"  style=";position: relative; left:2.5%;">รายการจอง</button>
-        <input type="search" placeholder="search" style=";position: relative; left:60%;">
-    </div>
-
     <center>
-        <table class="rwd-table">
-            <thead>
-                <tr>
-                    <th>ลำดับ</th>
-                    <th>วันที่เข้าใช้</th>
-                    <th>ชื่อผู้จอง</th>
-                    <th>ชื่อห้อง</th>
-                    <th>ขนาดห้อง</th>
-                    <th>รอดำเนินการ</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr>
-                    @foreach ($reservations as $res_id => $reservations)
-                    @if ($reservations->res_status == "A")
+        <div class="flex-container">
+            <div>
+                <span class="title">คำขอการจอง</span><br>
+                <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">5</span>
+                <span>รายการ</span>
+            </div>
+        </div>
+        <input type="search" placeholder="search" >
+        <div>
+            <table class="rwd-table">
+                <thead>
                     <tr>
-                        <td>{{ $res_id + 1 }}</td>
-                        <td>{{ $reservations->res_serialcode }}</td>
-                        <td>{{ $reservations->res_startdate }}</td>
-                        <td>{{ $reservations->reserver_id }}</td>
-                        <td>{{ $reservations->res_typeroom }}</td>
-                        <td>
-                           <button class="btn btn-cancel" onclick="cancelReservation('{{ $reservations->res_id }}')" style="background-color: #dc3545; color: white">ยกเลิก</button>
-                           <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
-                       </td>
+                      <th scope="col">ลำดับ</th>
+                      <th scope="col">วันที่เข้าใช้งาน</th>
+                      <th scope="col">ชื่อผู้จอง</th>
+                      <th scope="col">ชื่อห้อง</th>
+                      <th scope="col">ขนาดห้อง</th>
+                      <th scope="col">รอดำเนินการ</th>
                     </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach ($reservations as $res_id => $reservations)
+                        @if ($reservations->res_status == "A")
+                        <tr>
+                            <td>{{ $res_id + 1 }}</td>
+                            <td>{{ $reservations->res_serialcode }}</td>
+                            <td>{{ $reservations->res_startdate }}</td>
+                            <td>{{ $reservations->reserver_id }}</td>
+                            <td>{{ $reservations->res_typeroom }}</td>
+                            <td>
+                               <button class="btn btn-cancel" onclick="cancelReservation('{{ $reservations->res_id }}')" style="background-color: #dc3545; color: white">ยกเลิก</button>
+                               <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                           </td>
+                        </tr>
 
-                    @endif
+                        @endif
 
-                @endforeach
-               </tr>
-            </tbody>
-        </table>
+                    @endforeach
+                   </tr>
+                </tbody>
+            </table>
+        </div>
+
 
 
 
