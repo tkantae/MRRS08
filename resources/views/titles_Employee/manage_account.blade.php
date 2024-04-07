@@ -14,16 +14,19 @@
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ url('assets/css.buttonadd/add.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+        {{--style นี้ท่าไม่ใช้หรืออยากเปลี่ยน หรือจะเอาไปแยกไฟล์จัดการได้เลย--}}
         <style>
             .content {
                 display: flex;
@@ -80,21 +83,27 @@
     </head>
 
     <body>
+        {{--พวก section div ต่างอันไหนท่าไม่ได้ใช้ตกแต่ง ลบทิ้งได้ท่าไม่ได้เกี่ยวกับตัวระบบ--}}
         <section class="content">
             <div class="row justify-content-center">
                 <div class="col">
+                    {{--ตัว card กล่องทั้งหมด--}}
                     <div class="card">
+                        {{--หัว card--}}
                         <div class="card-header">
                             <h3 class="card-title">User Account Management</h3>
                         </div>
+                        {{--ตัว card--}}
                         <div class="card-body">
                             <div class="btn-container">
-                                <a href="{{ url('/add-user') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add
+                                <a href="{{ url('/Manage_account/add-user') }}" class="btn btn-primary"><i
+                                        class="fas fa-plus"></i> Add
                                     User</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
+                                        {{--ตารางหัว culum --}}
                                         <tr>
                                             <th style="width: 10%">No.</th>
                                             <th>Username</th>
@@ -104,7 +113,8 @@
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody> 
+                                        {{--loop แสดงข้อมูล culum --}}
                                         @foreach ($users as $key => $user)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
@@ -113,17 +123,17 @@
                                                 <td>{{ $user->us_tel }}</td>
                                                 <td>{{ $user->startdate }}</td>
                                                 <td>
-                                                    <a href="{{route('titles_Employee.edit_account_user',$user ->us_id)}}"class="btn btn-warning">
-                                                        <i class="fas fa-edit"></i> Edit
-                                                    </a>
-                                                    <form id="delete-form-{{ $user->id }}" method="post"
-                                                        action="{{ url('/delete-user/' . $user->id) }}"
+                                                    <form method="POST"
+                                                        action="{{ route('titles_Employee.destroy-user', ['user' => $user]) }}"
                                                         style="display: inline;">
+                                                        <a href="{{ route('titles_Employee.edit_user', ['user' => $user->id]) }}"
+                                                            class="btn btn-warning">
+                                                            <i class="fas fa-edit"></i> Edit
+                                                        </a>
                                                         @csrf
-                                                        @method('DELETE')
-                                                        <button type="button" class="btn btn-danger"
-                                                            onclick="deleteUser('{{ $user->id }}')"><i
-                                                                class="fas fa-trash-alt"></i> Delete</button>
+                                                        @method('delete')
+                                                        <button type="submit" value="Delete" class="btn btn-danger">
+                                                            Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -132,6 +142,7 @@
                                 </table>
                             </div>
                         </div>
+                        {{--ด้านใต้ card--}}
                         <div class="card-footer clearfix text-center">
                             <ul class="pagination pagination-sm m-0">
                                 {!! $users->links('pagination::bootstrap-4') !!}
@@ -141,38 +152,8 @@
                 </div>
             </div>
         </section>
-
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <!-- Popper.js -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- SweetAlert2 -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script>
-            function deleteUser(userId) {
-                Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                        });
-                        document.getElementById('delete-form-' + userId).submit();
-                    }
-                });
-            }
-        </script>
     </body>
-
+    
     </html>
 @endsection
+
