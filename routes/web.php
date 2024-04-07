@@ -60,7 +60,9 @@ Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class,
 Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
 Route::get('/Manage_rooms/add-rooms',[EmployeeController::class,'create_rooms'])->name('titles_Employee.add_rooms');
 Route::post('/Manage_rooms', [EmployeeController::class, 'store_rooms'])->name('titles_Employee.store_rooms');
-
+Route::get('/Manage_rooms/{rooms}/edit-rooms', [EmployeeController::class, 'edit_rooms'])->name('titles_Employee.edit_rooms');
+Route::put('/Manage_rooms/{rooms}/update-rooms', [EmployeeController::class, 'update_rooms'])->name('titles_Employee.update_rooms');
+Route::delete('/Manage_account/{rooms}/destroy-rooms', [EmployeeController::class, 'destroy_rooms'])->name('titles_Employee.destroy-rooms');
 
 
 

@@ -67,18 +67,17 @@
                                 Unavailable
                             @endif
                         </td>
-
                         <td>
-                            <a href="{{ url('/edit-room/' . $rooms->ro_id) }}" class="btn btn-warning"><i
-                                    class="fas fa-edit"></i> Edit</a>
-                            <form id="delete-form-{{ $rooms->ro_id }}" method="post"
-                                action="{{ url('/delete-user/' . $rooms->ro_id) }}" style="display: inline;">
+                            <form method="post" action="{{ route('titles_Employee.destroy-rooms', ['rooms' => $rooms]) }}"
+                                style="display: inline;">
+                                <a href="{{ route('titles_Employee.edit_rooms', ['rooms' => $rooms]) }}"
+                                    class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
                                 @csrf
-                                @method('DELETE')
-                                <button type="button" class="btn btn-danger" onclick="deleteUser('{{ $rooms->ro_id }}')"><i
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger" value="Delete"><i
                                         class="fas fa-trash-alt"></i> Delete</button>
                             </form>
-                            <a href="{{ url('/edit-room/' . $rooms->ro_id) }}" class="btn btn-warning"><i
+                            <a href="" class="btn btn-warning"><i
                                     class="fas fa-edit"></i> i</a>
                         </td>
                     </tr>

@@ -22,14 +22,14 @@
         <br>
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">เพิ่มห้องประชุม</h3>
+                <h3 class="card-title">แก้ไขห้องประชุม</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 {{-- form กรอกข้อมูล --}}
-                <form action="{{ route('titles_Employee.store_rooms') }}" method="post">
+                <form action="{{ route('titles_Employee.update_rooms', ['rooms' => $rooms]) }}" method="post">
                     @csrf
-                    @method('post')
+                    @method('put')
                     <div class="form-group">
                         <label for="room">ห้อง</label>
                         <input type="text" class="form-control" id="room" name="room"
@@ -95,14 +95,6 @@
                             placeholder="- โต็ะประชุมขนาดใหญ่ จำนวน 1 โต็ะ">
                     </div>
 
-                    {{-- code up load filr image here --}}
-                    <div class="form-group">
-                        <label for="image">อัปโหลดรูปภาพ (สูงสุด 3 รูป)</label>
-                        <input type="file" class="form-control" id="image" name="image[]" accept="image/*" multiple>
-                        <small id="imageHelp" class="form-text text-muted">เลือกรูปภาพได้สูงสุด 3 รูป</small>
-                        <!-- แสดงรูปภาพที่เลือก -->
-                        <div id="imagePreview" class="mt-2"></div>
-                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-info">Submit</button>
                         <button type="reset" class="btn btn-default float-right">Reset</button>
@@ -112,29 +104,4 @@
         </div>
 
     </section>
-    <script>
-        document.getElementById('image').addEventListener('change', function() {
-            var files = this.files;
-            if (files.length > 3) {
-                alert('คุณสามารถเลือกไฟล์รูปภาพได้สูงสุด 3 รูปเท่านั้น');
-                this.value = ''; // ล้างไฟล์ที่เลือกให้ว่าง
-                return false;
-            }
-            var preview = document.getElementById('imagePreview');
-            preview.innerHTML = '';
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.style.maxWidth = '100px';
-                    img.style.marginRight = '5px';
-                    img.style.marginBottom = '5px';
-                    preview.appendChild(img);
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-    </script>
 @endsection

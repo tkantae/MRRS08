@@ -170,8 +170,44 @@ class EmployeeController extends Controller
 
         return redirect()->route('titles_Employee.store_rooms');
     }
-    
 
+    public function edit_rooms(Room $rooms)
+    {
+        return view('titles_Employee.edit_rooms', ['rooms' => $rooms]);
+    }
+    
+    public function update_rooms(Request $request, Room $rooms)
+    {
+        $data = $request->validate([
+            'room' => 'required',
+            'price'  => 'required',
+            'size_room' => 'required',
+            'capacity' => 'required',
+            'typeroom' => 'required',
+            'status_room' => 'required',
+            'typesplit' => 'required',
+            'notation' => 'required'
+        ]);
+        $rooms->ro_name= $request->room;
+        $rooms->ro_price = $request->price;
+        $rooms->ro_size = $request->size_room;
+        $rooms->ro_capacity = $request->capacity;
+        $rooms->ro_typeroom = $request->typeroom;
+        $rooms->ro_avaliable = $request->status_room;
+        $rooms->ro_cansplit = $request->typesplit;
+        $rooms->ro_description = $request->notation;
+        $rooms->save();
+        
+
+        return redirect()->route('titles_Employee.manage_rooms')->with('success', 'แก้ไขข้อมูลห้องสำเร็จ');;
+    }
+    public function destroy_rooms(Room $rooms)
+    {
+        // ลบข้อมูลผู้ใช้ออกจากฐานข้อมูล
+        $rooms->delete();
+
+        return redirect(route('titles_Employee.manage_rooms'))->with('success', 'ลบข้อมูลห้องสำเร็จ');
+    }
 
     /*manage_account
     create_user
