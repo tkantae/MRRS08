@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\User;
 use App\Http\Controllers\Validator;
 use App\Http\Controllers\UserController;
+use App\Models\reservations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -47,10 +48,19 @@ class EmployeeController extends Controller
 
     public function reservation_list()
     {
-        //
-        return view('titles_Employee.reservation_list');
+        $data['reservations'] = reservations::all();
+        return view('titles_Employee.reservation_list',$data);
+    }
+    public function popupReservations($res_serialcode)
+    {
+        $data['popupReservations'] = reservations::where('res_serialcode', $res_serialcode)->get();
+        return view('titles_Employee.reservation_list', $data);
     }
 
+    public function showReservation($res_serialcode)
+{
+    return $this->popupReservations($res_serialcode);
+}
     public function statistics()
     {
         //
@@ -77,7 +87,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -117,7 +127,7 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
- 
+
 
     /**
      * Update the specified resource in storage.
@@ -161,4 +171,4 @@ class EmployeeController extends Controller
         return view('titles_Employee.edit_account_user', compact('user'));
     }
 }
-   
+
