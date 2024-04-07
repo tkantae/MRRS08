@@ -30,10 +30,9 @@
 <div class="info-row">
     <div class="info-box" id="box1">
         <span class="info">
-            <tr>xxxxxxxxxxxxxxxxxxxxxxxxx</tr></br>
-            <tr>xxxxxxxxxxxxxxxxxxxxxxxxx</tr></br>
-            <tr>xxxxxxxxxxxxxxxxxxxxxxxxx</tr></br>
-            <tr>xxxxxxxxxxxxxxxxxxxxxxxxx</tr></br>
+            <tr>
+                <td>{{$}}
+            </tr>
         </span>
 
 
