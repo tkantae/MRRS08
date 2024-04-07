@@ -3,7 +3,7 @@
 @section('title', 'คำร้องขอ')
 @section('content')
     <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <div class="flex-container">
         <div>
             <span class="title">คำขอการจอง</span><br>
@@ -25,33 +25,46 @@
     <script>
         function changeDataApprove() {
             var $test01 = true;
-
             // ตรวจสอบว่าค่าถูกเปลี่ยนหรือไม่
             console.log('ค่าตัวแปร test01 ได้รับการเปลี่ยนแปลงเป็น: ' + $test01);
         }
-
         function changeDataReject() {
             var $test01 = false;
-
             // ตรวจสอบว่าค่าถูกเปลี่ยนหรือไม่
             console.log('ค่าตัวแปร test01 ได้รับการเปลี่ยนแปลงเป็น: ' + $test01);
         }
     </script>
     @if ($test01)
-        <table class="rwd-table">
-            <thead>
+    <table class="rwd-table">
+        <thead>
+            <tr>
+                <th>ลำดับ</th>
+                <th>วันที่เข้าใช้</th>
+                <th>ชื่อผู้จอง</th>
+                <th>ชื่อห้อง</th>
+                <th>ขนาดห้อง</th>
+                <th>รอดำเนินการ</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($reservations as $reservation)
                 <tr>
-                    <th>ลำดับ</th>
+                    <td>{{ $reservation->res_id }}</td>
+                    <td>{{ $reservation->res_startdate }}</td>
+                    <td>{{ $reservation->res_ }}</td>
+                    <td>{{ $reservation->ro_id }}</td>
+                    <td>{{ $reservation->res_typeroom }}</td>
+                    <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
+                        <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
+                    </td>
+                    <td>
+                        <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($reservations as $reservation)
-                    <tr>
-                        <td>{{ $reservation->res_id }}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+            @endforeach
+        </tbody>
+    </table>
     @else ()
         <table class="rwd-table">
             <thead>
@@ -87,7 +100,7 @@
 
     <div class="card-footer clearfix text-center">
         <ul class="pagination pagination-sm m-0">
-            {!! $reservations->links('pagination::bootstrap-4') !!}
+            {!! $reservations->links('pagination::bootstrap-5') !!}
         </ul>
     </div>
 
