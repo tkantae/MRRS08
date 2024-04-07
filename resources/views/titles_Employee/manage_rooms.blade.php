@@ -90,7 +90,7 @@
                     </div>
                     <div class="card-body">
                         <div class="btn-container">
-                            <a href="{{ url('/add-room') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add
+                            <a href="{{ url('/Manage_rooms/add-rooms') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add
                                 Room</a>
                         </div>
                         <div class="table-responsive">

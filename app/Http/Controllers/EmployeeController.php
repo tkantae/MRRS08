@@ -60,20 +60,23 @@ class EmployeeController extends Controller
         return view('titles_Employee.statistics' , compact('data'));
     }
 
-
-
-    public function manage_rooms()
-    {
-        //
-        $rooms = Room::orderBy('id')->get();
-        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
-    }
-
     public function accout()
     {
         //
         return view('titles_Employee.accout');
     }
+
+    public function manage_rooms()
+    {
+        $rooms = Room::orderBy('id')->get();
+        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
+    }
+
+    public function create_rooms(){
+        return view('titles_Employee.add_rooms');
+    }
+
+    
 
 
     /*manage_account

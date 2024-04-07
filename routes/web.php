@@ -43,9 +43,7 @@ Route::get('/Petition',[EmployeeController::class,'petition']);
 Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
 Route::get('/Statistics',[EmployeeController::class,'statistics'])->name('titles_Employee.manage_account');
 Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
-Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
 Route::get('/Accout',[EmployeeController::class,'accout']);
-
 Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
@@ -58,3 +56,6 @@ Route::get('/Manage_account/{user}/edit-user', [EmployeeController::class, 'edit
 Route::put('/Manage_account/{user}/update-user', [EmployeeController::class, 'update_user'])->name('titles_Employee.update_user');
 Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class, 'destroy_user'])->name('titles_Employee.destroy-user');
 
+//route for managing rooms 
+Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
+Route::get('/Manage_rooms/add-rooms',[EmployeeController::class,'create_rooms'])->name('titles_Employee.add_rooms');
