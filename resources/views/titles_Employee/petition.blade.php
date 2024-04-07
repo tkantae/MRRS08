@@ -2,8 +2,8 @@
 
 @section('title', 'คำร้องขอ')
 @section('content')
-
     <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <div class="flex-container">
         <div>
             <span class="title">คำขอการจอง</span><br>
@@ -22,6 +22,19 @@
         <button id="next" onclick="changeDataReject()">คำขอยกเลิก</button>
         <input type="search" placeholder="search" style=";position: relative; left:48%;">
     </div>
+    <script>
+        function changeDataApprove() {
+            var $test01 = true;
+            // ตรวจสอบว่าค่าถูกเปลี่ยนหรือไม่
+            console.log('ค่าตัวแปร test01 ได้รับการเปลี่ยนแปลงเป็น: ' + $test01);
+        }
+        function changeDataReject() {
+            var $test01 = false;
+            // ตรวจสอบว่าค่าถูกเปลี่ยนหรือไม่
+            console.log('ค่าตัวแปร test01 ได้รับการเปลี่ยนแปลงเป็น: ' + $test01);
+        }
+    </script>
+    @if ($test01)
     <table class="rwd-table">
         <thead>
             <tr>
@@ -32,36 +45,16 @@
                 <th>ขนาดห้อง</th>
                 <th>รอดำเนินการ</th>
                 <th></th>
+            </tr>
         </thead>
         <tbody>
-            <script>
-                function changeDataApprove() {
-                    const table = document.querySelector('table');
-                    const rows = table.querySelectorAll('tr');
-
-                    for (let i = 1; i < rows.length; i++) {
-                        const cells = rows[i].querySelectorAll('td');
-                        const name = cells[0].textContent;
-                    }
-                }
-
-                function changeDataReject() {
-                    const table = document.querySelector('table');
-                    const rows = table.querySelectorAll('tr');
-
-                    for (let i = 1; i < rows.length; i++) {
-                        const cells = rows[i].querySelectorAll('td');
-                        const gender = cells[2].textContent;
-                    }
-                }
-            </script>
-            @foreach ($data as $reservations)
+            @foreach ($reservations as $reservation)
                 <tr>
-                    <td>{{ $reservations->res_id }}</td>
-                    <td>{{ $reservations->res_startdate }}</td>
-                    <td>{{ $reservations->res_ }}</td>
-                    <td>{{ $reservations->ro_id }}</td>
-                    <td>{{ $reservations->res_typeroom }}</td>
+                    <td>{{ $reservation->res_id }}</td>
+                    <td>{{ $reservation->res_startdate }}</td>
+                    <td>{{ $reservation->res_ }}</td>
+                    <td>{{ $reservation->ro_id }}</td>
+                    <td>{{ $reservation->res_typeroom }}</td>
                     <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
                         <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
                     </td>
@@ -70,83 +63,48 @@
                     </td>
                 </tr>
             @endforeach
-            <tr>
-                <td>1</td>
-                <td>18/01/66</td>
-                <td>08:00 น. - 12:00 น.</td>
-                <td>ห้องประชุม 101</td>
-                <td>กลาง(เต็มห้อง)</td>
-                <td>
-                    <a href="/"><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
-                    <a href="/"><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
-                <td>
-                    <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
-                </td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
         </tbody>
-        <tfoot>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td style="color: white">
-                    เปลี่ยนหน้า
-                </td>
-            </tr>
-        </tfoot>
     </table>
+    @else ()
+        <table class="rwd-table">
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>วันที่เข้าใช้</th>
+                    <th>ชื่อผู้จอง</th>
+                    <th>ชื่อห้อง</th>
+                    <th>ขนาดห้อง</th>
+                    <th>รอดำเนินการ</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($reservations as $reservation)
+                    <tr>
+                        <td>{{ $reservation->res_id }}</td>
+                        <td>{{ $reservation->res_startdate }}</td>
+                        <td>{{ $reservation->res_ }}</td>
+                        <td>{{ $reservation->ro_id }}</td>
+                        <td>{{ $reservation->res_typeroom }}</td>
+                        <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
+                            <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
+                        </td>
+                        <td>
+                            <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @endif
 
-    <div id="popup" class="hidden">
+    <div class="card-footer clearfix text-center">
+        <ul class="pagination pagination-sm m-0">
+            {!! $reservations->links('pagination::bootstrap-5') !!}
+        </ul>
+    </div>
+
+    {{-- <div id="popup" class="hidden">
         <table style="width:100%;">
             <tr>
                 <th colspan="2"
@@ -160,9 +118,9 @@
             </tr>
         </table>
         <button type="button" id="close-popup">ปิด Popup</button>
-    </div>
+    </div> --}}
 
-    <script>
+    {{-- <script>
         const openPopupBtn = document.getElementById("detail");
         const popup = document.getElementById("popup");
         const closePopupBtn = document.getElementById("close-popup");
@@ -174,5 +132,6 @@
         closePopupBtn.addEventListener("click", () => {
             popup.classList.remove("show");
         });
-    </script>
+    </script> --}}
+
 @endsection

@@ -29,6 +29,17 @@ class UserController extends Controller
         //
         return view('titles_User.search_room');
     }
+    public function getInformation()
+    {
+        //
+        return view('titles_User.fill_information');
+    }
+    public function getcalender()
+    {
+        //
+        return view('titles_User.testcalender');
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
