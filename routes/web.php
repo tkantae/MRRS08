@@ -39,7 +39,7 @@ Route::get('/searchRoom', [UserController::class,'getSearch']);
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
-Route::get('/Petition',[EmployeeController::class,'petition']);
+Route::get('/Petition',[EmployeeController::class,'petition'])->name('test');
 Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
 Route::get('/Statistics',[EmployeeController::class,'statistics'])->name('titles_Employee.manage_account');
 Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
@@ -57,4 +57,8 @@ Route::post('/Manage_account', [EmployeeController::class, 'store_user'])->name(
 Route::get('/Manage_account/{user}/edit-user', [EmployeeController::class, 'edit_user'])->name('titles_Employee.edit_user');
 Route::put('/Manage_account/{user}/update-user', [EmployeeController::class, 'update_user'])->name('titles_Employee.update_user');
 Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class, 'destroy_user'])->name('titles_Employee.destroy-user');
+
+Route::post('/changeDataApprove', [EmployeeController::class, 'petition1'])->name('changeDataApprove');
+Route::post('/changeDataReject', [EmployeeController::class, 'petition2'])->name('changeDataReject');
+
 
