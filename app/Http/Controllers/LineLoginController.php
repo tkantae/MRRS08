@@ -1,78 +1,63 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
-use Illuminate\Support\Facades\Log;
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Socialite;
-use Auth;
-use Exception;
-use App\User;
-use App\AuthProvider;
+namespace App\Http\Controllers;
 
-class LoginController extends Controller
+use Illuminate\Http\Request;
+
+class LineLoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function redirectToLineLogin()
     {
-        $this->middleware('guest')->except('logout');
+        // ทำการ redirect ไปยัง URL ของ Line Login
+        return redirect()->away('https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id='.env('LINE_LOGIN_CHANNEL_ID').'&redirect_uri='.urlencode(env('LINE_LOGIN_CALLBACK_URL')).'&state=12345abcde&scope=openid%20profile');
     }
 
-    public function redirectToLine() {
-        return Socialite::driver('line')->redirect();
-    }
-    public function handleLineCallback() {
-        try{
-            $user = Socialite::driver('line')->user();
-            $finduser = AuthProvider::where('provider', 'line')->where('provider_id', $user->id)->first();
-            if ($finduser) {
-                $user = User::where('id', $finduser->user_id)->first();
-                Auth::login($user);
-                return redirect('/');
+    public function handleLineCallback(Request $request)
+    {
+        // ตรวจสอบรหัส code จาก callback ของ Line API
+        $code = $request->query('code');
+
+        // เรียกใช้งาน Line API เพื่อรับ Access Token โดยใช้รหัส code
+        $response = Http::post('https://api.line.me/oauth2/v2.1/token', [
+            'grant_type' => 'authorization_code',
+            'code' => $code,
+            'redirect_uri' => env('LINE_LOGIN_CALLBACK_URL'),
+            'client_id' => env('LINE_LOGIN_CHANNEL_ID'),
+            'client_secret' => env('LINE_LOGIN_CHANNEL_SECRET')
+        ]);
+
+        // ตรวจสอบว่าการเรียกใช้งาน API สำเร็จหรือไม่
+        if ($response->successful()) {
+            // รับข้อมูล Access Token จากการตอบกลับ
+            $accessToken = $response['access_token'];
+
+            // เรียกใช้งาน Line API เพื่อรับข้อมูลผู้ใช้
+            $userResponse = Http::withHeaders([
+                'Authorization' => 'Bearer '.$accessToken
+            ])->get('https://api.line.me/v2/profile');
+
+            // ตรวจสอบว่าการเรียกใช้งาน API สำเร็จหรือไม่
+            if ($userResponse->successful()) {
+                // รับข้อมูลผู้ใช้จากการตอบกลับ
+                $userData = $userResponse->json();
+
+                // นำข้อมูลผู้ใช้ที่ได้รับมาจาก Line API เพื่อทำการบันทึกในฐานข้อมูล MySQL
+                // เช่น บันทึก userLineID, displayName, pictureUrl, statusMessage, หรือข้อมูลอื่น ๆ ตามที่ต้องการ
+                $user = new User();
+                $user->line_user_id = $userData['userId'];
+                $user->save();
+                // เมื่อบันทึกข้อมูลผู้ใช้ลงในฐานข้อมูลเรียบร้อยแล้ว
+                // คุณสามารถทำการ redirect ผู้ใช้ไปยังหน้าหลักหรือหน้าที่ต้องการต่อไป
+                return redirect('/home');
             } else {
-                $newUser = new User();
-                $newUser->name = $user->name ? $user->name : $user->nickname;
-                $newUser->email = $user->email;
-                $newUser->save();
-                $newUser->assignRole('Member');
-                
-                $new_user = new AuthProvider();
-                $new_user->user_id = $newUser->id;
-                $new_user->provider = 'line';
-                $new_user->provider_id = $user->id;
-                $new_user->save();
-                Auth::login($newUser);
-                return redirect('/');
+                // หากการเรียกใช้งาน API ไม่สำเร็จ
+                // คุณสามารถแสดงข้อความแจ้งเตือนหรือดำเนินการต่อไปตามที่คุณต้องการ
+                return back()->with('error', 'Failed to retrieve user data from Line API');
             }
-        }
-        catch(Exception $e) {
-            Log::error($e->getMessage());
-            return redirect('/');
+        } else {
+            // หากการเรียกใช้งาน API ไม่สำเร็จ
+            // คุณสามารถแสดงข้อความแจ้งเตือนหรือดำเนินการต่อไปตามที่คุณต้องการ
+            return back()->with('error', 'Failed to retrieve access token from Line API');
         }
     }
 }

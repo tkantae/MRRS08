@@ -65,5 +65,4 @@ Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class,
 
 //API LINE LOGIN 
 Route::get('/line/login', [LineLoginController::class, 'redirectToLineLogin'])->name('line.login');
-Route::post('/line-callback', [LineLoginController::class, 'handleLineCallback']);
-
+Route::get('/line/callback', [LineLoginController::class, 'handleLineCallback']);
