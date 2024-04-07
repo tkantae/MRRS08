@@ -59,3 +59,8 @@ Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class,
 //route for managing rooms 
 Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
 Route::get('/Manage_rooms/add-rooms',[EmployeeController::class,'create_rooms'])->name('titles_Employee.add_rooms');
+Route::post('/Manage_rooms', [EmployeeController::class, 'store_rooms'])->name('titles_Employee.store_rooms');
+
+
+
+
