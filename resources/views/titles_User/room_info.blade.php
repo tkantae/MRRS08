@@ -30,9 +30,11 @@
 <div class="info-row">
     <div class="info-box" id="box1">
         <span class="info">
-            <tr>
-                <td>{{$}}
-            </tr>
+            @foreach ($room as $data  )
+            <td>{{$data ->ro_description}}</td>
+
+            @endforeach
+
         </span>
 
 

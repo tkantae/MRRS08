@@ -37,7 +37,9 @@ class RoomController extends Controller
      */
     public function show(Room $room)
     {
-        //
+        $data = Room::all();
+        return view('titles_User.room_info', ['room' => $rooms]);
+
     }
 
     /**

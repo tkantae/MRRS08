@@ -31,6 +31,7 @@ Route::get('/Homepage',function(){
 Route::get('/info',function(){
     return view('titles_User.room_info');
 });
+Route::get('/info', [RoomController::class,'show']);
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
