@@ -128,6 +128,7 @@ class EmployeeController extends Controller
         $rooms->ro_cansplit = $request->typesplit;
         $rooms->ro_description = $request->notation;
         $rooms->save();
+        
 
         return redirect()->route('titles_Employee.manage_rooms')->with('success', 'แก้ไขข้อมูลห้องสำเร็จ');;
     }

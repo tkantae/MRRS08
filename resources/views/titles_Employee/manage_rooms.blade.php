@@ -77,7 +77,7 @@
                                 <button type="submit" class="btn btn-danger" value="Delete"><i
                                         class="fas fa-trash-alt"></i> Delete</button>
                             </form>
-                            <a href="{{ url('/edit-room/' . $rooms->ro_id) }}" class="btn btn-warning"><i
+                            <a href="" class="btn btn-warning"><i
                                     class="fas fa-edit"></i> i</a>
                         </td>
                     </tr>

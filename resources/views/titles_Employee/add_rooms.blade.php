@@ -95,6 +95,14 @@
                             placeholder="- โต็ะประชุมขนาดใหญ่ จำนวน 1 โต็ะ">
                     </div>
 
+                    {{-- code up load filr image here --}}
+                    <div class="form-group">
+                        <label for="image">อัปโหลดรูปภาพ (สูงสุด 3 รูป)</label>
+                        <input type="file" class="form-control" id="image" name="image[]" accept="image/*" multiple>
+                        <small id="imageHelp" class="form-text text-muted">เลือกรูปภาพได้สูงสุด 3 รูป</small>
+                        <!-- แสดงรูปภาพที่เลือก -->
+                        <div id="imagePreview" class="mt-2"></div>
+                    </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-info">Submit</button>
                         <button type="reset" class="btn btn-default float-right">Reset</button>
@@ -104,4 +112,29 @@
         </div>
 
     </section>
+    <script>
+        document.getElementById('image').addEventListener('change', function() {
+            var files = this.files;
+            if (files.length > 3) {
+                alert('คุณสามารถเลือกไฟล์รูปภาพได้สูงสุด 3 รูปเท่านั้น');
+                this.value = ''; // ล้างไฟล์ที่เลือกให้ว่าง
+                return false;
+            }
+            var preview = document.getElementById('imagePreview');
+            preview.innerHTML = '';
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var img = document.createElement('img');
+                    img.src = event.target.result;
+                    img.style.maxWidth = '100px';
+                    img.style.marginRight = '5px';
+                    img.style.marginBottom = '5px';
+                    preview.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 @endsection
