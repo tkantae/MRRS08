@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function handleFormSubmission(Request $request)
     {
-        $testData = $request->input('test');
+        $testData = $request->session()->get('testData');
 
         // Redirect to search page with data
         return redirect()->route('getsearch')->with('testData', $testData);
@@ -19,6 +19,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function getSearch(Request $request)
+    {
+        $testData = $request->input('test');
+        return view('titles_User.search_room',compact('testData'));
+        
+    }
     public function getReserve()
     {
         //
@@ -31,16 +37,6 @@ class UserController extends Controller
         return view('titles_User.follow');
     }
 
-    public function getSearch(Request $request)
-    {
-        $startDate = $request->query('startDate');
-        $endDate = $request->query('endDate');
-        $roomSize = $request->query('roomSize');
-        //
-        $testData = $request->input('test');
-        return view('titles_User.search_room', compact('startDate', 'endDate', 'roomSize','testData'));
-        
-    }
     public function getInformation()
     {
         //
