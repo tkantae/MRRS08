@@ -1,5 +1,6 @@
 <!-- Stored in resources/views/layouts/master.blade.php -->
 
+
 <html>
     <head>
         <title>@yield('title')</title>
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="{{ url('assets/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('assets/dist/css/adminlte.min.css') }}">
+
 
         <link rel="stylesheet" href="{{ url('assets/dist/css/sidbar.css') }}">
 

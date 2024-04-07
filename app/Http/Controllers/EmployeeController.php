@@ -63,14 +63,14 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         //
-        $users = User::orderBy('us_id','desc')->paginate(5);
+        $users = User::orderBy('id','desc')->paginate(5);
         return view('titles_Employee.manage_account',['users' => $users]);
     }
 
     public function manage_rooms()
     {
         //
-        $rooms = Room::orderBy('ro_id')->get();
+        $rooms = Room::orderBy('id')->get();
         return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
     }
 
