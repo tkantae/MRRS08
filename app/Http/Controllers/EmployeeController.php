@@ -51,13 +51,6 @@ class EmployeeController extends Controller
         return view('titles_Employee.reservation_list');
     }
 
-<<<<<<< Updated upstream
-    public function statistics()
-    {
-        //
-        return view('titles_Employee.statistics');
-=======
-
     // หน้าสถิติการจอง
     public function statistics(){
         $data = [
@@ -65,79 +58,6 @@ class EmployeeController extends Controller
             'room_count' => Room::count(),
         ];
         return view('titles_Employee.statistics' , compact('data'));
->>>>>>> Stashed changes
-    }
-
-
-    public function manage_account()
-    {
-        //
-        $users = User::orderBy('us_id','desc')->paginate(5);
-        return view('titles_Employee.manage_account',['users' => $users]);
-    }
-
-    public function manage_rooms()
-    {
-<<<<<<< Updated upstream
-        
-        $rooms = Room::orderBy('id','desc')->paginate(5);
-=======
-
-        $rooms = Room::all();
->>>>>>> Stashed changes
-        return view('titles_Employee.manage_rooms',['rooms' => $rooms]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create_room()
-    {
-        return view('titles_Employee.add_rooms');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store_room(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Room $room)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit_room(Room $room)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update_room(Request $request, Room $room)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy_room(Room $room)
-    {
-        //
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     }
 
     public function accout()
@@ -146,18 +66,17 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
-
-
-<<<<<<< Updated upstream
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function manage_rooms()
     {
-=======
+        $rooms = Room::orderBy('id')->get();
+        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
+    }
 
+    public function create_rooms(){
+        return view('titles_Employee.add_rooms');
+    }
 
-
+    
 
 
     /*manage_account
@@ -167,19 +86,27 @@ class EmployeeController extends Controller
     update_user
     destroy_user
     */
+    public function manage_account()
+    {
+        // เรียกดูรายชื่อผู้ใช้ทั้งหมดจากฐานข้อมูล
+        $users = User::orderBy('id', 'desc')->paginate(5);
+        return view('titles_Employee.manage_account', ['users' => $users]);
+    }
 
     public function create_user()
     {
         // แสดงหน้าฟอร์มสำหรับเพิ่มข้อมูล
->>>>>>> Stashed changes
         return view('titles_Employee.add_account_user');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-     public function store(Request $request)
+    public function store_user(Request $request)
     {
+        // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกันหรือไม่
+        if ($request->password !== $request->confirm_password) {
+            return redirect()->back()->withInput()->withErrors(['confirm_password' => 'รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน']);
+        }
+
+        // ทำการตรวจสอบและบันทึกข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -199,23 +126,18 @@ class EmployeeController extends Controller
         $newUser->roles = $request->position;
         $newUser->us_password = bcrypt($request->password);
         $newUser->save();
+
         return redirect()->route('titles_Employee.store');
     }
 
-    /**
-     * Display the specified resource.
-     */
-
-     public function edit(User $user)
+    public function edit_user(User $user)
     {
-        return view('titles_Employee.edit_account_user', compact('user'));
+        return view('titles_Employee.edit_account_user', ['user' => $user]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $us_id)
+    public function update_user(Request $request, User $user)
     {
+        // ทำการอัปเดตข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -226,27 +148,25 @@ class EmployeeController extends Controller
             'password' => 'required'
         ]);
 
-        $newUser = User::find($us_id);
-        $newUser->us_fname = $request->first_name;
-        $newUser->us_lname = $request->last_name;
-        $newUser->us_email = $request->email;
-        $newUser->us_tel = $request->mobile;
-        $newUser->us_name = $request->username;
-        $newUser->roles = $request->position;
-        $newUser->us_password = bcrypt($request->password);
-        $newUser->save();
-        return redirect()->route('titles_Employee.update');
+        $user->us_fname = $request->first_name;
+        $user->us_lname = $request->last_name;
+        $user->us_email = $request->email;
+        $user->us_tel = $request->mobile;
+        $user->us_name = $request->username;
+        $user->roles = $request->position;
+        $user->us_password = bcrypt($request->password);
+        $user->save();
+
+        return redirect(route('titles_Employee.manage_account'))->with('success', 'แก้ไขข้อมูลผู้ใช้สำเร็จ');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
+    public function destroy_user(User $user)
     {
+        // ลบข้อมูลผู้ใช้ออกจากฐานข้อมูล
         $user->delete();
-        return redirect()->route('titles_Employee.manage_account');
 
+        return redirect(route('titles_Employee.manage_account'))->with('success', 'ลบข้อมูลผู้ใช้สำเร็จ');
     }
 
-}
+    }
 
