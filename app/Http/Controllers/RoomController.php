@@ -55,7 +55,7 @@ class RoomController extends Controller
         //     $newRoom->ro_pic3 = $request->image[2];
 
         // }
-        switch($request->inmage){
+        switch (count($request->inmage)){
             case 0:
                 $newRoom->ro_pic1 = $request->image[0];
                 break;
