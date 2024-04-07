@@ -1,36 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Generate Unique Code</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Step Progress Bar</title>
+    <link rel="stylesheet" href="{{ url('assets/dist/css/Status.css') }}">
+
+    <!-- UniIcon CDN Link  -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 <body>
-    <!-- Display area for the generated code -->
-    <div id="generated-code"></div>
-    
-    <!-- Button to generate unique code -->
-    <button type="button" id="generate-code-btn">Generate Code</button>
+    <div class="main">
 
-    <script>
-        // Function to generate a unique random code
-        function generateUniqueRandomCode(length = 6) {
-            var characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            var code = '';
-            do {
-                code = '';
-                for (var i = 0; i < length; i++) {
-                    code += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                // Check if the generated code already exists in the DOM
-                var existingCode = document.getElementById('generated-code').innerText;
-            } while (existingCode === code); 
-            return code;
-        }
+        <div class="head">
+            <p class="head_1">Animated Step <span>Progress Bar</span></p>
+            <p class="head_2">Using Html, Css & JavaScript</p>
+        </div>
 
-        // Event listener for the "Generate Code" button
-        document.getElementById('generate-code-btn').addEventListener('click', function() {
-            var generatedCode = generateUniqueRandomCode();
-            document.getElementById('generated-code').innerText = generatedCode;
-        });
-    </script>
+        <ul>
+            <li>
+                <i class="icon uil uil-capture"></i>
+                <div class="progress one">
+                    <p>1</p>
+                    <i class="uil uil-check"></i>
+                </div>
+                <p class="text">Add To Cart</p>
+            </li>
+            <li>
+                <i class="icon uil uil-clipboard-notes"></i>
+                <div class="progress two">
+                    <p>2</p>
+                    <i class="uil uil-check"></i>
+                </div>
+                <p class="text">Fill Details</p>
+            </li>
+            <li>
+                <i class="icon uil uil-credit-card"></i>
+                <div class="progress three">
+                    <p>3</p>
+                    <i class="uil uil-check"></i>
+                </div>
+                <p class="text">Make Payment</p>
+            </li>
+            <li>
+                <i class="icon uil uil-exchange"></i>
+                <div class="progress four">
+                    <p>4</p>
+                    <i class="uil uil-check"></i>
+                </div>
+                <p class="text">Order in Progress</p>
+            </li>
+            <li>
+                <i class="icon uil uil-map-marker"></i>
+                <div class="progress five">
+                    <p>5</p>
+                    <i class="uil uil-check"></i>
+                </div>
+                <p class="text">Order Arrived</p>
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>

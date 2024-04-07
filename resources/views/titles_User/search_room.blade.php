@@ -4,6 +4,8 @@
 
 @section('reserv')
 <link rel="stylesheet" href="{{ url('assets/dist/css/searchroom.css') }}">
+<h1>Test Data:</h1>
+<p>{{ $testData }}</p>
 <div class="showroom">
     <div class="rowicon">
         <div class="boxSelect-Calender" id="calenderStart">

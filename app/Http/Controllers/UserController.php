@@ -11,14 +11,10 @@ class UserController extends Controller
 {
     public function handleFormSubmission(Request $request)
     {
-        $startDate = $request->input('start-date2');
-        $endDate = $request->input('end-date');
-        $roomSize = $request->input('room-size');
+        $testData = $request->input('test');
 
-        // Do whatever you need to do with the collected data, such as saving to a database
-        
-        // Redirect the user back or to another page
-        return redirect()->route('getsearch')->with('success', 'Form submitted successfully!');
+        // Redirect to search page with data
+        return redirect()->route('getsearch')->with('testData', $testData);
     }
     /**
      * Display a listing of the resource.
@@ -35,10 +31,15 @@ class UserController extends Controller
         return view('titles_User.follow');
     }
 
-    public function getSearch()
+    public function getSearch(Request $request)
     {
+        $startDate = $request->query('startDate');
+        $endDate = $request->query('endDate');
+        $roomSize = $request->query('roomSize');
         //
-        return view('titles_User.search_room');
+        $testData = $request->input('test');
+        return view('titles_User.search_room', compact('startDate', 'endDate', 'roomSize','testData'));
+        
     }
     public function getInformation()
     {
