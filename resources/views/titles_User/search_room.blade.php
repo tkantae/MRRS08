@@ -16,7 +16,7 @@
         <div class="boxSelect-calender">
             <div class="textSelect">
                 <i class="fas fa-calendar-days"></i>
-                <input type="text" class="datetime-picker" id="date" name="date" placeholder="Start Date" >
+                <input type="text" class="datetime-picker" id="date" name="date" value="$dateData" placeholder="Start Date" >
                 
             </div>
         </div>
@@ -28,16 +28,16 @@
 
             </div>
         </div>
-        <div class="boxSelect-Size">
-            <div class="textSelect">
-                <span class="textSelect">
-                    <body>
-                        ขนาดห้อง
-                        <i class="fa fa-angle-down" style="margin-left: 60px;"></i>
-                    </body>
-                </span>
-            </div> 
-        </div>      
+        <span class="textSelect" id="size">
+            <body>
+                <select class="boxSelect-Size" id="roomSize" >
+                    <option value="" disabled selected >ขนาดห้อง</option>
+                    <option value="small">ห้องเล็ก</option>
+                    <option value="medium">ห้องกลาง</option>
+                    <option value="large">ห้องใหญ่</option>
+                </select>
+            </body>
+        </span>     
         <div class="boxSearch" >
             <div class="textSelect" style="padding-left: 0px;">
                 <span class="textSelect" style="color: #ffffff;">
