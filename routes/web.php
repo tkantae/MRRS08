@@ -56,3 +56,4 @@ Route::PUT('/Manage_account', [EmployeeController::class, 'update'])->name('titl
 Route::put('/update-user/{id}', [EmployeeController::class, 'updateUser'])->name('update-user');
 Route::delete('/delete-user/{id}', [EmployeeController::class, 'deleteUser'])->name('delete-user');
 Route::get('/Edit', [EmployeeController::class, 'edit'])->name('titles_Employee.edit_account_user');
+
