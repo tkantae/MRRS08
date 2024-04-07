@@ -41,9 +41,26 @@ class EmployeeController extends Controller
     }
     public function petition()
     {
-        $test01 = true;
-        $reservation = reservations::orderBy("id", "desc")->paginate(5);
-        return view('titles_Employee.petition', ['reservations' => $reservation, 'test01' => $test01]);
+        $test01 = 'W';
+        $reservation = reservations::where('res_status', $test01)->orderBy("id", "desc")->paginate(5);
+        return view('titles_Employee.petition',['reservations' => $reservation, 'test01' => $test01]);
+    }
+    public function petition1(Request $request)
+    {
+        $test01 = $request->input('test01'); // รับค่า test01 จากคำร้องขอ
+        // ทำสิ่งที่ต้องการกับค่า test01 ได้ที่นี่
+
+        $reservation = reservations::where('res_status', $test01)->orderBy("id", "desc")->paginate(5);
+        return ['reservations' => $reservation, 'test01' => $test01];
+    }
+
+    public function petition2(Request $request)
+    {
+        $test01 = $request->input('test01'); // รับค่า test01 จากคำร้องขอ
+        // ทำสิ่งที่ต้องการกับค่า test01 ได้ที่นี่
+
+        $reservation = reservations::where('res_status', $test01)->orderBy("id", "desc")->paginate(5);
+        return ['reservations' => $reservation, 'test01' => $test01];
     }
 
     public function reservation_list()
@@ -51,6 +68,19 @@ class EmployeeController extends Controller
         $data['reservations'] =  reservations::all();
         return view('titles_Employee.reservation_list',$data);
     }
+
+    public function reservation_cancel(Request $request, $res_serialcode)
+    {
+        // หาข้อมูลการจองด้วย res_serialcode
+        $reservation = reservations::where('res_serialcode', $res_serialcode)->firstOrFail();
+
+        // ทำการอัปเดตสถานะของการจองเป็น 'C' (ยกเลิก)
+        $reservation->res_status = 'C';
+        $reservation->save();
+
+        return redirect()->route('titles_Employee.manage_account')->with('success', 'ยกเลิกการจองเรียบร้อยแล้ว');
+    }
+
 
     // หน้าสถิติการจอง
     public function statistics(){
