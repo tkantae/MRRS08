@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\User;
 use App\Http\Controllers\Validator;
 use App\Http\Controllers\UserController;
+use App\Models\reservations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -38,11 +39,11 @@ class EmployeeController extends Controller
         //
         return view('titles_Employee.reserve_privet');
     }
-
     public function petition()
     {
-        //
-        return view('titles_Employee.petition');
+        $test01 = true;
+        $reservation = reservations::orderBy("id", "desc")->paginate(5);
+        return view('titles_Employee.petition', ['reservations' => $reservation, 'test01' => $test01]);
     }
 
     public function reservation_list()
