@@ -173,19 +173,19 @@
 }
 
 .text-active,
-.status1 {
+.status2 {
     font-family: 'Inter', sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     color: #43636D;
     text-align: center;
 }
-.status1{
+.status2{
     padding-left: 60px;
 }
 
 
 .text-inactive,
-.status2,
+.status1,
 .status3,
 .status4 {
     font-size: 20px;
