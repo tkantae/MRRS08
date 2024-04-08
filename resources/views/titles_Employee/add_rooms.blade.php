@@ -27,7 +27,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 {{-- form กรอกข้อมูล --}}
-                <form action="{{ route('titles_Employee.store_rooms') }}" method="post" enctype=""multipart/form-data">
+                <form action="{{ route('titles_Employee.store_rooms') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('post')
                     <div class="form-group">

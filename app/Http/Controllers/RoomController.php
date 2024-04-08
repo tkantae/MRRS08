@@ -37,44 +37,31 @@ class RoomController extends Controller
             'notation' => 'required'
         ]);
 
-        // $newRoom = new Room;
+        $newRoom = new Room;
 
-        // $newRoom->ro_name= $request->room;
-        // $newRoom->ro_price = $request->price;
-        // $newRoom->ro_size = $request->size_room;
-        // $newRoom->ro_capacity = $request->capacity;
-        // $newRoom->ro_typeroom = $request->typeroom;
-        // $newRoom->ro_avaliable = $request->status_room;
-        // $newRoom->ro_cansplit = $request->typesplit;
-        // $newRoom->ro_description = $request->notation;
+        $newRoom->ro_name= $request->room;
+        $newRoom->ro_price = $request->price;
+        $newRoom->ro_size = $request->size_room;
+        $newRoom->ro_capacity = $request->capacity;
+        $newRoom->ro_typeroom = $request->typeroom;
+        $newRoom->ro_avaliable = $request->status_room;
+        $newRoom->ro_cansplit = $request->typesplit;
+        $newRoom->ro_description = $request->notation;
 
-        // $newRoom->save();
-        $data = $request->validate([
-            'room' => 'required',
-            'price'  => 'required',
-            'size_room' => 'required',
-            'capacity' => 'required',
-            'typeroom' => 'required',
-            'status_room' => 'required',
-            'typesplit' => 'required',
-            'notation' => 'required'
-        ]);
+        $newRoom->save();
 
-        dd($request->image);
+        // dd($request);
+        if($request->image){
+            $file = $request->image;
+            $extension = strtolower($file->getClientOriginalExtension());
+            $filename = $newRoom->id.'.'.$extension;
+            $file->move('image/',$filename);
+            $newRoom->ro_pic1 = $filename;
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time().'.'.$image->getClientOriginalExtension();
-            $path = $image->storeAs('public/asset/images', $imageName ,  'local');
-            dd($path);
-        } else {
-            dd("ไม่มีไฟล์รูปภาพ");
+
         }
 
-
-
-
-        // return redirect()->route('titles_Employee.store_rooms');
+        return redirect()->route('titles_Employee.store_rooms');
     }
 
 
