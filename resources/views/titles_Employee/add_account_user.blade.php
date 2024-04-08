@@ -21,9 +21,9 @@
     <section class="content flex">
         <br>
         <div class="card">
-            <div class="card-header"  colspan="2" >
+            <div class="card-header"  id="card-header1" >
                 <h3 class="card-title" >เพิ่มบัญชีผู้ใช้</h3>
-                <a class="fas fa fa-times fa-lg" style="float: right; color: #ffffff; font-size: 24px;" href="{{ url('/Manage_account') }}"></a>
+                <a class="fas fa fa-times fa-lg" id="card-icon" style="float: right; color: #ffffff; font-size: 24px;" href="{{ url('/Manage_account') }}"></a>
 
             </div>
             <!-- /.card-header -->

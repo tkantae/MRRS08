@@ -3,6 +3,9 @@
     margin-top: 50px;
     justify-content: space-around;
 }
+#card-icon{
+    margin-top: 10px;
+}
 
   #formbox1{
     width: 400px;
@@ -30,14 +33,15 @@
     height: 700px;
     margin-top: 78px;
   }
-  .card-header{
+  #card-header1{
     background-color: #3b81f2;
-    color: white;
     border-top-left-radius: 15px;
-     border-top-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.card-title{
     font-weight: bold;
     font-size: 20px;
-    margin-top: 10px;
+    color: white;
 }
 
   .form-group {
