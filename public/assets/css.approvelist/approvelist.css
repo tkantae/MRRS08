@@ -1,7 +1,6 @@
 body {
     background: #fff;
 }
-
 th {
     background-color: #3b81f2;
     color: white;
@@ -9,7 +8,7 @@ th {
     font-weight: bold;
     padding: 10px 25px;
     text-align: center;
-    width: 130px;
+    width: 250px;
     height: 40px;
 }
 
@@ -19,9 +18,8 @@ td {
     padding: 10px;
     text-align: center;
     height: 35px;
-    
-}
 
+}
 .flex-container>div {
     background-color: #f1f1f1;
     width: 200px;
@@ -31,6 +29,7 @@ td {
     line-height: 40px;
     font-size: 20px;
     margin-top: 15px;
+    
 }
 
 .flex-container {
