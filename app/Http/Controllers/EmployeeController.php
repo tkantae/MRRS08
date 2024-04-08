@@ -65,9 +65,22 @@ class EmployeeController extends Controller
 
     public function reservation_list()
     {
-        //
-        return view('titles_Employee.reservation_list');
+        $data['reservations'] =  reservations::all();
+        return view('titles_Employee.reservation_list',$data);
     }
+
+    public function reservation_cancel(Request $request, $res_serialcode)
+    {
+        // หาข้อมูลการจองด้วย res_serialcode
+        $reservation = reservations::where('res_serialcode', $res_serialcode)->firstOrFail();
+
+        // ทำการอัปเดตสถานะของการจองเป็น 'C' (ยกเลิก)
+        $reservation->res_status = 'C';
+        $reservation->save();
+
+        return redirect()->route('titles_Employee.manage_account')->with('success', 'ยกเลิกการจองเรียบร้อยแล้ว');
+    }
+
 
     // หน้าสถิติการจอง
     public function statistics(){
@@ -104,7 +117,7 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         // เรียกดูรายชื่อผู้ใช้ทั้งหมดจากฐานข้อมูล
-        $users = User::orderBy('id', 'desc')->paginate(5);
+        $users = User::orderBy('id', 'desc')->paginate(10);
         return view('titles_Employee.manage_account', ['users' => $users]);
     }
 
