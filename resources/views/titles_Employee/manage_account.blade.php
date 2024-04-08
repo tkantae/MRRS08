@@ -80,7 +80,7 @@
             .transparent-btn {
                 background-color: transparent;
                 border-color: transparent; /* Adjust border color as needed */
-                color: #DFAC15;
+                color: #000000;
                 font-size: 24px;
             }
             .delete-btn{
