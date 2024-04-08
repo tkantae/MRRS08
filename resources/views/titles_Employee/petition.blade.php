@@ -155,7 +155,7 @@
         </tbody>
     </table>
 
-    <div class="card-footer clearfix text-center">
+    <div class="card-footer clearfix text-center" style="width: 1250px;">
         <ul class="pagination pagination-sm m-0">
             {!! $reservations->links('pagination::bootstrap-5') !!}
         </ul>

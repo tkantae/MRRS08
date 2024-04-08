@@ -77,41 +77,34 @@ class EmployeeController extends Controller
         return view('titles_Employee.statistics');
     }
 
+/*manage_account
+    create_user
+    store_user
+    edit_user
+    update_user
+    destroy_user
+    */
     public function manage_account()
     {
-        //
-        $users = User::orderBy('id','desc')->paginate(5);
-        return view('titles_Employee.manage_account',['users' => $users]);
+        // เรียกดูรายชื่อผู้ใช้ทั้งหมดจากฐานข้อมูล
+        $users = User::orderBy('id', 'desc')->paginate(10);
+        return view('titles_Employee.manage_account', ['users' => $users]);
     }
 
-    public function manage_rooms()
+    public function create_user()
     {
-        //
-        $rooms = Room::orderBy('ro_id')->get();
-        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
-    }
-
-    public function accout()
-    {
-        //
-        return view('titles_Employee.accout');
-    }
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
+        // แสดงหน้าฟอร์มสำหรับเพิ่มข้อมูล
         return view('titles_Employee.add_account_user');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-     public function store(Request $request)
+    public function store_user(Request $request)
     {
+        // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกันหรือไม่
+        if ($request->password !== $request->confirm_password) {
+            return redirect()->back()->withInput()->withErrors(['confirm_password' => 'รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน']);
+        }
+
+        // ทำการตรวจสอบและบันทึกข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -131,19 +124,18 @@ class EmployeeController extends Controller
         $newUser->roles = $request->position;
         $newUser->us_password = bcrypt($request->password);
         $newUser->save();
+
         return redirect()->route('titles_Employee.store');
     }
 
-    /**
-     * Display the specified resource.
-     */
-
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $user)
+    public function edit_user(User $user)
     {
+        return view('titles_Employee.edit_account_user', ['user' => $user]);
+    }
+
+    public function update_user(Request $request, User $user)
+    {
+        // ทำการอัปเดตข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -154,27 +146,24 @@ class EmployeeController extends Controller
             'password' => 'required'
         ]);
 
-        $newUser = User::find($user);
-        $newUser->us_fname = $request->first_name;
-        $newUser->us_lname = $request->last_name;
-        $newUser->us_email = $request->email;
-        $newUser->us_tel = $request->mobile;
-        $newUser->us_name = $request->username;
-        $newUser->roles = $request->position;
-        $newUser->us_password = bcrypt($request->password);
-        $newUser->save();
-        return redirect()->route('titles_Employee.update');
+        $user->us_fname = $request->first_name;
+        $user->us_lname = $request->last_name;
+        $user->us_email = $request->email;
+        $user->us_tel = $request->mobile;
+        $user->us_name = $request->username;
+        $user->roles = $request->position;
+        $user->us_password = bcrypt($request->password);
+        $user->save();
+
+        return redirect(route('titles_Employee.manage_account'))->with('success', 'แก้ไขข้อมูลผู้ใช้สำเร็จ');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy_user(User $user)
     {
-        $users = User::find($id);
-        $users->delete();
-        return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
+        // ลบข้อมูลผู้ใช้ออกจากฐานข้อมูล
+        $user->delete();
 
+        return redirect(route('titles_Employee.manage_account'))->with('success', 'ลบข้อมูลผู้ใช้สำเร็จ');
     }
     public function edit(User $user)
     {
