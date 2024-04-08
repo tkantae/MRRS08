@@ -2,7 +2,7 @@
 
 @section('title', 'รายการจอง')
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url('assets/css.approvelist/approvelist.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css.approved/approved.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -16,19 +16,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 @section('content')
-    <div class="flex-container">
-        <div>
-            <span class="title">คำการจอง</span><br>
-            <span class="number" style="font-size:40px;font-weight: bold; color:rgb(18, 18, 124)">5</span>
-            <span>รายการ</span>
-        </div>
-    </div>
-    <div class="head">
-        <button id="prev"  style=";position: relative; left:2.5%;">รายการจอง</button>
-        <input type="search" placeholder="search" style=";position: relative; left:60%;">
-    </div>
 
-    <center>
+    <div class="head">
+        <button id="prev"  style=";position: relative; left:0%;">รายการจอง</button>
+        <input type="search" placeholder="search" style=";position: relative; left:50%;">
+
+
         <table class="rwd-table">
             <thead>
                 <tr>
@@ -42,7 +35,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 <tr>
                     @foreach ($reservations as $res_id => $reservations)
                     @if ($reservations->res_status == "A")
@@ -53,8 +45,8 @@
                         <td>{{ $reservations->reserver_id }}</td>
                         <td>{{ $reservations->res_typeroom }}</td>
                         <td>
-                           <button class="btn btn-cancel" onclick="cancelReservation('{{ $reservations->res_id }}')" style="background-color: #dc3545; color: white">ยกเลิก</button>
-                           <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
+                            <td><button class="btn btn-cancel" onclick="showPopupcancel()"  style="background-color: #dc3545; color: white">ยกเลิก</button>
+                            <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
                        </td>
                     </tr>
 
@@ -64,54 +56,7 @@
                </tr>
             </tbody>
         </table>
+    </div>
+    </center>
+    @endsection
 
-
-
-    <script>
-
-        const openPopupBtn = document.getElementById("detail");
-        const popup = document.getElementById("popup");
-        const closePopupBtn = document.getElementById("close-popup");
-
-        openPopupBtn.addEventListener("click", () => {
-            popup.classList.add("show");
-        });
-
-        closePopupBtn.addEventListener("click", () => {
-            popup.classList.remove("show");
-        });
-        closePopupButton.addEventListener("click", () => {
-            popup.classList.add("hidden");
-        });
-
-        function cancelReservation(id) {
-            // ส่งคำขอ HTTP เพื่อเปลี่ยนสถานะจาก A เป็น R
-            fetch(`/cancel-reservation/${id}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // สามารถเพิ่ม header อื่น ๆ ตามความต้องการ
-                },
-                // สามารถส่งข้อมูลเพิ่มเติมได้เช่น reservationId หรืออื่น ๆ
-                body: JSON.stringify({ id: id })
-            })
-            .then(response => {
-                if (response.ok) {
-                    // เมื่อเปลี่ยนสถานะเรียบร้อย ซ่อนตาราง
-                    document.getElementById("reservationTable").style.display = "none";
-                } else {
-                    // จัดการเมื่อมีข้อผิดพลาด เช่น ไม่สามารถเปลี่ยนสถานะได้
-                    console.error('Failed to cancel reservation');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
-
-
-
-
-</center>
-@endsection

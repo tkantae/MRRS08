@@ -1,6 +1,12 @@
 body {
     background: #fff;
 }
+.head{
+    width: 1200px;
+    height: 700px;
+    margin-top: 78px;
+
+}
 
 th {
     background-color: #3b81f2;
