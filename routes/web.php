@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
 use App\Http\Controllers\reservationController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,14 @@ Route::get('/Accout',[EmployeeController::class,'accout']);
 Route::get('/login' , [MyAuth::class,'login_view']);
 Route::get('/logout' , [MyAuth::class,'logout_prrocess']);
 Route::post('/login' , [MyAuth::class,'login_process']);
+
+//route for managing rooms
+Route::get('/Manage_rooms',[RoomController::class,'manage_rooms'])->name('titles_Employee.manage_rooms');
+Route::get('/Manage_rooms/add-rooms',[RoomController::class,'create_rooms'])->name('titles_Employee.add_rooms');
+Route::post('/Manage_rooms', [RoomController::class, 'store_rooms'])->name('titles_Employee.store_rooms');
+Route::get('/Manage_rooms/{rooms}/edit-rooms', [RoomController::class, 'edit_rooms'])->name('titles_Employee.edit_rooms');
+Route::put('/Manage_rooms/{rooms}/update-rooms', [RoomController::class, 'update_rooms'])->name('titles_Employee.update_rooms');
+Route::delete('/Manage_account/{rooms}/destroy-rooms', [RoomController::class, 'destroy_rooms'])->name('titles_Employee.destroy-rooms');
 
 //route for managing users ไว้เข้าถึงหน้าใน Employee
 Route::get('/Manage_account',[EmployeeController::class,'manage_account'])->name('titles_Employee.manage_account');
