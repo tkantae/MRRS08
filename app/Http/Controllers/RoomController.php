@@ -25,7 +25,7 @@ class RoomController extends Controller
         return view('titles_Employee.add_rooms');
     }
 
-    public function store_rooms(Request $request){
+    public function store_rooms(Request $request ){
         $data = $request->validate([
             'room' => 'required',
             'price'  => 'required',
@@ -38,7 +38,6 @@ class RoomController extends Controller
         ]);
 
         $newRoom = new Room;
-
         $newRoom->ro_name= $request->room;
         $newRoom->ro_price = $request->price;
         $newRoom->ro_size = $request->size_room;
@@ -56,7 +55,7 @@ class RoomController extends Controller
             $extension = strtolower($file->getClientOriginalExtension());
             $filename = $newRoom->id.'.'.$extension;
             $file->move('image/',$filename);
-            
+
             $newRoom->ro_pic1 = $filename;
             $newRoom->save();
         }
