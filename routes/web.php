@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MyAuth;
+use App\Http\Controllers\reservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +41,10 @@ Route::get('/searchRoom', [UserController::class,'getSearch']);
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
 Route::get('/Petition',[EmployeeController::class,'petition'])->name('test');
-Route::get('/Reservation_list',[EmployeeController::class,'reservation_list']);
+
+Route::get('/Reservation_list',[reservationController::class,'reservation_list'])->name('show_reservation_list');
+Route::put('/Reservation_list/{id}', [reservationController::class, 'updateReservation_Cancel'])->name('reservation_list_Cancel');
+
 Route::get('/Statistics',[EmployeeController::class,'statistics'])->name('titles_Employee.manage_account');
 Route::get('/Manage_account',[EmployeeController::class,'manage_account']);
 Route::get('/Manage_rooms',[EmployeeController::class,'manage_rooms']);
