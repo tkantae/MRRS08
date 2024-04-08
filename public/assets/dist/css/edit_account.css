@@ -1,0 +1,81 @@
+#exit-icon{
+    margin-top: 15px;
+    float: right;
+    color: white;
+    border: none;
+    background-color: transparent;
+}
+
+#editbutt{
+    background-color: transparent;
+}
+
+#editcard{
+    border-radius: 15px;
+}
+
+#card-header1{
+    background-color: #3b81f2;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#card-header1{
+    background-color: #3b81f2;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.card-title{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.form-row{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-around;
+}
+
+  #formbox1{
+    width: 400px;
+  }
+  #formbox2{
+    width: 400px;
+  }
+  #button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #button button {
+    background-color: #5373E8;
+    width: 400px;
+    height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
+  }
+  .button-group{
+    text-align: center;
+  }
+
+  .card {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    width: 1200px;
+    height: 700px;
+    margin-top: 30px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    margin-bottom: 20px;
+  }
+
+
