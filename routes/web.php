@@ -34,8 +34,11 @@ Route::get('/info',function(){
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
-Route::get('/searchRoom', [UserController::class,'getSearch']);
-Route::get('/searchRoom', [UserController::class,'getSearch']);
+Route::get('/getsearch/{date}', [UserController::class, 'getSearch'])->name('getsearch');
+Route::get('/fillInformation', [UserController::class,'getInformation']);
+Route::get('/calender', [UserController::class,'getcalender']);
+
+Route::post('/submit-form', [UserController::class, 'handleFormSubmission'])->name('submit.form');
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
@@ -57,6 +60,7 @@ Route::post('/Manage_account', [EmployeeController::class, 'store_user'])->name(
 Route::get('/Manage_account/{user}/edit-user', [EmployeeController::class, 'edit_user'])->name('titles_Employee.edit_user');
 Route::put('/Manage_account/{user}/update-user', [EmployeeController::class, 'update_user'])->name('titles_Employee.update_user');
 Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class, 'destroy_user'])->name('titles_Employee.destroy-user');
+
 
 Route::post('/changeDataApprove', [EmployeeController::class, 'petition1'])->name('changeDataApprove');
 Route::post('/changeDataReject', [EmployeeController::class, 'petition2'])->name('changeDataReject');

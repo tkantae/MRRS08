@@ -154,10 +154,34 @@
                                                         </a>
                                                         @csrf
                                                         @method('delete')
-                                                        <button type="submit" value="Delete" class="btn btn-danger transparent-btn" style="color: #FF0000;">
-                                                        <i class="fa-solid fa-trash-can"></i>
-                                                        </button>
 
+                                                        <button type="submit" onclick="deleteUser('{{ $user->id }}')" value="Delete" class="btn btn-danger transparent-btn" style="color: #FF0000;">
+                                                            <i class="fa-solid fa-trash-can"></i>
+                                                        </button>
+                                                        <script>
+                                                            function deleteUser(userId) {
+                                                                Swal.fire({
+                                                                    title: "Are you sure?",
+                                                                    text: "You won't be able to revert this!",
+                                                                    icon: "warning",
+                                                                    showCancelButton: true,
+                                                                    confirmButtonColor: "#3085d6",
+                                                                    cancelButtonColor: "#d33",
+                                                                    confirmButtonText: "Yes, delete it!"
+                                                                }).then((result) => {
+                                                                    if (result.isConfirmed) {
+                                                                        Swal.fire({
+                                                                            title: "Deleted!",
+                                                                            text: "Your file has been deleted.",
+                                                                            icon: "success"
+                                                                            
+                                                                        });
+
+                                                                        document.getElementById('delete-form-' + userId).submit();
+                                                                    }
+                                                                });
+                                                            }
+                                                        </script>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -168,7 +192,6 @@
                             <div class="btn-container d-flex justify-content-end mt-3">
                                 <a href="{{ url('/Manage_account/add-user') }}" class="btn btn-primary btn-circle">
                                     <i class="fas fa-plus"></i>
-
                                     </a>
                             </div>
                         </div>
@@ -184,7 +207,7 @@
             </div>
         </section>
     </body>
-    
+
     </html>
 @endsection
 

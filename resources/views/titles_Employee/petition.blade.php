@@ -20,10 +20,11 @@
         </div>
     </div>
     <br><br>
+    <div class="control">
     <div class="head">
         <button id="prev" onclick="changeDataApprove()">คำขอการจอง</button>
         <button id="next" onclick="changeDataReject()">คำขอยกเลิก</button>
-        <input type="search" placeholder="search" style=";position: relative; left:48%;">
+        <input type="search" placeholder="search" style="margin-left : 680px;">
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -179,10 +180,11 @@
         </table>
     @endif --}}
 
-    <div class="card-footer clearfix text-center">
+    <div class="card-footer clearfix text-center" style="max-width: 1230px;">
         <ul class="pagination pagination-sm m-0">
             {!! $reservations->links('pagination::bootstrap-5') !!}
         </ul>
+    </div>
     </div>
     {{-- <div id="popup" class="hidden">
         <table style="width:100%;">
