@@ -65,6 +65,7 @@
             .table td {
                 text-align: center;
                 vertical-align: middle;
+                
             }
 
             .table th:first-child,
@@ -96,6 +97,8 @@
                 border-color: transparent;
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                 transition: transform 0.2s ease-in-out;
+                position: absolute;
+                bottom: 20px; /* Adjust the button position */
             }
 
             .btn-circle i {
@@ -119,7 +122,7 @@
                     {{--ตัว card กล่องทั้งหมด--}}
                     <div class="card" style="border-color: transparent;">
                         {{--ตัว card--}}
-                        <div class="card-body"  >
+                        <div class="card-body" style="padding: 0px; border-color:transparent"  >
 
                             <div class="table-responsive-md" >
                                 <table class="table table-bordered">
