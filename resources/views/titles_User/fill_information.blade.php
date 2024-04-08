@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{ url('assets/dist/css/LineAPI_Verification.css') }}">
 <script src="{{ url('assets/dist/css/LineAPI_Verification.js') }}"></script>
 <link rel="stylesheet" href="{{ url('assets/dist/css/fillinformation.css') }}">
-
+{{--    
 <!-- /.ALERT LINE API VERIFICATION --> 
 <section class="reserv">
     <div id="popup" class="popup">
@@ -17,9 +17,9 @@
             <button onclick="redirectToLineLogin()">เข้าสู่ระบบ Line</button>
         </div>
     </div>
+    --}}
 
     <!-- Fill Information Form --> 
-    <form action="{{ route('reservation.store') }}" method="POST">
         @csrf <!-- CSRF protection -->
         
         <div class="textHead">
