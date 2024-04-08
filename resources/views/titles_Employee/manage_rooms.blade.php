@@ -80,68 +80,55 @@
                                 <button type="button" class="btn btn-danger" onclick="deleteUser('{{ $rooms->ro_id }}')"><i
                                         class="fas fa-trash-alt"></i> Delete</button>
                             </form>
-                            <button class="btn btn-default btn-xs" id="myBtn">i</button>
-                            <div id="myModal" class="modal">
-                                <div class="modal-content">
-                                    <span class="close">&times;</span>
-
-                                    <div>
-                                        <div class="containerro_name">
-                                            <?= $rooms->ro_name ?>
-                                        </div>
+                                <!-- ปุ่ม i และโมดัล -->
+                                <button class="btn btn-default btn-xs" onclick="openModal('{{ $rooms->id }}')">i</button>
+                                <div id="myModal-{{ $rooms->id }}" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close" onclick="closeModal('{{ $rooms->id }}')">&times;</span>
                                         <div>
-                                            <?= $rooms->ro_pic1 ?>
+                                            <div class="containerro_name">
+                                                {{ $rooms->ro_name }}
+                                            </div>
+                                            <div>
+                                                {{ $rooms->ro_pic1 }}
+                                            </div>
+                                            <label>ro_size</label><br>
+                                            @if ($rooms->ro_size == 'S')
+                                                Small
+                                            @elseif($rooms->ro_size == 'M')
+                                                Medium
+                                            @else
+                                                Large
+                                            @endif
+                                            <br>
+                                            <label>ro_avaliable</label><br>
+                                            @if ($rooms->ro_avaliable == 1)
+                                                Available
+                                            @else
+                                                Unavailable
+                                            @endif
                                         </div>
-
-                                        <label>ro_size</label>
-                                        <br>
-                                        @if ($rooms->ro_size == 'S')
-                                            Small
-                                        @elseif($rooms->ro_size == 'M')
-                                            Medium
-                                        @else
-                                            Large
-                                        @endif
-                                        <br>
-                                        <label>ro_avaliable</label>
-                                        <br>
-                                        @if ($rooms->ro_avaliable == 1)
-                                            Available
-                                        @else
-                                            Unavailable
-                                        @endif
-                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <script>
-                                // Get the modal
-                                var modal = document.getElementById("myModal");
+                                <!-- สคริปต์ JavaScript -->
+                                <script>
+                                    function openModal(roomId) {
+                                        var modal = document.getElementById("myModal-" + roomId);
+                                        modal.style.display = "block";
+                                    }
 
-                                // Get the button that opens the modal
-                                var btn = document.getElementById("myBtn");
-
-                                // Get the <span> element that closes the modal
-                                var span = document.getElementsByClassName("close")[0];
-
-                                // When the user clicks the button, open the modal
-                                btn.onclick = function() {
-                                    modal.style.display = "block";
-                                }
-
-                                // When the user clicks on <span> (x), close the modal
-                                span.onclick = function() {
-                                    modal.style.display = "none";
-                                }
-
-                                // When the user clicks anywhere outside of the modal, close it
-                                window.onclick = function(event) {
-                                    if (event.target == modal) {
+                                    function closeModal(roomId) {
+                                        var modal = document.getElementById("myModal-" + roomId);
                                         modal.style.display = "none";
                                     }
-                                }
-                            </script>
 
+                                    window.onclick = function(event) {
+                                        if (event.target.className == "modal") {
+                                            event.target.style.display = "none";
+                                        }
+                                    }
+                                </script>
 
 
 
