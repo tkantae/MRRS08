@@ -51,7 +51,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.reservation_list');
     }
 
-<<<<<<< Updated upstream
+
     // หน้าสถิติการจอง
     public function statistics(){
         $data = [
@@ -59,13 +59,9 @@ class EmployeeController extends Controller
             'room_count' => Room::count(),
         ];
         return view('titles_Employee.statistics' , compact('data'));
-=======
-    public function statistics()
-    {
-        //
-        return view('titles_Employee.statistics');
-    }
 
+
+    }
     public function manage_account()
     {
         //
@@ -76,7 +72,7 @@ class EmployeeController extends Controller
     public function manage_rooms()
     {
 
-        $rooms = Room::orderBy('id','desc')->paginate(5);
+        $rooms = Room::all();
         return view('titles_Employee.manage_rooms',['rooms' => $rooms]);
     }
 
@@ -126,7 +122,7 @@ class EmployeeController extends Controller
     public function destroy_room(Room $room)
     {
         //
->>>>>>> Stashed changes
+
     }
 
     public function accout()
@@ -135,11 +131,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
-    public function manage_rooms()
-    {
-        $rooms = Room::orderBy('id')->get();
-        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
-    }
+
 
     public function create_rooms(){
         return view('titles_Employee.add_rooms');
@@ -170,22 +162,10 @@ class EmployeeController extends Controller
 
         return redirect()->route('titles_Employee.store_rooms');
     }
-    
 
 
-    /*manage_account
-    create_user
-    store_user
-    edit_user
-    update_user
-    destroy_user
-    */
-    public function manage_account()
-    {
-        // เรียกดูรายชื่อผู้ใช้ทั้งหมดจากฐานข้อมูล
-        $users = User::orderBy('id', 'desc')->paginate(5);
-        return view('titles_Employee.manage_account', ['users' => $users]);
-    }
+
+
 
     public function create_user()
     {
