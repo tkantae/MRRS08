@@ -20,7 +20,8 @@
             font-family: 'Inter';
             font-style: italic;
             font-weight: 900;
-            font-size: 80px !important;
+            font-size: 80px;
+            line-height: 97px;
             color: #718BED;
             border: 1px solid #FFFFFF;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -53,8 +54,10 @@
             text-align: center;
             margin: 0 auto;
         }
-        #left{
-            background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%); //background color
+        #log-bot{
+            font-family: sans-serif; /* Or a specific font name */
+            font-weight: bold;
+            color: #fff;
         }
     </Style>
 </head>
@@ -68,12 +71,13 @@
         <!-- relative login box-->
         <div class="container-fluid d-flex align-items-center justify-content-center max-width-md p-0">
             <div class="container-fluid d-flex justify-content-center max-width-md">
-                <div style="background-color: #ffffff">
-                    <h1><b>Welcome</b></h1>
-                    <div class="card-body">
-                    <form action="{{ url('login') }}" method="post">
+                <div style="transform: scale(1.20);">
+                    <h1 style="margin: 10px;"><b>Welcome</b></h1>
+                    <div class="card-body mb-5">
+                        <div class="mb-5">
+                            <form action="{{ url('login') }}" method="post">
                         @csrf
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-4">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -81,7 +85,7 @@
                             </div>
                             <input type="text"  name="username"class="form-control" placeholder="Username">
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-5">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-lock"></span>
@@ -90,9 +94,10 @@
                             <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
                         <div class="btn-login">
-                            <button type="submit" class="btn ">Log In</button>
+                            <button type="submit" class="btn" id="log-bot">Login</button>
                         </div>
                     </form>
+                        </div>
                     </div>
                 </div>
             </div>
