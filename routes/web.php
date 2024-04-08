@@ -59,5 +59,6 @@ Route::get('/Edit', [EmployeeController::class, 'edit'])->name('titles_Employee.
 
 Route::post('/changeDataApprove', [EmployeeController::class, 'petition1'])->name('changeDataApprove');
 Route::post('/changeDataReject', [EmployeeController::class, 'petition2'])->name('changeDataReject');
+Route::put('/Petition/{res_status}/update_petition',[EmployeeController::class,'update_petition'])->name('updatestatus');
 
 

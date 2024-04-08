@@ -25,6 +25,7 @@
         <button id="next" onclick="changeDataReject()">คำขอยกเลิก</button>
         <input type="search" placeholder="search" style=";position: relative; left:48%;">
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         function changeDataApprove() {
@@ -113,7 +114,6 @@
             });
         }
     </script>
-    {{-- @if ($test01 == 'W') --}}
     <table class="rwd-table">
         <thead>
             <tr>
@@ -127,7 +127,6 @@
             </tr>
         </thead>
         <tbody>
-
             @foreach ($reservations as $reservation)
                 <tr>
                     <td>{{ $reservation->res_id }}</td>
@@ -135,7 +134,9 @@
                     <td>{{ $reservation->res_status }}</td>
                     <td>{{ $reservation->ro_id }}</td>
                     <td>{{ $reservation->res_typeroom }}</td>
-                    <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
+                    <td>
+                        <form action="update_"></form>
+                        <button href="" style="border: none ;background-color:white"><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></button>
                         <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
                     </td>
                     <td>
@@ -145,73 +146,11 @@
             @endforeach
         </tbody>
     </table>
-    {{-- @elseif ($test01 == 'C')
-    @else
-        <table class="rwd-table">
-            <thead>
-                <tr>
-
-                    <th>วันที่เข้าใช้</th>
-                    <th>ชื่อผู้จอง</th>
-                    <th>ชื่อห้อง</th>
-                    <th>ขนาดห้อง</th>
-                    <th>รอดำเนินการ</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($reservations as $reservation)
-                    <tr>
-
-                        <td>{{ $reservation->res_startdate }}</td>
-                        <td>{{ $reservation->res_ }}</td>
-                        <td>{{ $reservation->ro_id }}</td>
-                        <td>{{ $reservation->res_typeroom }}</td>
-                        <td> <a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>
-                            <a href=""><i class="fas fa-times-circle fa-lg" style="color: #ff1a1a;"></i></a>
-                        </td>
-                        <td>
-                            <a><i class="fas fa-info-circle fa-lg" id="detail" style="color: #242424"></i></a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    @endif --}}
 
     <div class="card-footer clearfix text-center">
         <ul class="pagination pagination-sm m-0">
             {!! $reservations->links('pagination::bootstrap-5') !!}
         </ul>
     </div>
-    {{-- <div id="popup" class="hidden">
-        <table style="width:100%;">
-            <tr>
-                <th colspan="2"
-                    style="background-color: #3b81f2; color: white; text-align: center;border-top-left-radius: 15px;border-top-right-radius: 15px;">
-                    รายละเอียดการจอง</th>
-            </tr>
-            <tr>
-                <td style="text-align: center">รายละเอียดการจอง</td>
-            </tr>
-            <tr>
-            </tr>
-        </table>
-        <button type="button" id="close-popup">ปิด Popup</button>
-    </div> --}}
-
-    {{-- <script>
-        const openPopupBtn = document.getElementById("detail");
-        const popup = document.getElementById("popup");
-        const closePopupBtn = document.getElementById("close-popup");
-
-        openPopupBtn.addEventListener("click", () => {
-            popup.classList.add("show");
-        });
-
-        closePopupBtn.addEventListener("click", () => {
-            popup.classList.remove("show");
-        });
-    </script> --}}
 
 @endsection
