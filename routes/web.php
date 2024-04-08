@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\MyAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,10 +29,13 @@ Route::get('/Homepage',function(){
     return view('Homepage');
 });
 
-Route::get('/info',function(){
-    return view('titles_User.room_info');
-});
-Route::get('/info', [RoomController::class,'show']);
+// Route::get('/info',function(){
+//     return view('titles_User.room_info');
+// });
+// Route::get('/eiei',function(){
+//     return view('titles_User.room_info');
+// });
+Route::get('/roominfo', [RoomController::class, 'show']);
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
