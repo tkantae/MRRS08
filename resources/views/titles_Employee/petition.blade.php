@@ -47,10 +47,10 @@
                     $.each(response.reservations.data, function(index, reservation) {
                         // Construct HTML for a new table row
                         var newRow = '<tr>' +
-                            '<td>' + reservation.res_id + '</td>' +
-                            '<td>' + reservation.res_startdate + '</td>' +
+                            '<td>' + reservation.id + '</td>' +
+                            '<td>' + reservation.updated_at + '</td>' +
                             '<td>' + reservation.res_status + '</td>' +
-                            '<td>' + reservation.ro_id + '</td>' +
+                            '<td>' + reservation.res_serialcode + '</td>' +
                             '<td>' + reservation.res_typeroom + '</td>' +
                             '<td>' +
                             '<a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>' +
@@ -90,10 +90,10 @@
                     $.each(response.reservations.data, function(index, reservation) {
                         // Construct HTML for a new table row
                         var newRow = '<tr>' +
-                            '<td>' + reservation.res_id + '</td>' +
-                            '<td>' + reservation.res_startdate + '</td>' +
+                            '<td>' + reservation.id + '</td>' +
+                            '<td>' + reservation.updated_at + '</td>' +
                             '<td>' + reservation.res_status + '</td>' +
-                            '<td>' + reservation.ro_id + '</td>' +
+                            '<td>' + reservation.res_serialcode + '</td>' +
                             '<td>' + reservation.res_typeroom + '</td>' +
                             '<td>' +
                             '<a href=""><i class="fas fa-check-circle fa-lg" style="color: #63E6BE;"></i></a>' +
@@ -129,10 +129,10 @@
         <tbody>
             @foreach ($reservations as $reservation)
                 <tr>
-                    <td>{{ $reservation->res_id }}</td>
-                    <td>{{ $reservation->res_startdate }}</td>
+                    <td>{{ $reservation->id }}</td>
+                    <td>{{ $reservation->updated_at }}</td>
                     <td>{{ $reservation->res_status }}</td>
-                    <td>{{ $reservation->ro_id }}</td>
+                    <td>{{ $reservation->res_serialcode }}</td>
                     <td>{{ $reservation->res_typeroom }}</td>
                     <td>
                         <form id="updateStatusForm"
@@ -143,7 +143,8 @@
                                 style="border: none; background-color: white;"><i class="fas fa-check-circle fa-lg"
                                     style="color: #63E6BE;"></i></button>
                             <button type="submit" name="newStatus" value="C"
-                            style="border: none; background-color: white;"><i class="fas fa-times-circle fa-lg"style="color: #ff1a1a;"></i></button>
+                                style="border: none; background-color: white;"><i
+                                    class="fas fa-times-circle fa-lg"style="color: #ff1a1a;"></i></button>
                         </form>
                     </td>
                     <td>
@@ -161,5 +162,5 @@
     </div>
 
 
-    
+
 @endsection
