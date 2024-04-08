@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
-use public_path\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
@@ -37,48 +37,42 @@ class RoomController extends Controller
             'notation' => 'required'
         ]);
 
-        $newRoom = new Room;
+        // $newRoom = new Room;
 
-        $newRoom->ro_name= $request->room;
-        $newRoom->ro_price = $request->price;
-        $newRoom->ro_size = $request->size_room;
-        $newRoom->ro_capacity = $request->capacity;
-        $newRoom->ro_typeroom = $request->typeroom;
-        $newRoom->ro_avaliable = $request->status_room;
-        $newRoom->ro_cansplit = $request->typesplit;
-        $newRoom->ro_description = $request->notation;
+        // $newRoom->ro_name= $request->room;
+        // $newRoom->ro_price = $request->price;
+        // $newRoom->ro_size = $request->size_room;
+        // $newRoom->ro_capacity = $request->capacity;
+        // $newRoom->ro_typeroom = $request->typeroom;
+        // $newRoom->ro_avaliable = $request->status_room;
+        // $newRoom->ro_cansplit = $request->typesplit;
+        // $newRoom->ro_description = $request->notation;
 
-        $newRoom->save();
+        // $newRoom->save();
+        $data = $request->validate([
+            'room' => 'required',
+            'price'  => 'required',
+            'size_room' => 'required',
+            'capacity' => 'required',
+            'typeroom' => 'required',
+            'status_room' => 'required',
+            'typesplit' => 'required',
+            'notation' => 'required'
+        ]);
 
+        dd($request->image);
 
-        // if ($request->hasFile('image')) {
-        //     // ดึงข้อมูลของไฟล์ภาพ
-        //     $image = $request->file('image');
-
-        //     // สร้างชื่อไฟล์ใหม่โดยใช้ timestamp เพื่อป้องกันการซ้ำชื่อไฟล์
-        //     $imageName = time().'.'.$image->getClientOriginalExtension();
-
-        //     // บันทึกรูปภาพลงในโฟลเดอร์ public/images
-        //     $path = $request->file('file')->storeAs('public/assete', 'images');
-
-        //     // สร้าง URL ของรูปภาพที่บันทึก
-        //     $imageUrl = asset('storage/images/'.$imageName);
-
-        //     // ส่งกลับ URL ของรูปภาพที่บันทึกในการตอบกลับหน้าเว็บ
-        //     dd($path);
-        // }
         if ($request->hasFile('image')) {
-            $images = $request->file('images');
-            foreach ($images as $image) {
-                $path = $request->file('file')->storeAs('public/assete', 'images');
-
-
-            }
+            $image = $request->file('image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $path = $image->storeAs('public/asset/images', $imageName ,  'local');
             dd($path);
+        } else {
+            dd("ไม่มีไฟล์รูปภาพ");
         }
-        else{
-            dd("ไม่เข้าif");
-        }
+
+
+
 
         // return redirect()->route('titles_Employee.store_rooms');
     }
