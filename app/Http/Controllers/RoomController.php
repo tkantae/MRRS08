@@ -52,6 +52,7 @@ class RoomController extends Controller
         // dd($request);
         if($request->image){
             $file = $request->image;
+
             $extension = strtolower($file->getClientOriginalExtension());
             $filename = $newRoom->id.'.'.$extension;
             $file->move('image/',$filename);
