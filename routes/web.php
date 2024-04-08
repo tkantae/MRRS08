@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoomController;
 use App\Http\Controllers\MyAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,21 +28,14 @@ Route::get('/Homepage',function(){
     return view('Homepage');
 });
 
-// Route::get('/info',function(){
-//     return view('titles_User.room_info');
-// });
-// Route::get('/eiei',function(){
-//     return view('titles_User.room_info');
-// });
-Route::get('/roominfo', [RoomController::class, 'show']);
+Route::get('/info',function(){
+    return view('titles_User.room_info');
+});
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
-Route::get('/getsearch/{date}', [UserController::class, 'getSearch'])->name('getsearch');
-Route::get('/fillInformation', [UserController::class,'getInformation']);
-Route::get('/calender', [UserController::class,'getcalender']);
-
-Route::post('/submit-form', [UserController::class, 'handleFormSubmission'])->name('submit.form');
+Route::get('/searchRoom', [UserController::class,'getSearch']);
+Route::get('/searchRoom', [UserController::class,'getSearch']);
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
@@ -64,3 +56,9 @@ Route::PUT('/Manage_account', [EmployeeController::class, 'update'])->name('titl
 Route::put('/update-user/{id}', [EmployeeController::class, 'updateUser'])->name('update-user');
 Route::delete('/delete-user/{id}', [EmployeeController::class, 'deleteUser'])->name('delete-user');
 Route::get('/Edit', [EmployeeController::class, 'edit'])->name('titles_Employee.edit_account_user');
+
+Route::post('/changeDataApprove', [EmployeeController::class, 'petition1'])->name('changeDataApprove');
+Route::post('/changeDataReject', [EmployeeController::class, 'petition2'])->name('changeDataReject');
+Route::put('/Petition/{id}', [EmployeeController::class, 'updatePetition'])->name('Petition_statuses.update');
+
+
