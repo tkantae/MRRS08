@@ -117,7 +117,7 @@ class EmployeeController extends Controller
     public function manage_account()
     {
         // เรียกดูรายชื่อผู้ใช้ทั้งหมดจากฐานข้อมูล
-        $users = User::orderBy('id', 'desc')->paginate(5);
+        $users = User::orderBy('id', 'desc')->paginate(10);
         return view('titles_Employee.manage_account', ['users' => $users]);
     }
 
