@@ -180,14 +180,17 @@ class EmployeeController extends Controller
     {
         return view('titles_Employee.edit_account_user', compact('user'));
     }
-    public function update_petition(Request $request, reservations $reservations){
-        $data = $request->validate([
-            'approveupdate' => 'requested',
+    public function updatePetition(Request $request, $id)
+    {
+        $request->validate([
+            'newStatus' => 'required',
         ]);
-        $reservations ->res_status = $request->approveupdate;
-        $reservations ->save();
+        $reservation = reservations::findOrFail($id);
+        $reservation->res_status = $request->newStatus;
+        $reservation->save();
 
-        return redirect(route('Petition'));
+        return redirect()->route('test')->with('success', 'Status updated successfully!');
     }
+
 }
 
