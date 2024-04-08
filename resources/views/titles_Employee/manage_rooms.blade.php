@@ -4,41 +4,89 @@
 
 @section('title', 'จัดการห้องประชุม')
 @section('content')
+    <!DOCTYPE html>
+    <html lang="en">
 
+    <!DOCTYPE html>
+    <html lang="en">
 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#example').DataTable({
 
-    <div class="float-right pb-4">
-        <a href="{{ url('/add-user') }}" class="btn btn-success"> Add Room</a>
-    </div>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ลำดับ</th>
-                <th>ชื่อห้อง</th>
-                <th>รหัสห้อง</th>
-                <th>ขนาด</th>
-                <th>สถานะ</th>
-                <th width="150px">Tools</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($rooms as $room)
+                });
+            });
+        </script>
+
+    </head>
+
+    <body>
+        <br>
+        <div class="btn-container">
+            <a href="{{ url('/Manage_rooms/add-rooms') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add
+                Room</a>
+        </div>
+        <table id="example" class="display" style="width:110%">
+            <thead>
                 <tr>
-                    <td>{{ $rooms->ro_id }}</td>
-                    <td>{{ $rooms->ro_name }}</td>
-                    <td>{{ $rooms->ro_size }}</td>
-                    <td>{{ $rooms->ro_avaliable }}</td>
-                    <td>
-                        <a href="{{ url('/edit-user/'.$user->id) }}" class="btn btn-warning">Edit</a>
-                        <!-- Add delete functionality -->
-                        <form method="post" action="{{ url('/delete-user/'.$user->id) }}" style="display: inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="delete()">Delete</button>
-                        </form>
-                    </td>
+                    <th style="width: 10%">No.</th>
+                    <th>Name</th>
+                    <th>size</th>
+                    <th>status</th>
+                    <th>Actions</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($rooms as $rooms)
+                    <tr>
+                        <td>{{ $rooms->id }}</td>
+                        <td>{{ $rooms->ro_name }}</td>
+                        <td>
+                            @if ($rooms->ro_size == 'S')
+                                Small
+                            @elseif($rooms->ro_size == 'M')
+                                Medium
+                            @else
+                                Large
+                            @endif
+                        </td>
+                        <td>
+                            @if ($rooms->ro_avaliable == 1)
+                                Available
+                            @else
+                                Unavailable
+                            @endif
+                        </td>
+                        <td>
+                            <form method="post" action="{{ route('titles_Employee.destroy-rooms', ['rooms' => $rooms]) }}"
+                                style="display: inline;">
+                                <a href="{{ route('titles_Employee.edit_rooms', ['rooms' => $rooms]) }}"
+                                    class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger" value="Delete"><i
+                                        class="fas fa-trash-alt"></i> Delete</button>
+                            </form>
+                            <a href="" class="btn btn-warning"><i
+                                    class="fas fa-edit"></i> i</a>
+                        </td>
+                    </tr>
+                @endforeach
+
+        </table>
+
+    </body>
+
+    </html>
+
 @endsection

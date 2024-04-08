@@ -10,27 +10,26 @@
             </head>
             <body>  
                 <div class="center">
-                    
                     <div class="content-header">
                     <i class="fa fa-angle-left" style="font-size:72px; margin-right: 20px;"></i>
                         <div class="icon-container">
                             <div class="circle-icon-active">
                                 <i class="fas fa-calendar-days"></i>
                             </div>
-                           
+
                         </div>
 
-                        <div class="line-between"></div> 
+                        <div class="line-between"></div>
 
                         <div class="icon-container">
                             <div class="circle-icon-inactive">
                                 <i class="fas fa-file"></i>
                             </div>
-                        
+
                         </div>
 
                         <div class="line-between"></div>
-                        
+
                         <div class="icon-container">
                             <div class="circle-icon-inactive">
                                 <i class="fas fa-pencil"></i>
@@ -52,7 +51,6 @@
                     </div>
                     @yield('reserv')
                 </div>
-
 
             </body>
             </html>
