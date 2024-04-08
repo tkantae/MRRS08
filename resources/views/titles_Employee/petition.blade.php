@@ -20,7 +20,7 @@
         </div>
     </div>
     <br><br>
-    <div class="control">
+    < class="control">
     <div class="head">
         <button id="prev" onclick="changeDataApprove()">คำขอการจอง</button>
         <button id="next" onclick="changeDataReject()">คำขอยกเลิก</button>
@@ -184,7 +184,6 @@
         <ul class="pagination pagination-sm m-0">
             {!! $reservations->links('pagination::bootstrap-5') !!}
         </ul>
-    </div>
     </div>
     {{-- <div id="popup" class="hidden">
         <table style="width:100%;">

@@ -158,3 +158,27 @@ input {
     color: black;
 
 }
+.modal-content{
+    justify-content: center;
+    min-width: 900px;
+    height: 600px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.modal-header{
+    background-color: #3b81f2;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+}
+.modal-title{
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+.modal-content {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
