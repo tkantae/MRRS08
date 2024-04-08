@@ -56,9 +56,9 @@ class RoomController extends Controller
             $extension = strtolower($file->getClientOriginalExtension());
             $filename = $newRoom->id.'.'.$extension;
             $file->move('image/',$filename);
+            
             $newRoom->ro_pic1 = $filename;
-
-
+            $newRoom->save();
         }
 
         return redirect()->route('titles_Employee.store_rooms');
