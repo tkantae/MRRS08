@@ -23,8 +23,8 @@
         <div class="card" id="editcard">
             <div class="card-header" id="card-header1">
                 <h3 class="card-title">แก้ไขบัญชีผู้ใช้</h3>
-                <a href = "{{('/Manage_account')}}" >
-                    <button  class="fas fa fa-times fa-lg" id="exit-icon"   ></button>
+                <a href = "{{ '/Manage_account' }}">
+                    <button class="fas fa fa-times fa-lg" id="exit-icon"></button>
                 </a>
 
             </div>
@@ -138,11 +138,11 @@
                     </div>
 
 
-
+                    <div class="button-group" id="button">
+                        <button type="submit" class="btn btn-info">ยืนยัน</button>
+                    </div>
                 </form>
-                <div class="button-group" id="button">
-                    <button type="submit" class="btn btn-info">ยืนยัน</button>
-                </div>
+
 
 
             </div>
