@@ -1,92 +1,78 @@
-/* The Modal (background) */
-.modal {
+
+.menu-open-button {
+    background: #EEEEEE;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    margin-left: 1000px;
+    position: absolute;
+    color: #398bff;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 60px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform ease-out 200ms;
+    transition: -webkit-transform ease-out 200ms;
+    transition: transform ease-out 200ms;
+    transition: transform ease-out 200ms, -webkit-transform ease-out 200ms;
+ }
+
+ .menu-open-button {
+    z-index: 2;
+    -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    -webkit-transition-duration: 400ms;
+    transition-duration: 400ms;
+    -webkit-transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+    transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+    cursor: pointer;
+    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
+ }
+
+ .menu-open-button:hover {
+    -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+ }
+.fix{
+    width: 1000;
+    height: 400;
+}
+
+.popup {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
+.popup-content {
+    background-color: white;
+    border-radius: 5px;
     padding: 20px;
-    border: 1px solid #888;
+    position: absolute;
+    top: 50%;
     width: 50%;
+    height: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 }
 
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.popup-content label {
+    display: block;
+    margin-bottom: 10px;
 }
 
-.close:hover,
-.close:focus {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-* Style the button */ #myBtn {
-    background-color: #4CAF50;
-    /* Green */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.containerro_name {
-    font-size: 45px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* CSS for different room sizes */
-.small {
-    color: green; /* เปลี่ยนสีข้อความสำหรับขนาดห้องเล็ก */
-}
-
-.medium {
-    color: orange; /* เปลี่ยนสีข้อความสำหรับขนาดห้องกลาง */
-}
-
-.large {
-    color: red; /* เปลี่ยนสีข้อความสำหรับขนาดห้องใหญ่ */
-}
-
-/* CSS for room availability */
-.available {
-    color: green; /* เปลี่ยนสีข้อความสำหรับห้องที่พร้อมใช้งาน */
-}
-
-.unavailable {
-    color: red; /* เปลี่ยนสีข้อความสำหรับห้องที่ไม่พร้อมใช้งาน */
+.popup-content input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    box-sizing: border-box;
 }
 
 .popup-content .left-column {
@@ -97,7 +83,39 @@
     grid-column: 2;
 }
 
-.row
+.popup-content input,
+.popup-content select {
+    width: 100%;
+    height: 15%;
+}
+.button-container{
+    text-align:center;
+}
+.close{
+    height: 10%;
+
+}
+.flex
 {
-    justify-content: center;
+    flex: auto;
+}
+.set-wh{
+    height: 800px;
+    width: 1000px;
+}
+
+th {
+    background-color: #3b81f2;
+}
+
+td {
+    border-bottom: 1px solid #d9dddf;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    height: 35px;
+
+}
+.float_right{
+    
 }

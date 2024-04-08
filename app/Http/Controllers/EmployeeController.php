@@ -9,6 +9,8 @@ use App\Http\Controllers\Validator;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use App\Models\reservations;
+use PHPUnit\Framework\Constraint\IsTrue;
 
 class EmployeeController extends Controller
 {
@@ -41,8 +43,26 @@ class EmployeeController extends Controller
 
     public function petition()
     {
-        //
-        return view('titles_Employee.petition');
+        $test01 = 'W';
+        $reservation = reservations::where('res_status', $test01)->orderBy("id", "desc")->paginate(5);
+        return view('titles_Employee.petition',['reservations' => $reservation, 'test01' => $test01]);
+    }
+    public function petition1(Request $request)
+    {
+        $test01 = $request->input('test01'); // รับค่า test01 จากคำร้องขอ
+        // ทำสิ่งที่ต้องการกับค่า test01 ได้ที่นี่
+
+        $reservation = reservations::where('res_status', $test01)->orderBy("id", "desc")->paginate(5);
+        return ['reservations' => $reservation, 'test01' => $test01];
+    }
+
+    public function petition2(Request $request)
+    {
+        $test01 = $request->input('test01'); // รับค่า test01 จากคำร้องขอ
+        // ทำสิ่งที่ต้องการกับค่า test01 ได้ที่นี่
+
+        $reservation = reservations::where('res_status', $test01)->orderBy("id", "desc")->paginate(5);
+        return ['reservations' => $reservation, 'test01' => $test01];
     }
 
     public function reservation_list()
@@ -51,78 +71,24 @@ class EmployeeController extends Controller
         return view('titles_Employee.reservation_list');
     }
 
-
-    // หน้าสถิติการจอง
-    public function statistics(){
-        $data = [
-            'user_count' => User::count(),
-            'room_count' => Room::count(),
-        ];
-        return view('titles_Employee.statistics' , compact('data'));
-
-
+    public function statistics()
+    {
+        //
+        return view('titles_Employee.statistics');
     }
+
     public function manage_account()
     {
         //
-        $users = User::all();
+        $users = User::orderBy('id','desc')->paginate(5);
         return view('titles_Employee.manage_account',['users' => $users]);
     }
 
     public function manage_rooms()
     {
-
-        $rooms = Room::all();
-        return view('titles_Employee.manage_rooms',['rooms' => $rooms]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create_room()
-    {
         //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store_room(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Room $room)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit_room(Room $room)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update_room(Request $request, Room $room)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy_room(Room $room)
-    {
-        //
-
+        $rooms = Room::orderBy('ro_id')->get();
+        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
     }
 
     public function accout()
@@ -133,54 +99,19 @@ class EmployeeController extends Controller
 
 
 
-    public function create_rooms(){
-        return view('titles_Employee.add_rooms');
-    }
-
-    public function store_rooms(Request $request){
-        $data = $request->validate([
-            'room' => 'required',
-            'price'  => 'required',
-            'size_room' => 'required',
-            'capacity' => 'required',
-            'typeroom' => 'required',
-            'status_room' => 'required',
-            'typesplit' => 'required',
-            'notation' => 'required'
-        ]);
-
-        $newRoom = new Room;
-        $newRoom->ro_name= $request->room;
-        $newRoom->ro_price = $request->price;
-        $newRoom->ro_size = $request->size_room;
-        $newRoom->ro_capacity = $request->capacity;
-        $newRoom->ro_typeroom = $request->typeroom;
-        $newRoom->ro_avaliable = $request->status_room;
-        $newRoom->ro_cansplit = $request->typesplit;
-        $newRoom->ro_description = $request->notation;
-        $newRoom->save();
-
-        return redirect()->route('titles_Employee.store_rooms');
-    }
-
-
-
-
-
-    public function create_user()
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        // แสดงหน้าฟอร์มสำหรับเพิ่มข้อมูล
         return view('titles_Employee.add_account_user');
     }
 
-    public function store_user(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+     public function store(Request $request)
     {
-        // ตรวจสอบว่ารหัสผ่านและยืนยันรหัสผ่านตรงกันหรือไม่
-        if ($request->password !== $request->confirm_password) {
-            return redirect()->back()->withInput()->withErrors(['confirm_password' => 'รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน']);
-        }
-
-        // ทำการตรวจสอบและบันทึกข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -200,18 +131,19 @@ class EmployeeController extends Controller
         $newUser->roles = $request->position;
         $newUser->us_password = bcrypt($request->password);
         $newUser->save();
-
         return redirect()->route('titles_Employee.store');
     }
 
-    public function edit_user(User $user)
-    {
-        return view('titles_Employee.edit_account_user', ['user' => $user]);
-    }
+    /**
+     * Display the specified resource.
+     */
 
-    public function update_user(Request $request, User $user)
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $user)
     {
-        // ทำการอัปเดตข้อมูล
         $data = $request->validate([
             'first_name' => 'required',
             'last_name'  => 'required',
@@ -222,25 +154,43 @@ class EmployeeController extends Controller
             'password' => 'required'
         ]);
 
-        $user->us_fname = $request->first_name;
-        $user->us_lname = $request->last_name;
-        $user->us_email = $request->email;
-        $user->us_tel = $request->mobile;
-        $user->us_name = $request->username;
-        $user->roles = $request->position;
-        $user->us_password = bcrypt($request->password);
-        $user->save();
-
-        return redirect(route('titles_Employee.manage_account'))->with('success', 'แก้ไขข้อมูลผู้ใช้สำเร็จ');
+        $newUser = User::find($user);
+        $newUser->us_fname = $request->first_name;
+        $newUser->us_lname = $request->last_name;
+        $newUser->us_email = $request->email;
+        $newUser->us_tel = $request->mobile;
+        $newUser->us_name = $request->username;
+        $newUser->roles = $request->position;
+        $newUser->us_password = bcrypt($request->password);
+        $newUser->save();
+        return redirect()->route('titles_Employee.update');
     }
 
-    public function destroy_user(User $user)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        // ลบข้อมูลผู้ใช้ออกจากฐานข้อมูล
-        $user->delete();
-
-        return redirect(route('titles_Employee.manage_account'))->with('success', 'ลบข้อมูลผู้ใช้สำเร็จ');
-    }
+        $users = User::find($id);
+        $users->delete();
+        return redirect()->route('manage_account')->with('success', 'User has been deleted successfully.');
 
     }
+    public function edit(User $user)
+    {
+        return view('titles_Employee.edit_account_user', compact('user'));
+    }
+    public function updatePetition(Request $request, $id)
+    {
+        $request->validate([
+            'newStatus' => 'required',
+        ]);
+        $reservation = reservations::findOrFail($id);
+        $reservation->res_status = $request->newStatus;
+        $reservation->save();
+
+        return redirect()->route('test')->with('success', 'Status updated successfully!');
+    }
+
+}
 

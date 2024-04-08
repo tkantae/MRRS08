@@ -34,8 +34,11 @@ Route::get('/info',function(){
 
 Route::get('/User', [UserController::class,'getReserve']);
 Route::get('/follow', [UserController::class,'getFollow']);
-Route::get('/searchRoom', [UserController::class,'getSearch']);
-Route::get('/searchRoom', [UserController::class,'getSearch']);
+Route::get('/getsearch/{date}', [UserController::class, 'getSearch'])->name('getsearch');
+Route::get('/fillInformation', [UserController::class,'getInformation']);
+Route::get('/calender', [UserController::class,'getcalender']);
+
+Route::post('/submit-form', [UserController::class, 'handleFormSubmission'])->name('submit.form');
 
 Route::get('/Employee',[EmployeeController::class,'mainpage']);
 Route::get('/Reserve',[EmployeeController::class,'reserve']);
@@ -60,6 +63,7 @@ Route::delete('/Manage_account/{user}/destroy-user', [EmployeeController::class,
 
 Route::post('/changeDataApprove', [EmployeeController::class, 'petition1'])->name('changeDataApprove');
 Route::post('/changeDataReject', [EmployeeController::class, 'petition2'])->name('changeDataReject');
+Route::put('/Petition/{id}', [EmployeeController::class, 'updatePetition'])->name('Petition_statuses.update');
 
 
 

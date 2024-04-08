@@ -19,6 +19,7 @@ class Room extends Authenticatable
         'id',
         'ro_name',
         'ro_size',
+        'ro_description',
         'ro_typeroom',
         'ro_price',
         'ro_capacity',
