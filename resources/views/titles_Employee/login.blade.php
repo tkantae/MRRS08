@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Log in</title>
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -27,26 +26,30 @@
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
         .image-container{
-            width: 300px;
-            height: 400px;
+            width: 200px;
+            height: 300px;
         }
         .input-group{
-            border: 1px solid #000000;
+            border-radius: 20px;
         }
         .input-group-text{
             background: #718BED;
             border: 1px solid #000000;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 10px 0px 0px 10px;
+            border-radius: 10px;
+        }
+        .form-control{
+            border: 1px solid #000000;
+            border-radius: 10px;
         }
         .fas{
             color: #FFFFFF;
         }
         .btn-login{
-            width: 300px;
+            width: 252px;
             background: rgba(68, 109, 255, 0.616246);
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
             margin: 0 auto;
         }
@@ -55,47 +58,47 @@
         }
     </Style>
 </head>
-<body class="hold-transition login-page">
-    <!--div class="column" id="left">
-            <div class="image-container">
-                    <img src="{{ url('assets\dist\img\LOGOMRRS.png') }}" alt="LOGOMRRS">
-            </div>
-    </div-->
-    <div class="login-box">
-        <!-- /.login-logo -->
-        <div class="card card-outline">
-            <div class="text-center">
-                <h1><b>Welcome</b></h1>
-            </div>
-            <div class="card-body">
-            <form action="{{ url('login') }}" method="post">
-                @csrf
-                <div class="input-group mb-3">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                    <input type="text"  name="username"class="form-control" placeholder="Username">
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                </div>
-                <div class="btn-login">
-                    <button type="submit" class="btn ">Log In</button>
-                </div>
-            </form>
-            </div>
-            <!-- /.card-body -->
+<body>
+    <!--full sceen -->
+    <div class="container-fluid min-vh-100 d-flex p-0">
+        <!-- relative logo hiding-->
+        <div class="container-fluid d-none d-md-flex align-items-center justify-content-center flex-grow-1" style="background: linear-gradient(180deg, #5070E8 0%, rgba(80, 112, 232, 0.636) 57.4%, #97CCF2 100%);">
+            <img src="{{ url('assets\dist\img\LOGOMRRS.png') }}" alt="LOGOMRRS">
         </div>
-        <!-- /.card -->
-    </div>
+        <!-- relative login box-->
+        <div class="container-fluid d-flex align-items-center justify-content-center max-width-md p-0">
+            <div class="container-fluid d-flex justify-content-center max-width-md">
+                <div style="background-color: #ffffff">
+                    <h1><b>Welcome</b></h1>
+                    <div class="card-body">
+                    <form action="{{ url('login') }}" method="post">
+                        @csrf
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                            <input type="text"  name="username"class="form-control" placeholder="Username">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div class="btn-login">
+                            <button type="submit" class="btn ">Log In</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- /.login-box -->
+    </div>
 <!-- jQuery -->
 <script src="{{ url('assets/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
