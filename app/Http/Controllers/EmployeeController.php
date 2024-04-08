@@ -89,15 +89,7 @@ class EmployeeController extends Controller
             'room_count' => Room::count(),
         ];
         return view('titles_Employee.statistics' , compact('data'));
-    }
 
-
-
-    public function manage_rooms()
-    {
-        //
-        $rooms = Room::orderBy('id')->get();
-        return view('titles_Employee.manage_rooms', ['rooms' => $rooms]);
     }
 
     public function accout()
@@ -106,6 +98,7 @@ class EmployeeController extends Controller
         return view('titles_Employee.accout');
     }
 
+ 
 
     /*manage_account
     create_user
