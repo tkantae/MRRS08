@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use public_path\Storage;
 
 class RoomController extends Controller
 {
@@ -47,42 +48,41 @@ class RoomController extends Controller
         $newRoom->ro_cansplit = $request->typesplit;
         $newRoom->ro_description = $request->notation;
 
-        // dd($newRoom);
-
-        // if (!empty($request->image)) {
-        //     $newRoom->ro_pic1 = $request->image[0];
-        //     $newRoom->ro_pic2 = $request->image[1];
-        //     $newRoom->ro_pic3 = $request->image[2];
-
-        // }
-        switch (count($request->inmage)){
-            case 0:
-                $newRoom->ro_pic1 = $request->image[0];
-                break;
-            case 1:
-                $newRoom->ro_pic1 = $request->image[0];
-                $newRoom->ro_pic2 = $request->image[1];
-                break;
-            case 2:
-                $newRoom->ro_pic1 = $request->image[0];
-            $newRoom->ro_pic2 = $request->image[1];
-            $newRoom->ro_pic3 = $request->image[2];
-                break;
-        }
-
-
-        // if ($request->hasFile('imaage')) {
-        //     $picPath = $request->file('image');
-        //     $newRoom->ro_pic1 = '/storage/'.$picPath;
-        // } else{
-
-        //     $newRoom->ro_pic1 = null;
-        // }
-
         $newRoom->save();
 
-        return redirect()->route('titles_Employee.store_rooms');
+
+        // if ($request->hasFile('image')) {
+        //     // ดึงข้อมูลของไฟล์ภาพ
+        //     $image = $request->file('image');
+
+        //     // สร้างชื่อไฟล์ใหม่โดยใช้ timestamp เพื่อป้องกันการซ้ำชื่อไฟล์
+        //     $imageName = time().'.'.$image->getClientOriginalExtension();
+
+        //     // บันทึกรูปภาพลงในโฟลเดอร์ public/images
+        //     $path = $request->file('file')->storeAs('public/assete', 'images');
+
+        //     // สร้าง URL ของรูปภาพที่บันทึก
+        //     $imageUrl = asset('storage/images/'.$imageName);
+
+        //     // ส่งกลับ URL ของรูปภาพที่บันทึกในการตอบกลับหน้าเว็บ
+        //     dd($path);
+        // }
+        if ($request->hasFile('image')) {
+            $images = $request->file('images');
+            foreach ($images as $image) {
+                $path = $request->file('file')->storeAs('public/assete', 'images');
+
+
+            }
+            dd($path);
+        }
+        else{
+            dd("ไม่เข้าif");
+        }
+
+        // return redirect()->route('titles_Employee.store_rooms');
     }
+
 
     public function edit_rooms(Room $rooms)
     {

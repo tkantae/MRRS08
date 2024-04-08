@@ -27,7 +27,7 @@
             <!-- /.card-header -->
             <div class="card-body">
                 {{-- form กรอกข้อมูล --}}
-                <form action="{{ route('titles_Employee.store_rooms') }}" method="post">
+                <form action="{{ route('titles_Employee.store_rooms') }}" method="post" enctype=""multipart/form-data">
                     @csrf
                     @method('post')
                     <div class="form-group">
@@ -98,7 +98,7 @@
                     {{-- code up load filr image here --}}
                     <div class="form-group">
                         <label for="image">อัปโหลดรูปภาพ (สูงสุด 3 รูป)</label>
-                        <input type="file" class="form-control" id="image" name="image[]" accept="image/*" multiple>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*" multiple>
                         <small id="imageHelp" class="form-text text-muted">เลือกรูปภาพได้สูงสุด 3 รูป</small>
                         <!-- แสดงรูปภาพที่เลือก -->
                         <div id="imagePreview" class="mt-2"></div>
