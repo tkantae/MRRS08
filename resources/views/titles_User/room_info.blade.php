@@ -31,7 +31,7 @@
         <div class="info-box" id="box1">
             <span class="info">
 
-                @foreach ($Room as $room)
+                {{-- @foreach ($Room as $room)
                     <tr>
                         @php
                             $details = explode(',', $room->ro_description);
@@ -44,7 +44,7 @@
                             </ul>
                         </td>
                     </tr>
-                @endforeach
+                @endforeach --}}
 
 
             </span>
@@ -100,7 +100,7 @@
                     </i>
                 </span>
             </div>
-            
+
 
 
 
@@ -110,5 +110,5 @@
 
     </div>
 
-    <a href="" class="original-button">จองห้องประชุม</a>
+    <a href="" class="original-button">จองห้อง</a>
 @endsection
