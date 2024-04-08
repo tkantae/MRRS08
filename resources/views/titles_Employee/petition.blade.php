@@ -140,10 +140,10 @@
                             @csrf
                             @method('PUT')
                             <button type="submit" name="newStatus" value="A"
-                                style="border: none; background-color: white;" onclick="prepareUpdate('A')"><i class="fas fa-check-circle fa-lg"
+                                style="border: none; background-color: white;"><i class="fas fa-check-circle fa-lg"
                                     style="color: #63E6BE;"></i></button>
                             <button type="submit" name="newStatus" value="C"
-                            style="border: none; background-color: white;" onclick="prepareUpdate('C')"><i class="fas fa-times-circle fa-lg"style="color: #ff1a1a;"></i></button>
+                            style="border: none; background-color: white;"><i class="fas fa-times-circle fa-lg"style="color: #ff1a1a;"></i></button>
                         </form>
                     </td>
                     <td>
@@ -160,34 +160,6 @@
         </ul>
     </div>
 
-    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Are you sure you want to update the status?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-              <form id="updateStatusForm" action="{{ route('Petition_statuses.update', ['id' => $reservation->id]) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <input type="hidden" name="newStatus" id="newStatus">
-                <button type="submit" class="btn btn-primary">Confirm</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <script>
-        function prepareUpdate(status) {
-          document.getElementById('newStatus').value = status;
-          var myModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-          myModal.show();
-        }
-      </script>
+    
 @endsection
