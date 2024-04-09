@@ -119,4 +119,10 @@ class followReserved extends Controller
         //.
 
     }
+    public function search(Request $request){
+        $serch = $request -> input('search');
+        $result =  Reserved::where('id','like',"%search%")->get();
+        return view('titles_User.follow',['result'=>$result]);
+    }
 }
+
